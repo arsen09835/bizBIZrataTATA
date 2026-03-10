@@ -8,6 +8,8 @@ export function Footer() {
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-sm text-brand-gray">
           Rank My Biz Up · © 2025
+          <div className="text-sm text-brand-gray mt-1">+39 331 760 0310</div>
+          <div className="text-sm text-brand-gray">info@rankmybizup.com</div>
         </div>
         <button
           onClick={scrollToForm}
