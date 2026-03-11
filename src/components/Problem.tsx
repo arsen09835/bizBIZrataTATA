@@ -5,7 +5,7 @@ export function Problem() {
         <h2 className="text-2xl sm:text-3xl mb-8">
           Il problema non è il tuo lavoro. Il problema è la visibilità.
         </h2>
-        <div className="text-lg text-brand-gray leading-relaxed space-y-6">
+        <div className="text-lg text-brand-gray leading-[1.6] space-y-6">
           <p>Molti titolari fanno bene il proprio lavoro.</p>
           <p>Il problema è che oggi le persone cercano tutto su Google.</p>
           <p>
