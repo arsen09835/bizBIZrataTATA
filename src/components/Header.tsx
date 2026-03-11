@@ -13,12 +13,16 @@ export function Header() {
             <MapPin className="w-6 h-6 text-brand-blue" />
             <span className="font-bold text-brand-blue text-lg">Rank My Biz Up</span>
           </div>
-          <button
-            onClick={scrollToForm}
-            className="text-sm font-medium text-brand-blue hover:text-brand-green transition-colors"
-          >
-            Contatto
-          </button>
+          <div className="flex items-center gap-4">
+            <a href="tel:+393317600310" className="text-sm font-medium text-brand-blue hover:text-brand-green transition-colors hidden sm:block">+39 331 760 0310</a>
+            <button
+              onClick={scrollToForm}
+              className="text-sm font-medium text-brand-blue hover:text-brand-green transition-colors hidden sm:block"
+            >
+              Contatto
+            </button>
+            <a href="tel:+393317600310" className="text-sm font-medium text-brand-blue hover:text-brand-green transition-colors sm:hidden">+39 331 760 0310</a>
+          </div>
         </div>
       </div>
     </header>
