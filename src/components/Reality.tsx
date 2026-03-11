@@ -1,11 +1,11 @@
 export function Reality() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F6F4F1]">
       <div className="max-w-content mx-auto">
         <h2 className="text-2xl sm:text-3xl mb-8">
           E tu hai già abbastanza da gestire.
         </h2>
-        <div className="text-lg text-brand-gray leading-relaxed space-y-6">
+        <div className="text-lg text-brand-gray leading-[1.6] space-y-6">
           <p>Gestire un'attività richiede tempo ed energia.</p>
           <p>Clienti da seguire, preventivi, fornitori, problemi quotidiani.</p>
           <p>
