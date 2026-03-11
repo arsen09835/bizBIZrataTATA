@@ -4,7 +4,7 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-[60vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative bg-cover" style={{ backgroundImage: "url('/pexels-kaip-1082809.jpg')", backgroundPosition: 'center 80%' }}>
+    <section className="min-h-[85vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative bg-cover" style={{ backgroundImage: "url('/pexels-kaip-1082809.jpg')", backgroundPosition: 'center 65%' }}>
       <div className="absolute inset-0 bg-black/60"></div>
       <div className="max-w-content text-center relative z-10">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight mb-8 text-white">
