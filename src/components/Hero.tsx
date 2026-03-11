@@ -4,12 +4,13 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
-      <div className="max-w-content text-center">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight mb-8">
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 relative bg-cover" style={{ backgroundImage: "url('/pexels-kaip-1082809.jpg')", backgroundPosition: 'center 75%' }}>
+      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="max-w-content text-center relative z-10">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight mb-8 text-white">
           Più visibilità su Google per attività locali a Firenze
         </h1>
-        <div className="text-lg sm:text-xl text-brand-gray leading-relaxed mb-10 space-y-6">
+        <div className="text-lg sm:text-xl text-white/90 leading-relaxed mb-10 space-y-6">
           <p>
             Molte persone cercano servizi come il tuo su Google ogni giorno.
             <br />
@@ -21,7 +22,7 @@ export function Hero() {
         </div>
         <button
           onClick={scrollToForm}
-          className="bg-brand-blue text-white font-semibold text-lg px-8 py-4 rounded-lg hover:bg-brand-blue/90 transition-colors"
+          className="bg-white text-black font-semibold text-lg px-8 py-4 rounded-lg hover:bg-white/90 transition-colors mix-blend-screen"
         >
           Richiedi un contatto
         </button>
