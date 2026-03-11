@@ -39,7 +39,7 @@ const [submitStatus, setSubmitStatus] = useState<'idle' | 'sending' | 'success' 
   };
   
   return (
-    <section id="contact-form" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section id="contact-form" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F6F4F1]">
       <div className="max-w-content mx-auto">
         <form
           onSubmit={handleSubmit}
