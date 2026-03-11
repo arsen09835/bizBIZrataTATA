@@ -5,7 +5,7 @@ export function Hero() {
 
   return (
     <section className="min-h-[92vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative bg-cover" style={{ backgroundPosition: 'center bottom' }}>
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat block sm:hidden" style={{ backgroundImage: "url('/hero-mobile.png')" }}></div>
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat block sm:hidden" style={{ backgroundImage: "url('/Untitled%20design%20(41).png')" }}></div>
       <div className="absolute inset-0 bg-cover bg-bottom bg-no-repeat hidden sm:block" style={{ backgroundImage: "url('/pexels-kaip-1082809.jpg')" }}></div>
       <div className="absolute inset-0 bg-black/40"></div>
       <div className="max-w-content text-center relative z-10 mt-16">
