@@ -5,8 +5,8 @@ export function Hero() {
 
   return (
     <section className="min-h-[92vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative bg-cover" style={{ backgroundImage: "url('/pexels-kaip-1082809.jpg')", backgroundPosition: 'center bottom' }}>
-      <div className="absolute inset-0 bg-black/60"></div>
-      <div className="max-w-content text-center relative z-10">
+      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="max-w-content text-center relative z-10 mt-16">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight mb-8 text-white">
           Più visibilità su Google per attività locali a Firenze
         </h1>
