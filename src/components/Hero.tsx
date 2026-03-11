@@ -7,12 +7,12 @@ export function Hero() {
     <section className="min-h-[92vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative bg-cover" style={{ backgroundPosition: 'center bottom' }}>
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat block sm:hidden" style={{ backgroundImage: "url('/pexels-i-clal-capoglu-cinal-202384677-14895618.jpg')" }}></div>
       <div className="absolute inset-0 bg-cover bg-bottom bg-no-repeat hidden sm:block" style={{ backgroundImage: "url('/pexels-kaip-1082809.jpg')" }}></div>
-      <div className="absolute inset-0 bg-black/40"></div>
-      <div className="max-w-content text-center relative z-10 mt-16">
+     <div className="absolute inset-0 bg-[rgba(15,25,40,0.65)]"></div>
+      <div className="max-w-content text-left relative z-10 mt-16">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl leading-tight mb-8 text-white">
           Più visibilità su Google per attività locali a Firenze
         </h1>
-        <div className="text-lg sm:text-xl text-white/90 leading-relaxed mb-10 space-y-6">
+        <div className="text-lg sm:text-xl text-white/90 leading-[1.6] mb-10 space-y-6">
           <p>
             Molte persone cercano servizi come il tuo su Google ogni giorno.
             <br />
@@ -27,7 +27,10 @@ export function Hero() {
           className="bg-white text-black font-semibold text-lg px-8 py-4 rounded-lg hover:bg-white/90 transition-colors mix-blend-screen"
         >
           Richiedi un contatto
-        </button>
+       </button>
+        <div className="mt-10 animate-bounce">
+          <svg className="w-6 h-6 text-white/70 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+        </div>
       </div>
     </section>
   );
