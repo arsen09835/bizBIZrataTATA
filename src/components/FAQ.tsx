@@ -31,7 +31,7 @@ export function FAQ() {
         </h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="border border-gray-200 rounded-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+            <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
               <button
                 onClick={() => toggleFaq(index)}
                 className="w-full flex items-center justify-between px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors"

@@ -4,7 +4,7 @@ export function FinalCTA() {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F6F4F1]">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-content mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl mb-6">
           Vuoi capire se la tua attività può migliorare la propria presenza su Google?

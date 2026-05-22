@@ -30,9 +30,9 @@ export function Solutions() {
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {solutions.map((solution) => (
-            <div key={solution.title} className="text-center bg-white rounded-lg p-8 shadow-[0_8px_20px_rgba(0,0,0,0.05)]">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#C97A3D]/10 mb-6">
-                <solution.icon className="w-7 h-7 text-[#C97A3D]" />
+            <div key={solution.title} className="text-center">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gray-100 mb-6">
+                <solution.icon className="w-7 h-7 text-brand-blue" />
               </div>
               <h3 className="text-lg font-semibold text-brand-blue mb-4">
                 {solution.title}

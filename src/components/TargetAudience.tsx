@@ -10,7 +10,7 @@ const audiences = [
 
 export function TargetAudience() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F6F4F1]">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
       <div className="max-w-content mx-auto">
         <h2 className="text-2xl sm:text-3xl mb-8">
           Questo servizio è pensato per
@@ -19,7 +19,7 @@ export function TargetAudience() {
           {audiences.map((audience) => (
             <span
               key={audience}
-              className="px-4 py-2 bg-white border border-[#C97A3D]/20 rounded-full text-brand-gray text-sm shadow-[0_4px_12px_rgba(0,0,0,0.04)]"
+              className="px-4 py-2 bg-white border border-gray-200 rounded-full text-brand-gray text-sm"
             >
               {audience}
             </span>
