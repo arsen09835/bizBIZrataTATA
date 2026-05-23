@@ -4,15 +4,52 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-blue': '#1e3a5f',
-        'brand-green': '#2d6a4f',
-        'brand-gray': '#6b7280',
+        'brand-navy': '#1E3557',
+        'brand-navy-dark': '#152741',
+        'brand-terracotta': '#C9784A',
+        'brand-terracotta-soft': '#E0A07A',
+        'brand-ivory': '#F7F4EF',
+        'brand-ivory-soft': '#FBF9F5',
+        'brand-gray': '#6B7280',
+        'brand-gray-soft': '#9CA3AF',
+        'brand-ink': '#0F1A2A',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Manrope', 'Inter', 'system-ui', 'sans-serif'],
       },
       maxWidth: {
         'content': '700px',
+      },
+      boxShadow: {
+        'card': '0 8px 30px rgba(15, 26, 42, 0.06)',
+        'card-hover': '0 20px 50px rgba(15, 26, 42, 0.12)',
+        'pill': '0 4px 14px rgba(15, 26, 42, 0.04)',
+        'glow': '0 0 80px rgba(201, 120, 74, 0.25)',
+      },
+      keyframes: {
+        'float-slow': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'float-slower': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
+        'fade-up': {
+          '0%': { opacity: '0', transform: 'translateY(16px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'bounce-soft': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(6px)' },
+        },
+      },
+      animation: {
+        'float-slow': 'float-slow 6s ease-in-out infinite',
+        'float-slower': 'float-slower 8s ease-in-out infinite',
+        'fade-up': 'fade-up 0.7s ease-out both',
+        'bounce-soft': 'bounce-soft 2s ease-in-out infinite',
       },
     },
   },
