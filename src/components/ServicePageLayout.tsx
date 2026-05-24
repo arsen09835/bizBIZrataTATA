@@ -130,7 +130,7 @@ export function ServicePageLayout({
               to="/contatto"
               className="inline-flex items-center gap-2 bg-white text-brand-navy font-semibold px-7 py-4 rounded-full hover:bg-brand-ivory hover:scale-[1.02] transition-all shadow-glow"
             >
-              Richiedi un contatto
+              Richiedi una consulenza
               <ArrowRight className="w-4 h-4" />
             </Link>
           </Reveal>

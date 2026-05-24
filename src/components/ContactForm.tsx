@@ -99,7 +99,7 @@ export function ContactForm() {
               type="submit"
               className="w-full bg-brand-navy text-white font-semibold text-base py-4 rounded-full hover:bg-brand-navy-dark transition-colors shadow-card"
             >
-              Richiedi un contatto
+              Richiedi una consulenza
             </button>
 
             <p className="text-sm text-brand-gray text-center">

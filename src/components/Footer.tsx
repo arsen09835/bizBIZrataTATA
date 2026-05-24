@@ -71,7 +71,7 @@ export function Footer() {
               </li>
               <li>
                 <Link to="/contatto" className="text-brand-navy/80 hover:text-brand-terracotta transition-colors">
-                  Richiedi un contatto
+                  Richiedi una consulenza
                 </Link>
               </li>
             </ul>
