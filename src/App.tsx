@@ -1,34 +1,39 @@
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { ContactForm } from './components/ContactForm';
-import { Problem } from './components/Problem';
-import { Reality } from './components/Reality';
-import { Solutions } from './components/Solutions';
-import { MySolution } from './components/MySolution';
-import { HowIWork } from './components/HowIWork';
-import { TargetAudience } from './components/TargetAudience';
-import { FAQ } from './components/FAQ';
-import { FinalCTA } from './components/FinalCTA';
-import { Footer } from './components/Footer';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Layout } from './components/Layout';
+import { Home } from './pages/Home';
+import { Contact } from './pages/Contact';
+import { Portfolio } from './pages/Portfolio';
+import { SitiWeb } from './pages/services/SitiWeb';
+import { VisibilitaOrganica } from './pages/services/VisibilitaOrganica';
+import { VisibilitaSponsorizzata } from './pages/services/VisibilitaSponsorizzata';
+import { NotFound } from './pages/NotFound';
+
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) return;
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+  }, [pathname, hash]);
+  return null;
+}
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <Hero />
-        <ContactForm />
-        <Problem />
-        <Reality />
-        <Solutions />
-        <MySolution />
-        <HowIWork />
-        <TargetAudience />
-        <FAQ />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contatto" element={<Contact />} />
+          <Route path="/servizi/siti-web" element={<SitiWeb />} />
+          <Route path="/servizi/visibilita-organica" element={<VisibilitaOrganica />} />
+          <Route path="/servizi/visibilita-sponsorizzata" element={<VisibilitaSponsorizzata />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

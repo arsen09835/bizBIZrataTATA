@@ -7,9 +7,42 @@ html {
 }
 
 body {
-  @apply antialiased text-brand-gray bg-white;
+  @apply antialiased text-brand-gray bg-white font-sans;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @apply text-brand-blue font-bold;
+  @apply text-brand-navy font-display font-bold tracking-tight;
+}
+
+/* Reveal-on-scroll: elements start hidden, IntersectionObserver toggles .is-visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero placeholder gradient — warm Florence street feel without an image */
+.hero-placeholder {
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(201, 120, 74, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(30, 53, 87, 0.55) 0%, transparent 60%),
+    linear-gradient(135deg, #0F1A2A 0%, #1E3557 55%, #2A4670 100%);
+}
+
+/* Generic warm photo placeholder block */
+.photo-placeholder {
+  background:
+    linear-gradient(135deg, rgba(30, 53, 87, 0.08), rgba(201, 120, 74, 0.18)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(30, 53, 87, 0.04) 0px,
+      rgba(30, 53, 87, 0.04) 12px,
+      rgba(201, 120, 74, 0.04) 12px,
+      rgba(201, 120, 74, 0.04) 24px
+    );
 }
