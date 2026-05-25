@@ -1,6 +1,6 @@
 import { Reveal } from './Reveal';
 
-const tags = ['Telefonate.', 'Manutenzioni.', 'Fiscalità.', 'Conformità a nuovi regolamenti.'];
+const tags = ['Telefonate.', 'Costi.', 'Fatture.', 'IVA.'];
 
 export function ProblemReality() {
   return (

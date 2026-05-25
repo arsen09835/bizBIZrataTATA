@@ -23,7 +23,7 @@ export function Hero() {
             </div>
 
             <h1 className="font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-6">
-              Aiuto aziende di Firenze a <span className="text-brand-terracotta-soft">crescere online</span> sul territorio.
+              Aiuto aziende di Firenze a <span className="text-brand-terracotta-soft">dominare su Google</span>.
             </h1>
 
             <ul className="space-y-3 mb-10 max-w-xl">
