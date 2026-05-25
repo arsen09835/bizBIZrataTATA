@@ -20,7 +20,7 @@ const services = [
   {
     icon: Target,
     title: 'Visibilità sponsorizzata',
-    description: 'Sfrutteremo al massimo lo strumento di visibilità più potente (sì, letteralmente) per scavalcare la concorrenza, spingendo la tua offerta in prima linea dove e quando vuoi.',
+    description: 'Sfrutteremo al massimo lo strumento di visibilità più potente (sì, letteralmente) per spingere le tue offerte in prima linea.',
     to: '/servizi/visibilita-sponsorizzata',
     accent: 'from-brand-terracotta/15 to-brand-terracotta/0',
   },
