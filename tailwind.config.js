@@ -44,12 +44,17 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(6px)' },
         },
+        'marquee': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'float-slow': 'float-slow 6s ease-in-out infinite',
         'float-slower': 'float-slower 8s ease-in-out infinite',
         'fade-up': 'fade-up 0.7s ease-out both',
         'bounce-soft': 'bounce-soft 2s ease-in-out infinite',
+        'marquee': 'marquee 38s linear infinite',
       },
     },
   },

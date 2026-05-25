@@ -1,29 +1,49 @@
-import { Scissors, Hammer, Sparkles, Briefcase, Wrench, Coffee } from 'lucide-react';
-
 const items = [
-  { icon: Scissors, label: 'Studi tattoo' },
-  { icon: Hammer, label: 'Artigiani' },
-  { icon: Sparkles, label: 'Centri estetici' },
-  { icon: Coffee, label: 'Locali e ristorazione' },
-  { icon: Wrench, label: 'Tecnici e idraulici' },
-  { icon: Briefcase, label: 'Professionisti' },
+  'Personal Trainer',
+  'Botteghe Artigiane',
+  'Tecnici e Idraulici',
+  'Giardinieri',
+  'Compra Oro',
+  'Studi Fotografici',
+  'Posturologi',
+  'Piccoli Studi Professionali',
+  'Dentisti',
 ];
 
 export function TrustStrip() {
+  // Duplicate the list so the translateX(-50%) animation loops seamlessly
+  const loop = [...items, ...items];
+
   return (
     <section className="bg-brand-ivory border-y border-black/5">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
-          <p className="text-xs sm:text-sm uppercase tracking-[0.18em] text-brand-navy/55 font-semibold whitespace-nowrap">
-            Lavoriamo con
+        <div className="flex items-center gap-6 sm:gap-8">
+          <p className="text-xs sm:text-sm uppercase tracking-[0.18em] text-brand-navy/55 font-semibold whitespace-nowrap flex-shrink-0">
+            Cerco
           </p>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-3 sm:gap-x-7">
-            {items.map(({ icon: Icon, label }) => (
-              <div key={label} className="inline-flex items-center gap-2 text-brand-navy/70">
-                <Icon className="w-4 h-4 text-brand-terracotta" />
-                <span className="text-sm font-medium">{label}</span>
-              </div>
-            ))}
+
+          <div
+            className="relative flex-1 overflow-hidden"
+            style={{
+              maskImage:
+                'linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%)',
+              WebkitMaskImage:
+                'linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%)',
+            }}
+            aria-label="Categorie di attività con cui lavoriamo"
+          >
+            <div className="flex items-center gap-x-10 sm:gap-x-12 animate-marquee whitespace-nowrap w-max">
+              {loop.map((item, i) => (
+                <div
+                  key={`${item}-${i}`}
+                  className="inline-flex items-center gap-x-10 sm:gap-x-12 text-brand-navy/75"
+                  aria-hidden={i >= items.length}
+                >
+                  <span className="text-sm font-medium tracking-tight">{item}</span>
+                  <span className="w-1 h-1 rounded-full bg-brand-terracotta/60 flex-shrink-0" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

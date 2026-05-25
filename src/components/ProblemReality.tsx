@@ -1,6 +1,6 @@
 import { Reveal } from './Reveal';
 
-const tags = ['Clienti.', 'Preventivi.', 'Telefonate.', 'Fornitori.'];
+const tags = ['Telefonate.', 'Manutenzioni.', 'Fiscalità.', 'Conformità a nuovi regolamenti.'];
 
 export function ProblemReality() {
   return (
@@ -28,10 +28,10 @@ export function ProblemReality() {
               ))}
             </div>
             <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
-              L'ultima cosa che serve è trasformare anche Google in un secondo lavoro.
+              L'ultima cosa che serve è trasformare anche Web Design e Google in secondi lavori.
             </p>
             <p className="text-base text-brand-gray leading-relaxed mt-4">
-              Ce ne occupiamo noi. Tu continui a fare quello che sai fare meglio.
+              Me ne occupo io. Tu continui a fare quello che fai per passione.
             </p>
           </Reveal>
         </div>
