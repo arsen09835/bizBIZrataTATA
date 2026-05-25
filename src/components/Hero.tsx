@@ -23,19 +23,34 @@ export function Hero() {
             </div>
 
             <h1 className="font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-6">
-              Aiutiamo attività locali a <span className="text-brand-terracotta-soft">crescere online</span>
+              Aiuto aziende di Firenze a <span className="text-brand-terracotta-soft">crescere online</span> sul territorio.
             </h1>
 
-            <p className="text-white/75 text-lg sm:text-xl leading-relaxed max-w-xl mb-10">
-              Realizziamo siti web moderni, miglioriamo la visibilità su Google e gestiamo campagne sponsorizzate per attività locali a Firenze.
-            </p>
+            <ul className="space-y-3 mb-10 max-w-xl">
+              {[
+                'Realizzo Siti Web professionali e su misura.',
+                'Miglioro la tua visibilità su Google.',
+                'Imposto e gestisco campagne sponsorizzate mirate a presentarti lì dove serve.',
+              ].map((point) => (
+                <li
+                  key={point}
+                  className="flex items-start gap-3 text-white/85 text-base sm:text-lg leading-relaxed"
+                >
+                  <span
+                    aria-hidden
+                    className="mt-2 sm:mt-2.5 inline-block w-1.5 h-1.5 rounded-full bg-brand-terracotta-soft flex-shrink-0"
+                  />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 to="/contatto"
                 className="inline-flex items-center justify-center gap-2 bg-white text-brand-navy font-semibold text-base px-6 py-3.5 rounded-full hover:bg-white/95 hover:scale-[1.02] transition-all shadow-glow"
               >
-                Parliamo della tua attività
+                Vediamoci!
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a

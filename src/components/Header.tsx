@@ -111,13 +111,13 @@ export function Header() {
 
             <NavLink
               to="/contatto"
-              className={`text-sm font-semibold tracking-wide px-5 py-2.5 rounded-full transition-all ${
+              className={`text-sm font-semibold tracking-wide px-5 py-2.5 rounded-full transition-all whitespace-nowrap ${
                 transparent
                   ? 'bg-white text-brand-navy hover:bg-white/90'
                   : 'bg-brand-navy text-white hover:bg-brand-navy-dark'
               }`}
             >
-              Contatto
+              Richiedi un Appuntamento
             </NavLink>
           </nav>
 
@@ -161,7 +161,7 @@ export function Header() {
             to="/contatto"
             className="mt-4 inline-flex items-center justify-center bg-brand-navy text-white font-semibold py-3 rounded-full"
           >
-            Contatto
+            Richiedi un Appuntamento
           </NavLink>
         </nav>
       </div>
