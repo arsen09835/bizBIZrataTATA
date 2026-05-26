@@ -103,7 +103,7 @@ export function ContactForm() {
             </button>
 
             <p className="text-sm text-brand-gray text-center">
-              Ti ricontattiamo personalmente entro poche ore.
+              Ti ricontatto personalmente in giornata.
             </p>
           </form>
         </Reveal>

@@ -4,7 +4,7 @@ import { ServicePageLayout } from '../../components/ServicePageLayout';
 export function VisibilitaOrganica() {
   return (
     <ServicePageLayout
-      eyebrow="Servizio · Visibilità organica"
+      eyebrow="Servizio · Visibilità organica (SEO)"
       title="Comparire su Google quando le persone cercano la tua attività."
       intro="Lavoriamo sulla tua presenza organica per farti trovare nelle ricerche locali rilevanti: Google Maps, risultati di ricerca, scheda dell'attività."
       features={[

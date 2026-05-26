@@ -4,7 +4,7 @@ import { MapPin, ChevronDown, Menu, X } from 'lucide-react';
 
 const services = [
   { to: '/servizi/siti-web', label: 'Siti web' },
-  { to: '/servizi/visibilita-organica', label: 'Visibilità organica' },
+  { to: '/servizi/visibilita-organica', label: 'Visibilità organica (SEO)' },
   { to: '/servizi/visibilita-sponsorizzata', label: 'Visibilità sponsorizzata' },
 ];
 

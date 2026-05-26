@@ -4,24 +4,19 @@ import { Reveal } from './Reveal';
 
 const faqs = [
   {
-    question: 'Lavorate solo con attività di Firenze?',
+    question: 'Utilizzi l\'IA?',
     answer:
-      'Principalmente sì. Lavoriamo con attività locali del territorio fiorentino, perché ci permette di costruire un rapporto diretto e di conoscere davvero il contesto in cui operate.',
+      'Sì, automatizzo elementi di backend e aspetti che richiederebbero settimane o mesi per essere completati da un umano. Design, titoli, annunci e tutti gli elementi che i tuoi clienti vedono sono 100% «vivi». Con nuovi aggiornamenti quasi giornalieri, utilizzarla dove serve fa la differenza.',
   },
   {
-    question: 'Realizzate anche siti web?',
+    question: 'Che differenza c\'è fra Google SEO e Google Ads?',
     answer:
-      'Sì. Il sito è uno dei tre pilastri del nostro lavoro, insieme alla visibilità organica su Google e alle campagne sponsorizzate.',
+      'Gli annunci su Google Ads ti mostrano in cima alle ricerche finché riesci a sostenere i costi per ogni click. Con il SEO organico vieni mostrato in cima perché l\'algoritmo di Google ritiene che tu sia il più competente. Tuttavia gli annunci sponsorizzati ricevono la precedenza sui risultati organici… ne parlerei per un\'ora di come sfruttarli al meglio.',
   },
   {
-    question: 'Devo capire qualcosa di marketing o tecnologia?',
+    question: 'Quanto tempo ci devo investire?',
     answer:
-      'No. Ci occupiamo noi della parte tecnica e strategica. Tu ti concentri sulla tua attività, noi ti spieghiamo in modo semplice cosa stiamo facendo e perché.',
-  },
-  {
-    question: 'Come funziona il primo contatto?',
-    answer:
-      'Ci scrivi tramite il modulo, ci raccontiamo brevemente la tua attività e fissiamo una chiamata. Da lì capiamo se ha senso lavorare insieme.',
+      'Poco — gestisco io. In caso di accordo avrei bisogno di 15 minuti del tuo tempo per avere un accesso sicuro al tuo dominio, profilo Google e profilo annunci. Per il resto ti sentirò regolarmente per comunicarti gli aggiornamenti.',
   },
 ];
 
