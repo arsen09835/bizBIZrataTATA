@@ -12,15 +12,15 @@ const services = [
   },
   {
     icon: Search,
-    title: 'Visibilità organica',
-    description: 'Comparirai fra i primi risultati quando le persone cercano i servizi che offri.',
+    title: 'Visibilità organica (SEO)',
+    description: 'Comparirai fra i primi risultati quando le persone a Firenze e dintorni cercano i servizi che offri.',
     to: '/servizi/visibilita-organica',
     accent: 'from-brand-navy/10 to-brand-navy/0',
   },
   {
     icon: Target,
     title: 'Visibilità sponsorizzata',
-    description: 'Sfrutteremo al massimo lo strumento di visibilità più potente (sì, letteralmente) per spingere le tue offerte in prima linea.',
+    description: 'Sfrutteremo al massimo lo strumento di visibilità più potente (Google Ads) per far comparire le tue offerte in prima linea.',
     to: '/servizi/visibilita-sponsorizzata',
     accent: 'from-brand-terracotta/15 to-brand-terracotta/0',
   },
@@ -32,7 +32,7 @@ export function Services() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="max-w-2xl mb-14 sm:mb-16">
           <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta font-semibold mb-3">
-            Cosa facciamo
+            Cosa faccio
           </p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] mb-5">
             Tre pilastri per aumentare i clienti che usufruiscono del tuo servizio.

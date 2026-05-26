@@ -14,7 +14,7 @@ export function Footer() {
               <span className="font-display font-bold text-brand-navy text-lg">Rank My Biz Up</span>
             </div>
             <p className="text-sm text-brand-gray leading-relaxed">
-              Studio digitale per attività locali. Siti web, visibilità su Google e campagne sponsorizzate.
+              Domina il tuo mercato locale.
             </p>
           </div>
 
@@ -30,7 +30,7 @@ export function Footer() {
               </li>
               <li>
                 <Link to="/servizi/visibilita-organica" className="text-brand-navy/80 hover:text-brand-terracotta transition-colors">
-                  Visibilità organica
+                  Visibilità organica (SEO)
                 </Link>
               </li>
               <li>
@@ -84,7 +84,7 @@ export function Footer() {
             <p className="text-sm text-brand-navy/80 leading-relaxed">
               Firenze e dintorni.
               <br />
-              Lavoriamo direttamente con attività locali del territorio.
+              Lavoro direttamente con attività locali del territorio.
             </p>
           </div>
         </div>
