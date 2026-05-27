@@ -21,13 +21,20 @@ const points = [
 
 export function LocalAdvantage() {
   return (
-    <section className="bg-white py-20 sm:py-28">
+    <section className="bg-brand-ivory py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <Reveal className="lg:col-span-6 order-2 lg:order-1">
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] mb-8">
+            <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta font-semibold mb-3">
+              Sono Arsen
+            </p>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] mb-6">
               Perché io?
             </h2>
+
+            <p className="text-lg text-brand-navy/80 leading-relaxed mb-8 max-w-xl">
+              Lavoro direttamente con attività locali a Firenze. Mi interessa costruire rapporti duraturi, non seguire decine di clienti in modo impersonale.
+            </p>
 
             <ul className="space-y-5 mb-10">
               {points.map(({ icon: Icon, text }) => (
@@ -52,13 +59,13 @@ export function LocalAdvantage() {
           <Reveal className="lg:col-span-6 order-1 lg:order-2" delay={120}>
             <div className="relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden photo-placeholder shadow-card-hover">
-                <div className="w-full h-full bg-gradient-to-br from-brand-navy/15 via-transparent to-brand-terracotta/20 flex items-end p-8">
-                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-4 shadow-pill">
+                <div className="w-full h-full bg-gradient-to-br from-brand-navy/15 via-transparent to-brand-terracotta/20 flex flex-col justify-end p-8">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-4 shadow-pill max-w-[80%]">
                     <div className="text-xs uppercase tracking-wider text-brand-terracotta font-semibold mb-1">
-                      Firenze
+                      Una persona, non un team
                     </div>
                     <div className="font-display font-bold text-brand-navy">
-                      Attività locale<br />del territorio
+                      Mi sentirai sempre<br />parlare in prima persona.
                     </div>
                   </div>
                 </div>

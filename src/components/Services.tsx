@@ -6,21 +6,21 @@ const services = [
   {
     icon: Globe,
     title: 'Siti web',
-    description: 'Professionali e dinamici, progettati per trasformare i visitatori curiosi in clienti che ti contattano.',
+    description: 'Un sito che presenta davvero la tua attività e ti aiuta a ricevere richieste. Non una vetrina vuota.',
     to: '/servizi/siti-web',
     accent: 'from-brand-terracotta/15 to-brand-terracotta/0',
   },
   {
     icon: Search,
     title: 'Visibilità organica (SEO)',
-    description: 'Comparirai fra i primi risultati quando le persone a Firenze e dintorni cercano i servizi che offri.',
+    description: 'Ti aiuto a farti trovare quando le persone a Firenze e dintorni cercano il tuo servizio su Google.',
     to: '/servizi/visibilita-organica',
     accent: 'from-brand-navy/10 to-brand-navy/0',
   },
   {
     icon: Target,
     title: 'Visibilità sponsorizzata',
-    description: 'Sfrutteremo al massimo lo strumento di visibilità più potente (Google Ads) per far comparire le tue offerte in prima linea.',
+    description: 'Campagne Google Ads gestite con attenzione, per portarti richieste vere e budget sempre sotto controllo.',
     to: '/servizi/visibilita-sponsorizzata',
     accent: 'from-brand-terracotta/15 to-brand-terracotta/0',
   },
@@ -35,10 +35,10 @@ export function Services() {
             Cosa faccio
           </p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] mb-5">
-            Tre pilastri per aumentare i clienti che usufruiscono del tuo servizio.
+            Tre modi in cui posso aiutarti.
           </h2>
           <p className="text-lg text-brand-gray leading-relaxed">
-            Un unico interlocutore per renderti il preferito dal motore di ricerca Google.
+            Un solo interlocutore per il sito, la presenza su Google e le campagne sponsorizzate. Niente passaggi tra reparti.
           </p>
         </Reveal>
 
