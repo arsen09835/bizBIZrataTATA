@@ -4,7 +4,7 @@ const tags = ['Telefonate.', 'Costi.', 'Fatture.', 'IVA.'];
 
 export function ProblemReality() {
   return (
-    <section className="bg-brand-ivory py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <Reveal className="lg:col-span-5">
@@ -21,7 +21,7 @@ export function ProblemReality() {
               {tags.map((t) => (
                 <span
                   key={t}
-                  className="inline-flex items-center px-4 py-2 rounded-full bg-white border border-black/5 text-brand-navy font-medium text-sm shadow-pill"
+                  className="inline-flex items-center px-4 py-2 rounded-full bg-brand-ivory border border-black/5 text-brand-navy font-medium text-sm shadow-pill"
                 >
                   {t}
                 </span>

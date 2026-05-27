@@ -24,7 +24,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="bg-brand-ivory py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="mb-12 sm:mb-14">
           <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta font-semibold mb-3">
@@ -41,7 +41,7 @@ export function FAQ() {
             return (
               <Reveal key={index} delay={index * 60}>
                 <div
-                  className={`rounded-2xl bg-white border transition-all ${
+                  className={`rounded-2xl bg-brand-ivory border transition-all ${
                     isOpen ? 'border-brand-terracotta/30 shadow-card' : 'border-black/5 shadow-pill'
                   }`}
                 >
@@ -56,7 +56,7 @@ export function FAQ() {
                     </span>
                     <span
                       className={`flex-shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full transition-all ${
-                        isOpen ? 'bg-brand-terracotta text-white rotate-45' : 'bg-brand-ivory text-brand-navy'
+                        isOpen ? 'bg-brand-terracotta text-white rotate-45' : 'bg-white text-brand-navy'
                       }`}
                     >
                       <Plus className="w-4 h-4" />

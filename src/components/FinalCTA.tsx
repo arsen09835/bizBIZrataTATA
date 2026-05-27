@@ -14,13 +14,13 @@ export function FinalCTA() {
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
         <Reveal>
           <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta-soft font-semibold mb-4">
-            Iniziamo
+            Una chiacchierata
           </p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-6">
-            Vuoi migliorare la presenza online<br className="hidden sm:block" /> della tua attività?
+            Vediamo se ha senso<br className="hidden sm:block" /> lavorare insieme.
           </h2>
           <p className="text-lg text-white/75 leading-relaxed mb-10 max-w-2xl mx-auto">
-            Raccontaci la tua attività. Ti ricontattiamo personalmente per capire come possiamo aiutarti.
+            Raccontami la tua attività. Ti rispondo personalmente, senza impegno.
           </p>
           <Link
             to="/contatto"

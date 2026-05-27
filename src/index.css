@@ -34,6 +34,26 @@ h1, h2, h3, h4, h5, h6 {
     linear-gradient(135deg, #0F1A2A 0%, #1E3557 55%, #2A4670 100%);
 }
 
+/* Warm-light hero — soft cream/ivory with subtle terracotta glow */
+.hero-warm {
+  background:
+    radial-gradient(ellipse at 75% 18%, rgba(201, 120, 74, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 85%, rgba(201, 120, 74, 0.10) 0%, transparent 60%),
+    linear-gradient(180deg, #FBF7F0 0%, #F4EFE6 100%);
+}
+
+/* Faint paper-grain texture for warmer minimalism */
+.warm-grain {
+  background-image:
+    repeating-linear-gradient(
+      135deg,
+      rgba(30, 53, 87, 0.012) 0,
+      rgba(30, 53, 87, 0.012) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+}
+
 /* Generic warm photo placeholder block */
 .photo-placeholder {
   background:

@@ -3,42 +3,44 @@ import { ArrowRight, Star, TrendingUp, MapPin, Globe } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden hero-placeholder">
-      {/* Subtle warm glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full bg-brand-terracotta/20 blur-3xl" />
-        <div className="absolute -bottom-40 -left-32 w-[500px] h-[500px] rounded-full bg-brand-navy-dark/40 blur-3xl" />
-      </div>
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden hero-warm">
+      {/* Faint paper-grain texture */}
+      <div className="absolute inset-0 pointer-events-none warm-grain" />
 
-      {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-ink/40 via-transparent to-brand-ink/60" />
+      {/* Soft warm bokeh */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full bg-brand-terracotta/12 blur-3xl" />
+        <div className="absolute -bottom-40 -left-32 w-[500px] h-[500px] rounded-full bg-brand-terracotta/8 blur-3xl" />
+      </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 lg:pt-32 lg:pb-24 w-full">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* LEFT: copy */}
           <div className="lg:col-span-6 text-left animate-fade-up">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-sm border border-brand-navy/8 shadow-pill mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-terracotta animate-pulse" />
-              <span className="text-xs font-medium text-white/85 tracking-wide">Studio digitale · Firenze</span>
+              <span className="text-xs font-medium text-brand-navy/75 tracking-wide">
+                Da Firenze · per attività locali
+              </span>
             </div>
 
-            <h1 className="font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-6">
-              Aiuto aziende di Firenze a <span className="text-brand-terracotta-soft">dominare su Google</span>.
+            <h1 className="font-display font-bold text-brand-navy text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-6">
+              Aiuto le attività di Firenze a <span className="text-brand-terracotta">farsi trovare su Google</span>.
             </h1>
 
             <ul className="space-y-3 mb-10 max-w-xl">
               {[
-                'Realizzo Siti Web professionali e su misura.',
-                'Miglioro la tua visibilità su Google.',
-                'Imposto e gestisco campagne sponsorizzate mirate a presentarti lì dove serve.',
+                'Realizzo siti web pensati per attività come la tua.',
+                'Ti aiuto a farti trovare quando cercano il tuo servizio.',
+                'Gestisco campagne sponsorizzate per portarti richieste vere.',
               ].map((point) => (
                 <li
                   key={point}
-                  className="flex items-start gap-3 text-white/85 text-base sm:text-lg leading-relaxed"
+                  className="flex items-start gap-3 text-brand-navy/85 text-base sm:text-lg leading-relaxed"
                 >
                   <span
                     aria-hidden
-                    className="mt-2 sm:mt-2.5 inline-block w-1.5 h-1.5 rounded-full bg-brand-terracotta-soft flex-shrink-0"
+                    className="mt-2 sm:mt-2.5 inline-block w-1.5 h-1.5 rounded-full bg-brand-terracotta flex-shrink-0"
                   />
                   <span>{point}</span>
                 </li>
@@ -48,24 +50,31 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 to="/contatto"
-                className="inline-flex items-center justify-center gap-2 bg-white text-brand-navy font-semibold text-base px-6 py-3.5 rounded-full hover:bg-white/95 hover:scale-[1.02] transition-all shadow-glow"
+                className="inline-flex items-center justify-center gap-2 bg-brand-navy text-white font-semibold text-base px-6 py-3.5 rounded-full hover:bg-brand-navy-dark hover:scale-[1.02] transition-all shadow-card"
               >
                 Vediamoci!
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="#servizi"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white font-medium text-base px-6 py-3.5 rounded-full border border-white/20 hover:bg-white/15 transition-all"
+                className="inline-flex items-center justify-center gap-2 bg-white/70 backdrop-blur-sm text-brand-navy font-medium text-base px-6 py-3.5 rounded-full border border-brand-navy/10 hover:bg-white transition-all"
               >
                 Guarda i servizi
               </a>
             </div>
+
+            <p className="mt-6 text-sm text-brand-gray italic">
+              Una chiacchierata, senza impegno.
+            </p>
           </div>
 
-          {/* RIGHT: floating mockup cards */}
+          {/* RIGHT: floating mockup cards (slightly imperfect rotations for organic feel) */}
           <div className="lg:col-span-6 relative h-[380px] sm:h-[460px] lg:h-[520px] hidden sm:block">
             {/* Site preview card */}
-            <div className="absolute top-0 right-0 w-[78%] bg-white rounded-2xl shadow-card-hover overflow-hidden animate-float-slow">
+            <div
+              className="absolute top-0 right-0 w-[78%] bg-white rounded-2xl shadow-card-hover overflow-hidden animate-float-slow"
+              style={{ transform: 'rotate(-1.2deg)' }}
+            >
               <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-black/5 bg-brand-ivory/60">
                 <span className="w-2.5 h-2.5 rounded-full bg-brand-terracotta/70" />
                 <span className="w-2.5 h-2.5 rounded-full bg-brand-terracotta/40" />
@@ -85,13 +94,18 @@ export function Hero() {
             </div>
 
             {/* Visibility / map card */}
-            <div className="absolute top-[28%] left-0 w-[58%] bg-white rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slower">
+            <div
+              className="absolute top-[28%] left-0 w-[58%] bg-white rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slower"
+              style={{ transform: 'rotate(1.6deg)' }}
+            >
               <div className="flex items-center gap-3">
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-brand-terracotta/12">
                   <MapPin className="w-5 h-5 text-brand-terracotta" />
                 </div>
                 <div className="flex-1">
-                  <div className="text-[11px] uppercase tracking-wider text-brand-gray font-semibold">Visibilità Google</div>
+                  <div className="text-[11px] uppercase tracking-wider text-brand-gray font-semibold">
+                    Visibilità Google
+                  </div>
                   <div className="font-display font-bold text-brand-navy text-lg leading-tight">1ª posizione</div>
                 </div>
               </div>
@@ -101,7 +115,10 @@ export function Hero() {
             </div>
 
             {/* Reviews card */}
-            <div className="absolute bottom-4 right-[6%] w-[52%] bg-white rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slow">
+            <div
+              className="absolute bottom-4 right-[6%] w-[52%] bg-white rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slow"
+              style={{ transform: 'rotate(-0.8deg)' }}
+            >
               <div className="flex items-center gap-1.5 mb-2">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-brand-terracotta text-brand-terracotta" />
@@ -111,8 +128,11 @@ export function Hero() {
               <div className="text-xs text-brand-gray mt-1">128 recensioni Google</div>
             </div>
 
-            {/* Analytics card */}
-            <div className="absolute bottom-0 left-[8%] w-[44%] bg-brand-navy rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slower">
+            {/* Analytics card — navy island for warm contrast */}
+            <div
+              className="absolute bottom-0 left-[8%] w-[44%] bg-brand-navy rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slower"
+              style={{ transform: 'rotate(2deg)' }}
+            >
               <div className="flex items-center justify-between mb-3">
                 <div className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10">
                   <TrendingUp className="w-4 h-4 text-brand-terracotta-soft" />
@@ -134,7 +154,10 @@ export function Hero() {
             </div>
 
             {/* Tiny floating chip */}
-            <div className="absolute top-[10%] left-[18%] inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur shadow-pill animate-float-slow">
+            <div
+              className="absolute top-[10%] left-[18%] inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white shadow-pill animate-float-slow"
+              style={{ transform: 'rotate(-2deg)' }}
+            >
               <Globe className="w-3.5 h-3.5 text-brand-terracotta" />
               <span className="text-[11px] font-semibold text-brand-navy">rankmybizup.com</span>
             </div>
@@ -142,9 +165,9 @@ export function Hero() {
         </div>
 
         {/* Scroll cue */}
-        <div className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-1 text-white/60">
+        <div className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-1 text-brand-navy/40">
           <span className="text-[10px] uppercase tracking-[0.2em]">Scorri</span>
-          <div className="w-px h-8 bg-white/30 animate-bounce-soft" />
+          <div className="w-px h-8 bg-brand-navy/25 animate-bounce-soft" />
         </div>
       </div>
     </section>
