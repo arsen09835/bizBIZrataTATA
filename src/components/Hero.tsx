@@ -22,11 +22,22 @@ const bullets = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden hero-warm">
-      <div className="absolute inset-0 pointer-events-none warm-grain" />
+    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-brand-ink">
+      {/* Background photo */}
+      <img
+        src="/pexels-iamhogir-17781874.jpg"
+        alt=""
+        aria-hidden
+        className="absolute inset-0 w-full h-full object-cover"
+      />
 
+      {/* Darkening overlay — stronger on the left where the copy sits */}
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/85 via-brand-ink/65 to-brand-ink/35" />
+      <div className="absolute inset-0 bg-brand-ink/25" />
+
+      {/* Soft warm bokeh, kept subtle on the dark backdrop */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full bg-brand-terracotta/12 blur-3xl" />
+        <div className="absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full bg-brand-terracotta/15 blur-3xl" />
         <div className="absolute -bottom-40 -left-32 w-[500px] h-[500px] rounded-full bg-brand-terracotta/8 blur-3xl" />
       </div>
 
@@ -34,18 +45,18 @@ export function Hero() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* LEFT */}
           <div className="lg:col-span-6 text-left animate-fade-up">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-sm border border-brand-navy/8 shadow-pill mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/15 shadow-pill mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-terracotta animate-pulse" />
-              <span className="text-xs font-medium text-brand-navy/75 tracking-wide">
+              <span className="text-xs font-medium text-white/90 tracking-wide">
                 Da Firenze · per attività locali
               </span>
             </div>
 
-            <h1 className="font-display font-bold text-brand-navy text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-5">
+            <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-5">
               Hai un profilo Google ma non ricevi richieste sufficienti?
             </h1>
 
-            <p className="text-brand-navy/80 text-base sm:text-lg leading-relaxed mb-7 max-w-xl">
+            <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-7 max-w-xl">
               Realizzo soluzioni digitali su misura che <span className="italic">«riempiono»</span> le tue giornate di richieste e prenotazioni.
             </p>
 
@@ -57,13 +68,13 @@ export function Hero() {
                     className="mt-2.5 w-1.5 h-1.5 rounded-full bg-brand-terracotta flex-shrink-0"
                   />
                   <div className="flex-1">
-                    <p className="text-brand-navy text-base sm:text-lg leading-snug">
+                    <p className="text-white text-base sm:text-lg leading-snug">
                       <strong className="font-semibold">{b.bold}</strong>
                       {b.rest}
                     </p>
                     <Link
                       to={b.to}
-                      className="inline-flex items-center gap-1 text-sm text-brand-terracotta hover:text-brand-navy font-medium mt-1 transition-colors"
+                      className="inline-flex items-center gap-1 text-sm text-brand-terracotta-soft hover:text-white font-medium mt-1 transition-colors"
                     >
                       Scopri di più
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -76,12 +87,12 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
               <a
                 href="#contatto-section"
-                className="inline-flex items-center justify-center gap-2 bg-brand-navy text-white font-semibold text-base px-6 py-3.5 rounded-full hover:bg-brand-navy-dark hover:scale-[1.02] transition-all shadow-card"
+                className="inline-flex items-center justify-center gap-2 bg-white text-brand-navy font-semibold text-base px-6 py-3.5 rounded-full hover:bg-brand-ivory hover:scale-[1.02] transition-all shadow-glow"
               >
                 Prenota una consulenza gratuita
                 <ArrowRight className="w-4 h-4" />
               </a>
-              <ServicesDropdownButton label="Consulta i Servizi" variant="light" />
+              <ServicesDropdownButton label="Consulta i Servizi" variant="dark" />
             </div>
           </div>
 
