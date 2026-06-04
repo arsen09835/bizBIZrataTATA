@@ -1,27 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Store, PhoneCall, ShoppingBag } from 'lucide-react';
 import { Reveal } from '../../components/Reveal';
-
-const commonPaths = [
-  {
-    n: '01',
-    title: 'Fai da te',
-    description:
-      'Niente spese, niente fastidi? Ci vuole tempo per imparare a progettare, capire cosa funziona e cosa no, dopodiché altri giorni per finire di crearne uno.',
-  },
-  {
-    n: '02',
-    title: 'Affidarti a un conoscente',
-    description:
-      'Se è del settore, sei a posto. Altrimenti rischi di non trovare la persona adatta, sprecando tempo e denaro e perdendo clienti.',
-  },
-  {
-    n: '03',
-    title: 'Mega agenzie',
-    description:
-      'Risultati probabilmente professionali, ma a meno che tu non abbia migliaia di euro da investire, faresti la fine di molti proprietari: messi in mano all\'assistente dell\'assistente, bloccati con spese annue.',
-  },
-];
+import { Divider } from '../../components/Divider';
+import { FinalCTA } from '../../components/FinalCTA';
 
 const siteTypes = [
   {
@@ -47,94 +28,89 @@ export function SitiWeb() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-brand-navy pt-32 pb-20 sm:pt-40 sm:pb-24">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-32 right-0 w-[500px] h-[500px] rounded-full bg-brand-terracotta/20 blur-3xl" />
-          <div className="absolute -bottom-32 left-0 w-[400px] h-[400px] rounded-full bg-brand-navy-dark/40 blur-3xl" />
-        </div>
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-[78vh] flex items-center overflow-hidden bg-brand-ink">
+        <img
+          src="/pexels-eren-li-7241413.jpg"
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/85 via-brand-ink/65 to-brand-ink/35" />
+        <div className="absolute inset-0 bg-brand-ink/30" />
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-24 w-full">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta-soft font-semibold mb-4">
-              Servizio · Siti web
-            </p>
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.15] mb-10 max-w-4xl">
-              Siti internet pensati per comunicare il tuo valore in maniera immediata, trasformando visualizzazioni casuali in{' '}
-              <span className="text-brand-terracotta-soft">telefonate di interesse</span>.
+            <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-10 max-w-3xl">
+              Realizzo siti web che catturano col desiderio di sapere di più.
             </h1>
             <Link
               to="/contatto"
-              className="inline-flex items-center gap-2 bg-white text-brand-navy font-semibold px-6 py-3.5 rounded-full hover:bg-brand-ivory transition-colors shadow-glow"
+              className="inline-flex items-center gap-2 bg-white text-brand-navy font-semibold px-6 py-3.5 rounded-full hover:bg-brand-ivory hover:scale-[1.02] transition-all shadow-glow"
             >
-              Parliamo della tua attività
+              Contattami
               <ArrowRight className="w-4 h-4" />
             </Link>
           </Reveal>
         </div>
       </section>
 
-      {/* Siti internet nel 2026 */}
-      <section className="bg-brand-ivory py-20 sm:py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Section 2 — paragraph */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta font-semibold mb-3">
-              Lo scenario
-            </p>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] mb-8">
-              Siti internet nel 2026.
-            </h2>
             <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
-              Avere un buon servizio o prodotto non basta. Se non viene presentato in maniera adeguata, se il visitatore non sente che{' '}
-              <span className="font-semibold text-brand-navy">tu</span> sei quello che fa per lui, è come avere il miglior servizio dentro un negozio mal mantenuto.
+              Il sito internet sta alla base di gran parte della tua presenza non solo su Google, ma anche sui Social se ne fai uso. È dove un potenziale cliente decide se scegliere te o passare a quello successivo. È anche uno dei fattori principali che influenzano se appari fra i primi risultati o in fondo ai risultati sul motore di ricerca. Avere un buon prodotto non basta, bisogna saper presentarlo in un contesto che amplifichi interesse. È come essere il miglior tatuatore ma avere la sala sottosopra.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* Strade comuni */}
+      <Divider />
+
+      {/* Section 3 — Design Responsive */}
       <section className="bg-white py-20 sm:py-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="mb-14">
-            <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta font-semibold mb-3">
-              Le alternative
-            </p>
+          <Reveal className="mb-12">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1]">
-              Strade comuni.
+              Un Design Responsive <em className="italic">alla mano</em>.
             </h2>
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-            {commonPaths.map((p, i) => (
-              <Reveal key={p.n} delay={i * 80}>
-                <div className="h-full p-6 lg:p-7 rounded-2xl bg-brand-ivory/60 border border-black/5">
-                  <div className="font-display font-bold text-5xl text-brand-terracotta/25 mb-4 leading-none">
-                    {p.n}
-                  </div>
-                  <h3 className="font-display text-lg text-brand-navy mb-3">{p.title}</h3>
-                  <p className="text-sm text-brand-gray leading-relaxed">{p.description}</p>
-                </div>
-              </Reveal>
-            ))}
+
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <Reveal className="lg:col-span-6">
+              <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
+                La maggior parte dei tuoi clienti ti troveranno dal cellulare. Attraverso un design che calza a pennello sia sul computer, che tablet, che sul più piccolo dei cellulari, si garantisce un'esperienza di navigazione impeccabile per ogni utente che entra nel tuo sito web.
+              </p>
+            </Reveal>
+
+            <Reveal className="lg:col-span-6" delay={120}>
+              <figure>
+                <img
+                  src="/container_transparent.png"
+                  alt="Diagramma analisi visite per dispositivi"
+                  className="w-full h-auto block rounded-2xl"
+                  style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
+                />
+                <figcaption className="mt-4 text-sm italic text-brand-gray text-center">
+                  Diagramma preso dall'analisi sul progetto corrente su{' '}
+                  <a
+                    href="https://brunoantichita.it/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-terracotta underline underline-offset-4 decoration-brand-terracotta/40 hover:decoration-brand-terracotta transition-colors not-italic font-medium"
+                  >
+                    https://brunoantichita.it/
+                  </a>
+                </figcaption>
+              </figure>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Perché io */}
-      <section className="bg-brand-ivory py-20 sm:py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal>
-            <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta font-semibold mb-3">
-              L'alternativa
-            </p>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] mb-8">
-              Perché io?
-            </h2>
-            <p className="text-lg text-brand-navy/85 leading-relaxed">
-              Vivo e lavoro a Firenze. Posso lavorare solo con un numero limitato di proprietari, per non disperdere la relazione. Grazie alla passione e all'attenzione maniacale per i dettagli, ti garantisco risultati reali entro 30–60 giorni dal lancio del sito, rendendoti il professionista di fiducia di chi ti cerca.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <Divider />
 
-      {/* Quali siti web realizzo */}
+      {/* Section 4 — Quali siti web realizzo (kept) + new paragraph */}
       <section className="bg-white py-20 sm:py-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-14">
@@ -158,29 +134,45 @@ export function SitiWeb() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Final CTA */}
-      <section className="relative overflow-hidden bg-brand-navy">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-32 right-1/4 w-[500px] h-[500px] rounded-full bg-brand-terracotta/20 blur-3xl" />
-        </div>
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 text-center">
-          <Reveal>
-            <h2 className="font-display text-3xl sm:text-4xl text-white leading-[1.1] mb-8">
-              Vuoi capire se fa per te?
-            </h2>
-            <Link
-              to="/contatto"
-              className="inline-flex items-center gap-2 bg-white text-brand-navy font-semibold px-7 py-4 rounded-full hover:bg-brand-ivory hover:scale-[1.02] transition-all shadow-glow"
-            >
-              Richiedi una consulenza
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+          <Reveal className="mt-12 max-w-3xl">
+            <p className="text-base sm:text-lg text-brand-navy/85 leading-relaxed">
+              Se hai un sito creato da un'agenzia e nasce il bisogno di apportare modifiche per una migliore coordinazione col Profilo oppure Annunci, mi metterò d'accordo con l'agenzia di riferimento, effettuando il restyling gratuitamente, se già stiamo lavorando sul SEO oppure Campagne di annunci.
+            </p>
           </Reveal>
         </div>
       </section>
+
+      <Divider />
+
+      {/* Section 5 — Prima vs Dopo */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="mb-12">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] text-center">
+              Prima vs Dopo
+            </h2>
+          </Reveal>
+
+          <div className="grid sm:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            <Reveal>
+              <p className="text-xs uppercase tracking-[0.18em] text-brand-navy/55 font-semibold mb-3">
+                Prima
+              </p>
+              <div className="aspect-[4/3] rounded-2xl border border-brand-navy/10 shadow-pill bg-brand-navy/[0.03]" />
+            </Reveal>
+            <Reveal delay={120}>
+              <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta font-semibold mb-3">
+                Dopo
+              </p>
+              <div className="aspect-[4/3] rounded-2xl border border-brand-terracotta/20 shadow-pill bg-brand-navy/[0.03]" />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6 — Final CTA (same as home) */}
+      <FinalCTA />
     </>
   );
 }
