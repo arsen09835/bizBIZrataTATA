@@ -1,22 +1,29 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Plus } from 'lucide-react';
 import { Reveal } from './Reveal';
 
-const faqs = [
+type Faq = { question: string; answer: ReactNode };
+
+const faqs: Faq[] = [
   {
-    question: 'Utilizzi l\'IA?',
-    answer:
-      'Sì, automatizzo elementi di backend e aspetti che richiederebbero settimane o mesi per essere completati da un umano. Design, titoli, annunci e tutti gli elementi che i tuoi clienti vedono sono 100% «vivi». Con nuovi aggiornamenti quasi giornalieri, utilizzarla dove serve fa la differenza.',
+    question: "Utilizzi l'IA?",
+    answer: (
+      <>
+        Sì, utilizzo l'IA per gli elementi di backend [le funzionalità che stanno dietro alla parte visibile al pubblico]. Titoli, testi, design sono fatti rigorosamente «a mano». Utilizzo l'IA per implementare i miei <em>contenuti</em>, portando risultati in giorni, non settimane.
+      </>
+    ),
   },
   {
-    question: 'Che differenza c\'è fra Google SEO e Google Ads?',
-    answer:
-      'Gli annunci su Google Ads ti mostrano in cima alle ricerche finché riesci a sostenere i costi per ogni click. Con il SEO organico vieni mostrato in cima perché l\'algoritmo di Google ritiene che tu sia il più competente. Tuttavia gli annunci sponsorizzati ricevono la precedenza sui risultati organici… ne parlerei per un\'ora di come sfruttarli al meglio.',
+    question: "Che differenza c'è fra Sponsorizzazioni e visibilità organica?",
+    answer: (
+      <>
+        La visibilità organica [SEO] consiste nel risultato visibile quando clicchi «nascondi sponsorizzazioni». L'algoritmo di Google ti sceglie perché ti considera più rilevante. Le sponsorizzazioni ti fanno comparire primo finché paghi per ogni click sull'annuncio «sponsorizzato» da Google. Spariscono una volta smesso di pagare.
+      </>
+    ),
   },
   {
-    question: 'Quanto tempo ci devo investire?',
-    answer:
-      'Poco — gestisco io. In caso di accordo avrei bisogno di 15 minuti del tuo tempo per avere un accesso sicuro al tuo dominio, profilo Google e profilo annunci. Per il resto ti sentirò regolarmente per comunicarti gli aggiornamenti.',
+    question: 'Quanto ci vuole per apparire primi?',
+    answer: 'Dai 30 ai 90 giorni organicamente, dopo 1/2 giorni con le sponsorizzazioni.',
   },
 ];
 
@@ -27,11 +34,8 @@ export function FAQ() {
     <section className="bg-white py-20 sm:py-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal className="mb-12 sm:mb-14">
-          <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta font-semibold mb-3">
-            Domande frequenti
-          </p>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1]">
-            Le risposte alle domande<br className="hidden sm:block" /> più comuni.
+            Domande Frequenti
           </h2>
         </Reveal>
 
@@ -41,8 +45,8 @@ export function FAQ() {
             return (
               <Reveal key={index} delay={index * 60}>
                 <div
-                  className={`rounded-2xl bg-brand-ivory border transition-all ${
-                    isOpen ? 'border-brand-terracotta/30 shadow-card' : 'border-black/5 shadow-pill'
+                  className={`rounded-2xl bg-white border transition-all ${
+                    isOpen ? 'border-brand-terracotta/30 shadow-card' : 'border-brand-navy/8 shadow-pill'
                   }`}
                 >
                   <button
@@ -56,7 +60,7 @@ export function FAQ() {
                     </span>
                     <span
                       className={`flex-shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full transition-all ${
-                        isOpen ? 'bg-brand-terracotta text-white rotate-45' : 'bg-white text-brand-navy'
+                        isOpen ? 'bg-brand-terracotta text-white rotate-45' : 'bg-brand-navy/5 text-brand-navy'
                       }`}
                     >
                       <Plus className="w-4 h-4" />
