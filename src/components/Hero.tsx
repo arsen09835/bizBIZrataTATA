@@ -141,20 +141,7 @@ export function Hero() {
             </div>
 
             <div
-              className="absolute bottom-4 right-[6%] w-[52%] bg-white rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slow"
-              style={{ transform: 'rotate(-0.8deg)' }}
-            >
-              <div className="flex items-center gap-1.5 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-brand-terracotta text-brand-terracotta" />
-                ))}
-              </div>
-              <div className="font-display font-bold text-brand-navy text-2xl leading-none">4,9</div>
-              <div className="text-xs text-brand-gray mt-1">128 recensioni Google</div>
-            </div>
-
-            <div
-              className="absolute bottom-0 left-[8%] w-[44%] bg-brand-navy rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slower"
+              className="absolute -bottom-4 left-[8%] w-[50%] bg-brand-navy rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slower"
               style={{ transform: 'rotate(2deg)' }}
             >
               <div className="flex items-center justify-between mb-3">
@@ -169,12 +156,25 @@ export function Hero() {
                 <path
                   d="M0 22 L15 18 L30 20 L45 12 L60 14 L75 6 L100 2"
                   fill="none"
-                  stroke="#E0A07A"
+                  stroke="#34D399"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
+            </div>
+
+            <div
+              className="absolute bottom-4 right-[6%] w-[52%] bg-white rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slow"
+              style={{ transform: 'rotate(-0.8deg)' }}
+            >
+              <div className="flex items-center gap-1.5 mb-2">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-brand-terracotta text-brand-terracotta" />
+                ))}
+              </div>
+              <div className="font-display font-bold text-brand-navy text-2xl leading-none">4,9</div>
+              <div className="text-xs text-brand-gray mt-1">128 recensioni Google</div>
             </div>
 
             <div
