@@ -1,13 +1,30 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, TrendingUp, MapPin, Globe } from 'lucide-react';
+import { ServicesDropdownButton } from './ServicesDropdownButton';
+
+const bullets = [
+  {
+    bold: 'Siti Web',
+    rest: ' impattanti su chi «scrolla».',
+    to: '/servizi/siti-web',
+  },
+  {
+    bold: 'Pagine Google',
+    rest: ' che appaiono fra i primi 3 risultati nelle ricerche.',
+    to: '/servizi/visibilita-organica',
+  },
+  {
+    bold: 'Campagne Google Ads',
+    rest: ' che ritengono il mercato.',
+    to: '/servizi/visibilita-sponsorizzata',
+  },
+];
 
 export function Hero() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden hero-warm">
-      {/* Faint paper-grain texture */}
       <div className="absolute inset-0 pointer-events-none warm-grain" />
 
-      {/* Soft warm bokeh */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full bg-brand-terracotta/12 blur-3xl" />
         <div className="absolute -bottom-40 -left-32 w-[500px] h-[500px] rounded-full bg-brand-terracotta/8 blur-3xl" />
@@ -15,7 +32,7 @@ export function Hero() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 lg:pt-32 lg:pb-24 w-full">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          {/* LEFT: copy */}
+          {/* LEFT */}
           <div className="lg:col-span-6 text-left animate-fade-up">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-sm border border-brand-navy/8 shadow-pill mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-terracotta animate-pulse" />
@@ -24,53 +41,52 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="font-display font-bold text-brand-navy text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-6">
-              Aiuto le attività di Firenze a <span className="text-brand-terracotta">farsi trovare su Google</span>.
+            <h1 className="font-display font-bold text-brand-navy text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-5">
+              Hai un profilo Google ma non ricevi richieste sufficienti?
             </h1>
 
-            <ul className="space-y-3 mb-10 max-w-xl">
-              {[
-                'Realizzo siti web pensati per attività come la tua.',
-                'Ti aiuto a farti trovare quando cercano il tuo servizio.',
-                'Gestisco campagne sponsorizzate per portarti richieste vere.',
-              ].map((point) => (
-                <li
-                  key={point}
-                  className="flex items-start gap-3 text-brand-navy/85 text-base sm:text-lg leading-relaxed"
-                >
+            <p className="text-brand-navy/80 text-base sm:text-lg leading-relaxed mb-7 max-w-xl">
+              Realizzo soluzioni digitali su misura che <span className="italic">«riempiono»</span> le tue giornate di richieste e prenotazioni.
+            </p>
+
+            <ul className="space-y-4 mb-9 max-w-xl">
+              {bullets.map((b) => (
+                <li key={b.bold} className="flex items-start gap-3">
                   <span
                     aria-hidden
-                    className="mt-2 sm:mt-2.5 inline-block w-1.5 h-1.5 rounded-full bg-brand-terracotta flex-shrink-0"
+                    className="mt-2.5 w-1.5 h-1.5 rounded-full bg-brand-terracotta flex-shrink-0"
                   />
-                  <span>{point}</span>
+                  <div className="flex-1">
+                    <p className="text-brand-navy text-base sm:text-lg leading-snug">
+                      <strong className="font-semibold">{b.bold}</strong>
+                      {b.rest}
+                    </p>
+                    <Link
+                      to={b.to}
+                      className="inline-flex items-center gap-1 text-sm text-brand-terracotta hover:text-brand-navy font-medium mt-1 transition-colors"
+                    >
+                      Scopri di più
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
                 </li>
               ))}
             </ul>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link
-                to="/contatto"
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
+              <a
+                href="#contatto-section"
                 className="inline-flex items-center justify-center gap-2 bg-brand-navy text-white font-semibold text-base px-6 py-3.5 rounded-full hover:bg-brand-navy-dark hover:scale-[1.02] transition-all shadow-card"
               >
-                Vediamoci!
+                Prenota una consulenza gratuita
                 <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a
-                href="#servizi"
-                className="inline-flex items-center justify-center gap-2 bg-white/70 backdrop-blur-sm text-brand-navy font-medium text-base px-6 py-3.5 rounded-full border border-brand-navy/10 hover:bg-white transition-all"
-              >
-                Guarda i servizi
               </a>
+              <ServicesDropdownButton label="Consulta i Servizi" variant="light" />
             </div>
-
-            <p className="mt-6 text-sm text-brand-gray italic">
-              Una chiacchierata, senza impegno.
-            </p>
           </div>
 
-          {/* RIGHT: floating mockup cards (slightly imperfect rotations for organic feel) */}
+          {/* RIGHT — floating mockup cards */}
           <div className="lg:col-span-6 relative h-[380px] sm:h-[460px] lg:h-[520px] hidden sm:block">
-            {/* Site preview card */}
             <div
               className="absolute top-0 right-0 w-[78%] bg-white rounded-2xl shadow-card-hover overflow-hidden animate-float-slow"
               style={{ transform: 'rotate(-1.2deg)' }}
@@ -93,7 +109,6 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Visibility / map card */}
             <div
               className="absolute top-[28%] left-0 w-[58%] bg-white rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slower"
               style={{ transform: 'rotate(1.6deg)' }}
@@ -114,7 +129,6 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Reviews card */}
             <div
               className="absolute bottom-4 right-[6%] w-[52%] bg-white rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slow"
               style={{ transform: 'rotate(-0.8deg)' }}
@@ -128,7 +142,6 @@ export function Hero() {
               <div className="text-xs text-brand-gray mt-1">128 recensioni Google</div>
             </div>
 
-            {/* Analytics card — navy island for warm contrast */}
             <div
               className="absolute bottom-0 left-[8%] w-[44%] bg-brand-navy rounded-2xl shadow-card-hover p-4 sm:p-5 animate-float-slower"
               style={{ transform: 'rotate(2deg)' }}
@@ -153,7 +166,6 @@ export function Hero() {
               </svg>
             </div>
 
-            {/* Tiny floating chip */}
             <div
               className="absolute top-[10%] left-[18%] inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white shadow-pill animate-float-slow"
               style={{ transform: 'rotate(-2deg)' }}
@@ -162,12 +174,6 @@ export function Hero() {
               <span className="text-[11px] font-semibold text-brand-navy">rankmybizup.com</span>
             </div>
           </div>
-        </div>
-
-        {/* Scroll cue */}
-        <div className="hidden lg:flex absolute bottom-6 left-1/2 -translate-x-1/2 flex-col items-center gap-1 text-brand-navy/40">
-          <span className="text-[10px] uppercase tracking-[0.2em]">Scorri</span>
-          <div className="w-px h-8 bg-brand-navy/25 animate-bounce-soft" />
         </div>
       </div>
     </section>
