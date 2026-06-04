@@ -8,7 +8,7 @@ const items = [
 
 export function HomeProblems() {
   return (
-    <section className="bg-brand-ivory py-20 sm:py-28">
+    <section className="bg-white py-20 sm:py-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed mb-10">
