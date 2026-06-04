@@ -1,22 +1,18 @@
 import { Hero } from '../components/Hero';
-import { TrustStrip } from '../components/TrustStrip';
-import { ProblemReality } from '../components/ProblemReality';
-import { LocalAdvantage } from '../components/LocalAdvantage';
-import { Services } from '../components/Services';
-import { Process } from '../components/Process';
-import { FAQ } from '../components/FAQ';
+import { HomeIntro } from '../components/HomeIntro';
+import { HomeProblems } from '../components/HomeProblems';
+import { HomeSolution } from '../components/HomeSolution';
+import { HomeWhyMe } from '../components/HomeWhyMe';
 import { FinalCTA } from '../components/FinalCTA';
 
 export function Home() {
   return (
     <>
       <Hero />
-      <TrustStrip />
-      <ProblemReality />
-      <LocalAdvantage />
-      <Services />
-      <Process />
-      <FAQ />
+      <HomeIntro />
+      <HomeProblems />
+      <HomeSolution />
+      <HomeWhyMe />
       <FinalCTA />
     </>
   );
