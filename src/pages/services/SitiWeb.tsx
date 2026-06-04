@@ -28,7 +28,7 @@ export function SitiWeb() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[78vh] flex items-center overflow-hidden bg-brand-ink">
+      <section className="relative min-h-[58vh] flex items-center overflow-hidden bg-brand-ink">
         <img
           src="/pexels-eren-li-7241413.jpg"
           alt=""
@@ -36,12 +36,11 @@ export function SitiWeb() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/85 via-brand-ink/65 to-brand-ink/35" />
-        <div className="absolute inset-0 bg-brand-ink/30" />
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-24 w-full">
           <Reveal>
             <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-10 max-w-3xl">
-              Realizzo siti web che catturano col desiderio di sapere di più.
+              Siti Web che catturano, trattengono e spingono a voler sapere di più
             </h1>
             <Link
               to="/contatto"
@@ -56,10 +55,13 @@ export function SitiWeb() {
 
       {/* Section 2 — paragraph */}
       <section className="bg-white py-20 sm:py-28">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[60rem] mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
             <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
-              Il sito internet sta alla base di gran parte della tua presenza non solo su Google, ma anche sui Social se ne fai uso. È dove un potenziale cliente decide se scegliere te o passare a quello successivo. È anche uno dei fattori principali che influenzano se appari fra i primi risultati o in fondo ai risultati sul motore di ricerca. Avere un buon prodotto non basta, bisogna saper presentarlo in un contesto che amplifichi interesse. È come essere il miglior tatuatore ma avere la sala sottosopra.
+              Il sito internet sta alla base di gran parte della tua presenza non solo su Google, ma anche sui Social se ne fai uso. È dove un potenziale cliente decide se scegliere te o passare a quello successivo. È anche uno dei fattori principali che influenzano se appari fra i primi risultati o in fondo ai risultati sul motore di ricerca.
+            </p>
+            <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed max-w-3xl mt-8">
+              Avere un buon prodotto non basta, bisogna saper presentarlo in un contesto che amplifichi interesse. È come essere il miglior tatuatore ma avere la sala sottosopra.
             </p>
           </Reveal>
         </div>
@@ -76,14 +78,8 @@ export function SitiWeb() {
             </h2>
           </Reveal>
 
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            <Reveal className="lg:col-span-6">
-              <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
-                La maggior parte dei tuoi clienti ti troveranno dal cellulare. Attraverso un design che calza a pennello sia sul computer, che tablet, che sul più piccolo dei cellulari, si garantisce un'esperienza di navigazione impeccabile per ogni utente che entra nel tuo sito web.
-              </p>
-            </Reveal>
-
-            <Reveal className="lg:col-span-6" delay={120}>
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-10">
+            <Reveal className="w-full max-w-[440px]">
               <figure>
                 <img
                   src="/container_transparent.png"
@@ -92,7 +88,7 @@ export function SitiWeb() {
                   style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
                 />
                 <figcaption className="mt-4 text-sm italic text-brand-gray text-center">
-                  Diagramma preso dall'analisi sul progetto corrente su{' '}
+                  Diagramma preso dall'analisi sul progetto corrente{' '}
                   <a
                     href="https://brunoantichita.it/"
                     target="_blank"
@@ -103,6 +99,12 @@ export function SitiWeb() {
                   </a>
                 </figcaption>
               </figure>
+            </Reveal>
+
+            <Reveal className="w-full max-w-sm" delay={120}>
+              <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
+                La maggior parte dei tuoi clienti ti troveranno dal cellulare. Attraverso un design che calza a pennello sia sul computer, che tablet, che sul più piccolo dei cellulari, si garantisce un'esperienza di navigazione impeccabile per ogni utente che entra nel tuo sito web.
+              </p>
             </Reveal>
           </div>
         </div>
@@ -150,7 +152,7 @@ export function SitiWeb() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-12">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] text-center">
-              Prima vs Dopo
+              Esempio
             </h2>
           </Reveal>
 
