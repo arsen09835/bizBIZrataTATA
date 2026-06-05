@@ -44,7 +44,7 @@ export function ServicesDropdownButton({ label, variant = 'light' }: Props) {
         <ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       <div
-        className={`absolute left-0 top-full mt-2 w-64 sm:w-72 z-40 transition-all duration-200 ${
+        className={`absolute left-0 z-40 w-64 sm:w-72 bottom-full mb-2 sm:bottom-auto sm:top-full sm:mb-0 sm:mt-2 transition-all duration-200 ${
           open ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-1'
         }`}
       >
