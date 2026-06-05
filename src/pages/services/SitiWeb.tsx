@@ -100,7 +100,7 @@ export function SitiWeb() {
             </h2>
           </Reveal>
 
-          <div className="flex flex-col lg:flex-row items-start justify-center gap-8 lg:gap-10">
+          <div className="flex flex-col lg:flex-row items-start lg:items-stretch justify-center gap-8 lg:gap-10">
             <Reveal className="w-full max-w-[440px]">
               <img
                 src="/container_transparent.png"
@@ -110,11 +110,11 @@ export function SitiWeb() {
               />
             </Reveal>
 
-            <Reveal className="w-full max-w-sm flex flex-col" delay={120}>
+            <Reveal className="w-full max-w-sm flex flex-col lg:pt-8" delay={120}>
               <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
                 La maggior parte dei tuoi clienti ti troveranno dal cellulare. Attraverso un design che calza a pennello sia sul computer, che tablet, che sul più piccolo dei cellulari, si garantisce un'esperienza di navigazione impeccabile per ogni utente che entra nel tuo sito web.
               </p>
-              <p className="mt-6 text-sm italic text-brand-gray text-right">
+              <p className="mt-6 lg:mt-auto text-sm italic text-brand-gray text-left">
                 Diagramma preso dall'analisi sul progetto corrente{' '}
                 <a
                   href="https://brunoantichita.it/"
