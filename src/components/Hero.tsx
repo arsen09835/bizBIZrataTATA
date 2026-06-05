@@ -1,18 +1,32 @@
+import { useState } from 'react';
 import { Star, TrendingUp, MapPin, Globe } from 'lucide-react';
 import { ServicesDropdownButton } from './ServicesDropdownButton';
+import { heroLqip } from '../heroLqip';
 
 export function Hero() {
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-brand-ink">
-      {/* Background photo */}
+      {/* Instant blurred placeholder — paints immediately, no network wait */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-cover bg-center scale-105 blur-xl"
+        style={{ backgroundImage: `url(${heroLqip})` }}
+      />
+
+      {/* Background photo — fades in over the placeholder once decoded */}
       <img
-        src="/pexels-iamhogir-17781874.jpg"
+        src="/hero.jpg"
         alt=""
         aria-hidden
         fetchPriority="high"
         loading="eager"
         decoding="async"
-        className="absolute inset-0 w-full h-full object-cover"
+        onLoad={() => setLoaded(true)}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+          loaded ? 'opacity-100' : 'opacity-0'
+        }`}
       />
 
       {/* Darkening overlay — stronger on the left where the copy sits */}
