@@ -47,23 +47,23 @@ export function Hero() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* LEFT */}
           <div className="lg:col-span-6 text-left animate-fade-up">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/15 shadow-pill mb-4 sm:mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/15 shadow-pill mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-terracotta animate-pulse" />
               <span className="text-xs font-medium text-white/90 tracking-wide">
                 Da Firenze · per attività locali
               </span>
             </div>
 
-            <h1 className="font-display font-bold text-white text-2xl sm:text-4xl lg:text-5xl leading-[1.12] sm:leading-[1.1] tracking-tight mb-4 sm:mb-6 max-w-2xl">
+            <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-6 max-w-2xl">
               Non stai ricevendo il volume di richieste telefoniche che vorresti?
             </h1>
 
-            <p className="text-white/85 text-sm sm:text-lg leading-relaxed mb-3 sm:mb-4 max-w-xl">
+            <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-4 max-w-xl">
               Realizzo soluzioni digitali su misura per il tuo business.<br />
               Niente agende scarne, o giornate passate ad aspettare.
             </p>
 
-            <p className="text-white/85 text-sm sm:text-lg leading-relaxed mb-6 sm:mb-9 max-w-xl">
+            <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-9 max-w-xl">
               I clienti torneranno ad essere il tuo impegno principale, lasciando il «come farli arrivare» a me.
             </p>
 
