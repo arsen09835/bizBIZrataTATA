@@ -4,11 +4,18 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   @apply antialiased text-brand-gray bg-white font-sans;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+#root {
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {

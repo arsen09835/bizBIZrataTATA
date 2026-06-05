@@ -11,7 +11,7 @@ export function FinalCTA() {
         <div className="absolute -bottom-40 left-1/4 w-[450px] h-[450px] rounded-full bg-brand-terracotta/15 blur-3xl" />
       </div>
 
-      <div className="relative max-w-3xl mx-auto px-6 lg:px-8 py-24 sm:py-32 text-center">
+      <div className="relative max-w-3xl mx-auto px-8 lg:px-8 py-24 sm:py-32 text-center">
         <Reveal>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.1] mb-8">
             Pronto a dare una svolta alla tua attività su Google?
