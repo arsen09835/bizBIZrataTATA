@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Store, PhoneCall, ShoppingBag } from 'lucide-react';
 import { Reveal } from '../../components/Reveal';
 import { Divider } from '../../components/Divider';
 import { FinalCTA } from '../../components/FinalCTA';
+import { sitiHeroLqip } from '../../sitiHeroLqip';
 
 const siteTypes = [
   {
@@ -25,22 +27,42 @@ const siteTypes = [
 ];
 
 export function SitiWeb() {
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[58vh] flex items-center overflow-hidden bg-brand-ink">
-        <img
-          src="/pexels-eren-li-7241413.jpg"
-          alt=""
-          aria-hidden
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/85 via-brand-ink/65 to-brand-ink/35" />
+      <section className="relative min-h-[58vh] flex items-center bg-brand-ink">
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Instant blurred placeholder */}
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-cover bg-center scale-105 blur-xl"
+            style={{ backgroundImage: `url(${sitiHeroLqip})` }}
+          />
+          {/* Background photo */}
+          <img
+            src="/siti-hero.jpg"
+            srcSet="/siti-hero-960.jpg 960w, /siti-hero-1440.jpg 1440w, /siti-hero.jpg 1920w"
+            sizes="100vw"
+            alt=""
+            aria-hidden
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+            onLoad={() => setLoaded(true)}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+              loaded ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+          {/* Soft side wash — only enough to keep the title legible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
+        </div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-24 w-full">
+        <div className="relative max-w-6xl mx-auto px-8 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-24 w-full">
           <Reveal>
             <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-10 max-w-3xl">
-              Siti Web che catturano, trattengono e spingono a voler sapere di più
+              Siti Web che catturano il cliente e lo invogliano a cercarti.
             </h1>
             <Link
               to="/contatto"
@@ -55,7 +77,7 @@ export function SitiWeb() {
 
       {/* Section 2 — paragraph */}
       <section className="bg-white py-20 sm:py-28">
-        <div className="max-w-[60rem] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[60rem] mx-auto px-8 lg:px-8">
           <Reveal>
             <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
               Il sito internet sta alla base di gran parte della tua presenza non solo su Google, ma anche sui Social se ne fai uso. È dove un potenziale cliente decide se scegliere te o passare a quello successivo. È anche uno dei fattori principali che influenzano se appari fra i primi risultati o in fondo ai risultati sul motore di ricerca.
@@ -71,39 +93,37 @@ export function SitiWeb() {
 
       {/* Section 3 — Design Responsive */}
       <section className="bg-white py-20 sm:py-28">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-8 lg:px-8">
           <Reveal className="mb-12">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1]">
               Un Design Responsive <em className="italic">alla mano</em>.
             </h2>
           </Reveal>
 
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-10">
+          <div className="flex flex-col lg:flex-row items-start justify-center gap-8 lg:gap-10">
             <Reveal className="w-full max-w-[440px]">
-              <figure>
-                <img
-                  src="/container_transparent.png"
-                  alt="Diagramma analisi visite per dispositivi"
-                  className="w-full h-auto block rounded-2xl"
-                  style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
-                />
-                <figcaption className="mt-4 text-sm italic text-brand-gray text-center">
-                  Diagramma preso dall'analisi sul progetto corrente{' '}
-                  <a
-                    href="https://brunoantichita.it/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand-terracotta underline underline-offset-4 decoration-brand-terracotta/40 hover:decoration-brand-terracotta transition-colors not-italic font-medium"
-                  >
-                    https://brunoantichita.it/
-                  </a>
-                </figcaption>
-              </figure>
+              <img
+                src="/container_transparent.png"
+                alt="Diagramma analisi visite per dispositivi"
+                className="w-full h-auto block rounded-2xl"
+                style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
+              />
             </Reveal>
 
-            <Reveal className="w-full max-w-sm" delay={120}>
+            <Reveal className="w-full max-w-sm flex flex-col" delay={120}>
               <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
                 La maggior parte dei tuoi clienti ti troveranno dal cellulare. Attraverso un design che calza a pennello sia sul computer, che tablet, che sul più piccolo dei cellulari, si garantisce un'esperienza di navigazione impeccabile per ogni utente che entra nel tuo sito web.
+              </p>
+              <p className="mt-6 text-sm italic text-brand-gray text-right">
+                Diagramma preso dall'analisi sul progetto corrente{' '}
+                <a
+                  href="https://brunoantichita.it/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-terracotta underline underline-offset-4 decoration-brand-terracotta/40 hover:decoration-brand-terracotta transition-colors not-italic font-medium"
+                >
+                  https://brunoantichita.it/
+                </a>
               </p>
             </Reveal>
           </div>
@@ -114,7 +134,7 @@ export function SitiWeb() {
 
       {/* Section 4 — Quali siti web realizzo (kept) + new paragraph */}
       <section className="bg-white py-20 sm:py-28">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-8 lg:px-8">
           <Reveal className="mb-14">
             <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta font-semibold mb-3">
               Tipologie
@@ -145,35 +165,7 @@ export function SitiWeb() {
         </div>
       </section>
 
-      <Divider />
-
-      {/* Section 5 — Prima vs Dopo */}
-      <section className="bg-white py-20 sm:py-28">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="mb-12">
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] text-center">
-              Esempio
-            </h2>
-          </Reveal>
-
-          <div className="grid sm:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
-            <Reveal>
-              <p className="text-xs uppercase tracking-[0.18em] text-brand-navy/55 font-semibold mb-3">
-                Prima
-              </p>
-              <div className="aspect-[4/3] rounded-2xl border border-brand-navy/10 shadow-pill bg-brand-navy/[0.03]" />
-            </Reveal>
-            <Reveal delay={120}>
-              <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta font-semibold mb-3">
-                Dopo
-              </p>
-              <div className="aspect-[4/3] rounded-2xl border border-brand-terracotta/20 shadow-pill bg-brand-navy/[0.03]" />
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 6 — Final CTA (same as home) */}
+      {/* Section 5 — Final CTA (same as home) */}
       <FinalCTA />
     </>
   );
