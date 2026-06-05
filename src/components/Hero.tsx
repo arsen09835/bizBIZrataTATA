@@ -7,59 +7,63 @@ export function Hero() {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <section className="relative min-h-[92vh] flex items-start sm:items-center overflow-hidden bg-brand-ink">
-      {/* Instant blurred placeholder — paints immediately, no network wait */}
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-cover bg-center scale-105 blur-xl"
-        style={{ backgroundImage: `url(${heroLqip})` }}
-      />
+    <section className="relative min-h-[92vh] flex items-start sm:items-center bg-brand-ink">
+      {/* Background layer — clipped here so the section itself can let the
+          services dropdown overflow without being cut off */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Instant blurred placeholder — paints immediately, no network wait */}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-cover bg-center scale-105 blur-xl"
+          style={{ backgroundImage: `url(${heroLqip})` }}
+        />
 
-      {/* Background photo — fades in over the placeholder once decoded */}
-      <img
-        src="/hero.jpg"
-        alt=""
-        aria-hidden
-        fetchPriority="high"
-        loading="eager"
-        decoding="async"
-        onLoad={() => setLoaded(true)}
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-          loaded ? 'opacity-100' : 'opacity-0'
-        }`}
-      />
+        {/* Background photo — responsive sizes, fades in once decoded */}
+        <img
+          src="/hero.jpg"
+          srcSet="/hero-960.jpg 960w, /hero-1440.jpg 1440w, /hero.jpg 1920w"
+          sizes="100vw"
+          alt=""
+          aria-hidden
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          onLoad={() => setLoaded(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            loaded ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
 
-      {/* Darkening overlay — stronger on the left where the copy sits */}
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/85 via-brand-ink/65 to-brand-ink/35" />
-      <div className="absolute inset-0 bg-brand-ink/25" />
+        {/* Darkening overlay — stronger on the left where the copy sits */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/85 via-brand-ink/65 to-brand-ink/35" />
+        <div className="absolute inset-0 bg-brand-ink/25" />
 
-      {/* Soft warm bokeh, kept subtle on the dark backdrop */}
-      <div className="absolute inset-0 pointer-events-none">
+        {/* Soft warm bokeh, kept subtle on the dark backdrop */}
         <div className="absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full bg-brand-terracotta/15 blur-3xl" />
         <div className="absolute -bottom-40 -left-32 w-[500px] h-[500px] rounded-full bg-brand-terracotta/8 blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-24 pb-12 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 w-full">
+      <div className="relative max-w-6xl mx-auto px-8 lg:px-8 pt-20 pb-10 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 w-full">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* LEFT */}
           <div className="lg:col-span-6 text-left animate-fade-up">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/15 shadow-pill mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/15 shadow-pill mb-4 sm:mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-terracotta animate-pulse" />
               <span className="text-xs font-medium text-white/90 tracking-wide">
                 Da Firenze · per attività locali
               </span>
             </div>
 
-            <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-6 max-w-2xl">
+            <h1 className="font-display font-bold text-white text-2xl sm:text-4xl lg:text-5xl leading-[1.12] sm:leading-[1.1] tracking-tight mb-4 sm:mb-6 max-w-2xl">
               Non stai ricevendo il volume di richieste telefoniche che vorresti?
             </h1>
 
-            <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-4 max-w-xl">
+            <p className="text-white/85 text-sm sm:text-lg leading-relaxed mb-3 sm:mb-4 max-w-xl">
               Realizzo soluzioni digitali su misura per il tuo business.<br />
               Niente agende scarne, o giornate passate ad aspettare.
             </p>
 
-            <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-9 max-w-xl">
+            <p className="text-white/85 text-sm sm:text-lg leading-relaxed mb-6 sm:mb-9 max-w-xl">
               I clienti torneranno ad essere il tuo impegno principale, lasciando il «come farli arrivare» a me.
             </p>
 

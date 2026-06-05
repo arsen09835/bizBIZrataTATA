@@ -3,7 +3,7 @@ import { Reveal } from './Reveal';
 export function HomeProblems() {
   return (
     <section className="bg-white py-20 sm:py-28">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8 space-y-8">
+      <div className="max-w-4xl mx-auto px-8 lg:px-8 space-y-8">
         <Reveal>
           <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
             Se ritieni di non ricevere la quantità di clienti che meriteresti, è molto probabile che tu abbia un sito datato o scarsamente comunicante: essendo la tua vetrina digitale, è la destinazione finale dove un potenziale cliente decide se scegliere te o il successivo.
