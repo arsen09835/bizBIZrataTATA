@@ -7,7 +7,7 @@ export function Hero() {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-brand-ink">
+    <section className="relative min-h-[92vh] flex items-start sm:items-center overflow-hidden bg-brand-ink">
       {/* Instant blurred placeholder — paints immediately, no network wait */}
       <div
         aria-hidden
@@ -39,7 +39,7 @@ export function Hero() {
         <div className="absolute -bottom-40 -left-32 w-[500px] h-[500px] rounded-full bg-brand-terracotta/8 blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 lg:pt-32 lg:pb-24 w-full">
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-24 pb-12 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 w-full">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* LEFT */}
           <div className="lg:col-span-6 text-left animate-fade-up">
