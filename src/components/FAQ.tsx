@@ -25,6 +25,16 @@ const faqs: Faq[] = [
     question: 'Quanto ci vuole per apparire primi?',
     answer: 'Dai 30 ai 90 giorni organicamente, dopo 1/2 giorni con le sponsorizzazioni.',
   },
+  {
+    question: 'Devo sapere qualcosa di Marketing o Web Design?',
+    answer:
+      'No, mi occupo io di tutta la parte digitale. Sono a completa disponibilità per qualsiasi dubbio o chiarimento. Le uniche cose di cui ho bisogno sono un accesso sicuro al profilo Google sotto al quale è presente la tua attività, ed eventuale accesso al dominio o piattaforma di design per poter facilmente migliorare il sito Internet.',
+  },
+  {
+    question: 'Lavori anche su Instagram e Facebook?',
+    answer:
+      'Sto studiando su come funziona Meta e Meta Ads, ma per ora opero solo sul sistema di Google.',
+  },
 ];
 
 export function FAQ() {
