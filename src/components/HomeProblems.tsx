@@ -1,27 +1,18 @@
 import { Reveal } from './Reveal';
 
-const items = [
-  'Siti internet datati o poco comunicanti.',
-  'Pagina Google [e il relativo SEO] che rimane in fondo alle ricerche organiche.',
-  'Annunci che non «catturano» i clienti giusti, consumando denaro per ogni clic.',
-];
-
 export function HomeProblems() {
   return (
     <section className="bg-white py-20 sm:py-28">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <Reveal>
-          <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed mb-10">
-            È sorprendentemente frequente incontrare professionisti e proprietà di attività «buone» non ricevere i clienti che normalmente meriterebbero via Google per via di più fra questi motivi:
+          <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
+            Se ritieni di non ricevere la quantità di clienti che meriteresti, è molto probabile che tu abbia un sito datato o scarsamente comunicante: essendo la tua vetrina digitale, è la destinazione finale dove un potenziale cliente decide se scegliere te o il successivo.
           </p>
-          <ul className="space-y-4">
-            {items.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <span aria-hidden className="mt-2.5 w-1.5 h-1.5 rounded-full bg-brand-terracotta flex-shrink-0" />
-                <span className="text-brand-navy/85 text-base sm:text-lg leading-relaxed">{item}</span>
-              </li>
-            ))}
-          </ul>
+        </Reveal>
+        <Reveal delay={100}>
+          <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
+            Se ritieni che ogni persona passata dal sito ti abbia contattato, allora non sei rilevante fra i risultati nel motore di ricerca. Semplicemente non sei visto da chi cerca servizi simili al tuo.
+          </p>
         </Reveal>
       </div>
     </section>
