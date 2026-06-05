@@ -1,78 +1,197 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { Eye, Gift, Infinity as InfinityIcon, type LucideIcon } from 'lucide-react';
 import { Reveal } from '../../components/Reveal';
+import { Divider } from '../../components/Divider';
+import { FinalCTA } from '../../components/FinalCTA';
+
+type Pro = { icon: LucideIcon; title: string; description: string };
+
+const pros: Pro[] = [
+  {
+    icon: Eye,
+    title: 'Più utenti ti vedono, più utenti ti scelgono',
+    description:
+      'I primi 3 risultati ritengono il 75 percento del traffico online. Posizionarsi bene significa ricevere una fetta di quel traffico.',
+  },
+  {
+    icon: Gift,
+    title: 'Completamente Gratis',
+    description:
+      'A differenza degli annunci sponsorizzati dove paghi per ogni click, qui non hai bisogno di alcun budget. Google decide che sei più rilevante di altri, per questo ti mette in cima.',
+  },
+  {
+    icon: InfinityIcon,
+    title: 'Strategia a lungo termine',
+    description:
+      'Una volta raggiunti i risultati sperati, resti fra i primi per anni, senza spese annuali o costi aggiuntivi [se ti affidi a me].',
+  },
+];
+
+const beforeStats = [
+  { label: 'Posizione media', value: '86' },
+  { label: 'Quota di mercato', value: '1%' },
+  { label: 'Click mensili', value: '5' },
+  { label: 'Clienti mensili', value: '1–2' },
+];
+
+const afterStats = [
+  { label: 'Posizione media', value: '2–3' },
+  { label: 'Quota di mercato', value: '75%' },
+  { label: 'Click mensili', value: '200+' },
+  { label: 'Clienti mensili', value: '25–40' },
+];
+
+function PrimaDopo() {
+  const [tab, setTab] = useState<'before' | 'after'>('before');
+  const isAfter = tab === 'after';
+  const stats = isAfter ? afterStats : beforeStats;
+  const mapSrc = isAfter ? '/map-after.png' : '/map-before.png';
+  const badgeBg = isAfter ? 'bg-brand-green' : 'bg-red-700';
+
+  return (
+    <div className="rounded-3xl bg-white border border-brand-navy/8 shadow-card p-5 sm:p-7 lg:p-8">
+      <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+        {/* LEFT — toggle, profile, stats */}
+        <div className="lg:col-span-5 flex flex-col">
+          <div className="inline-flex p-1 rounded-xl bg-brand-navy/5 mb-5 self-start">
+            {(['before', 'after'] as const).map((t) => {
+              const active = tab === t;
+              return (
+                <button
+                  key={t}
+                  type="button"
+                  onClick={() => setTab(t)}
+                  aria-pressed={active}
+                  className={`px-5 py-2 rounded-lg text-sm font-medium transition-all ${
+                    active
+                      ? 'bg-white shadow-pill text-brand-navy'
+                      : 'text-brand-navy/55 hover:text-brand-navy'
+                  }`}
+                >
+                  {t === 'before' ? 'Prima' : 'Dopo'}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center gap-4 p-4 rounded-xl bg-brand-navy/5 mb-5">
+            <div className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-brand-navy text-white font-display font-bold text-base flex-shrink-0">
+              R
+            </div>
+            <div className="min-w-0">
+              <p className="font-display font-semibold text-brand-navy leading-tight">La tua attività</p>
+              <p className="text-sm text-brand-gray truncate">Via Esempio 123, 50123 Firenze</p>
+            </div>
+          </div>
+
+          <div className="space-y-3 flex-1">
+            {stats.map((s) => (
+              <div
+                key={s.label}
+                className="flex items-center justify-between gap-4 px-5 py-3 rounded-xl bg-brand-navy/5"
+              >
+                <span className="text-sm text-brand-navy/85">{s.label}</span>
+                <span
+                  className={`inline-flex items-center justify-center min-w-[3.25rem] px-3 py-1 rounded-md text-sm font-display font-bold text-white transition-colors ${badgeBg}`}
+                >
+                  {s.value}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* RIGHT — map */}
+        <div className="lg:col-span-7">
+          <div className="relative rounded-2xl overflow-hidden bg-brand-navy/5 aspect-[4/3] lg:aspect-auto lg:h-full">
+            <img
+              key={mapSrc}
+              src={mapSrc}
+              alt={
+                isAfter
+                  ? "Posizionamenti dopo l'ottimizzazione SEO"
+                  : "Posizionamenti prima dell'ottimizzazione SEO"
+              }
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function VisibilitaOrganica() {
   return (
     <>
-      {/* Hero — unchanged */}
-      <section className="relative overflow-hidden bg-brand-navy pt-32 pb-20 sm:pt-40 sm:pb-24">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-32 right-0 w-[500px] h-[500px] rounded-full bg-brand-terracotta/20 blur-3xl" />
-          <div className="absolute -bottom-32 left-0 w-[400px] h-[400px] rounded-full bg-brand-navy-dark/40 blur-3xl" />
-        </div>
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero */}
+      <section className="bg-white pt-32 pb-20 sm:pt-40 sm:pb-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta-soft font-semibold mb-4">
-              Servizio · Visibilità organica (SEO)
-            </p>
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.05] mb-6 max-w-3xl">
-              Comparire su Google quando le persone cercano la tua attività.
+            <h1 className="font-display font-bold text-brand-navy text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-8 max-w-4xl">
+              Più Traffico.<br />
+              Più Clienti.<br />
+              Risultati garantiti entro 90 giorni.
             </h1>
-            <p className="text-lg sm:text-xl text-white/75 leading-relaxed max-w-2xl mb-10">
-              Lavoriamo sulla tua presenza organica per farti trovare nelle ricerche locali rilevanti: Google Maps, risultati di ricerca, scheda dell'attività.
+            <p className="text-lg sm:text-xl text-brand-navy/80 leading-relaxed max-w-3xl">
+              Il tuo profilo sarà fra i primi 3 risultati nei risultati di ricerca dei tuoi clienti.
             </p>
-            <Link
-              to="/contatto"
-              className="inline-flex items-center gap-2 bg-white text-brand-navy font-semibold px-6 py-3.5 rounded-full hover:bg-brand-ivory transition-colors shadow-glow"
-            >
-              Parliamo della tua attività
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </Reveal>
         </div>
       </section>
 
-      {/* Scenario — Bisogna essere visti */}
-      <section className="bg-brand-ivory py-20 sm:py-28">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Divider />
+
+      {/* Intro */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.18em] text-brand-terracotta font-semibold mb-3">
-              Lo scenario
-            </p>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] mb-8">
-              Bisogna essere visti.
-            </h2>
             <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
-              Essere ben presentati non basta. Se i potenziali clienti non vedono il tuo profilo fra le loro ricerche, è come avere un negozio bellissimo in una via deserta.
+              Presentarsi bene potrebbe non bastare, se non abbastanza utenti vedono il tuo profilo. Se sei in fondo ai risultati, è come avere il miglior negozio in mezzo ad una strada poco trafficata.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* Final CTA — preserved from previous layout */}
-      <section className="relative overflow-hidden bg-brand-navy">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute -top-32 right-1/4 w-[500px] h-[500px] rounded-full bg-brand-terracotta/20 blur-3xl" />
-        </div>
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 text-center">
-          <Reveal>
-            <h2 className="font-display text-3xl sm:text-4xl text-white leading-[1.1] mb-5">
-              Vuoi capire se fa per te?
+      <Divider />
+
+      {/* Pros */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="mb-12 sm:mb-14">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] max-w-4xl">
+              I Vantaggi nell'essere posizionati fra i primi 3.
             </h2>
-            <p className="text-lg text-white/75 leading-relaxed mb-8">
-              Raccontaci la tua attività. Ti diciamo se ha senso lavorare insieme.
-            </p>
-            <Link
-              to="/contatto"
-              className="inline-flex items-center gap-2 bg-white text-brand-navy font-semibold px-7 py-4 rounded-full hover:bg-brand-ivory hover:scale-[1.02] transition-all shadow-glow"
-            >
-              Richiedi una consulenza
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+            {pros.map((p, i) => (
+              <Reveal key={p.title} delay={i * 80}>
+                <div className="h-full p-7 lg:p-8 rounded-2xl bg-white border border-brand-navy/8 shadow-card">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-terracotta/10 mb-6">
+                    <p.icon className="w-6 h-6 text-brand-terracotta" />
+                  </div>
+                  <h3 className="font-display text-lg text-brand-navy mb-3 leading-snug">{p.title}</h3>
+                  <p className="text-brand-gray leading-relaxed text-sm">{p.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* Prima / Dopo */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <PrimaDopo />
           </Reveal>
         </div>
       </section>
+
+      {/* Final CTA */}
+      <FinalCTA />
     </>
   );
 }
