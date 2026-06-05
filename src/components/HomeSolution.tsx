@@ -3,7 +3,7 @@ import { Reveal } from './Reveal';
 export function HomeSolution() {
   return (
     <section className="bg-white py-20 sm:py-28">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+      <div className="mx-auto px-6 lg:px-8 space-y-14">
         <Reveal>
           <div className="max-w-2xl mx-auto text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
             <p>La soluzione immediata è sedersi e capire se:</p>
