@@ -1,29 +1,27 @@
 import { Reveal } from './Reveal';
 
-const points = [
-  "Vivo e lavoro a Firenze, facilmente reperibile. Ti aggiornerò regolarmente sull'andamento del lavoro, passo per passo.",
-  "Unendo la mia capacità di comunicazione virtuale con un'attenzione maniacale per ogni dettaglio, ti garantisco risultati concreti già entro 20 giorni.",
-  'Il prezzo è unicamente quello concordato, senza spese nascoste o «sorprese».',
-  'Ho modo di lavorare con un numero ristretto di responsabili, dandoti la sicurezza e serenità di avere una persona che ti segue da vicino, senza persone di mezzo, con la stessa energia e voglia di crescere il tuo business, quanta ne hai tu.',
+const paragraphs = [
+  'In me troverai la fiducia e serenità di un collaboratore disponibile, facile da reperire e soprattutto che ti segue con cura e attenzione.',
+  'Essendo io e basta, posso lavorare con un numero ristretto di responsabili (2–3). Seguo personalmente tutti i progetti, con la stessa voglia di raggiungere nuovi obiettivi quanta ne hai tu.',
+  'Riguardo al piano economico, il prezzo concordato è quello su cui si lavora. Niente spese aggiuntive, iscrizioni annuali, o altre «sorprese».',
 ];
 
 export function HomeWhyMe() {
   return (
     <section className="bg-white py-20 sm:py-28">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] mb-10">
-            Perché affidarsi a me?
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] mb-8">
+            Perché affidarti a me?
           </h2>
-          <ul className="space-y-5">
-            {points.map((p) => (
-              <li key={p} className="flex items-start gap-3">
-                <span aria-hidden className="mt-2.5 w-1.5 h-1.5 rounded-full bg-brand-terracotta flex-shrink-0" />
-                <span className="text-brand-navy/85 text-base sm:text-lg leading-relaxed">{p}</span>
-              </li>
-            ))}
-          </ul>
         </Reveal>
+        <div className="space-y-6">
+          {paragraphs.map((p, i) => (
+            <Reveal key={i} delay={i * 80}>
+              <p className="text-base sm:text-lg text-brand-navy/85 leading-relaxed">{p}</p>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

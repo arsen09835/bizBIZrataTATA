@@ -1,24 +1,5 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight, Star, TrendingUp, MapPin, Globe } from 'lucide-react';
+import { Star, TrendingUp, MapPin, Globe } from 'lucide-react';
 import { ServicesDropdownButton } from './ServicesDropdownButton';
-
-const bullets = [
-  {
-    bold: 'Siti Web',
-    rest: ' impattanti su chi «scrolla».',
-    to: '/servizi/siti-web',
-  },
-  {
-    bold: 'Pagine Google',
-    rest: ' che appaiono fra i primi 3 risultati nelle ricerche.',
-    to: '/servizi/visibilita-organica',
-  },
-  {
-    bold: 'Campagne Google Ads',
-    rest: ' che ritengono il mercato.',
-    to: '/servizi/visibilita-sponsorizzata',
-  },
-];
 
 export function Hero() {
   return (
@@ -28,6 +9,9 @@ export function Hero() {
         src="/pexels-iamhogir-17781874.jpg"
         alt=""
         aria-hidden
+        fetchPriority="high"
+        loading="eager"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover"
       />
 
@@ -52,47 +36,27 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-5">
-              Hai un profilo Google ma non ricevi richieste sufficienti?
+            <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-6 max-w-2xl">
+              Non stai ricevendo il volume di richieste telefoniche che vorresti?
             </h1>
 
-            <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-7 max-w-xl">
-              Realizzo soluzioni digitali su misura che <span className="italic">«riempiono»</span> le tue giornate di richieste e prenotazioni.
+            <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-4 max-w-xl">
+              Realizzo soluzioni digitali su misura per il tuo business.<br />
+              Niente agende scarne, o giornate passate ad aspettare.
             </p>
 
-            <ul className="space-y-4 mb-9 max-w-xl">
-              {bullets.map((b) => (
-                <li key={b.bold} className="flex items-start gap-3">
-                  <span
-                    aria-hidden
-                    className="mt-2.5 w-1.5 h-1.5 rounded-full bg-brand-terracotta flex-shrink-0"
-                  />
-                  <div className="flex-1">
-                    <p className="text-white text-base sm:text-lg leading-snug">
-                      <strong className="font-semibold">{b.bold}</strong>
-                      {b.rest}
-                    </p>
-                    <Link
-                      to={b.to}
-                      className="inline-flex items-center gap-1 text-sm text-brand-terracotta-soft hover:text-white font-medium mt-1 transition-colors"
-                    >
-                      Scopri di più
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-9 max-w-xl">
+              I clienti torneranno ad essere il tuo impegno principale, lasciando il «come farli arrivare» a me.
+            </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
               <a
                 href="#contatto-section"
                 className="inline-flex items-center justify-center gap-2 bg-white text-brand-navy font-semibold text-base px-6 py-3.5 rounded-full hover:bg-brand-ivory hover:scale-[1.02] transition-all shadow-glow"
               >
-                Prenota una consulenza gratuita
-                <ArrowRight className="w-4 h-4" />
+                Incontriamoci!
               </a>
-              <ServicesDropdownButton label="Consulta i Servizi" variant="dark" />
+              <ServicesDropdownButton label="Consulta le soluzioni" variant="dark" />
             </div>
           </div>
 
