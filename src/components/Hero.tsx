@@ -29,7 +29,7 @@ export function Hero() {
           loading="eager"
           decoding="async"
           onLoad={() => setLoaded(true)}
-          className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ${
+          className={`absolute inset-0 w-full h-full object-cover object-bottom transition-opacity duration-700 ${
             loaded ? 'opacity-100' : 'opacity-0'
           }`}
         />
