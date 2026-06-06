@@ -70,19 +70,6 @@ export function SitiWeb() {
             </Link>
           </Reveal>
         </div>
-
-        {/* Floating engagement card on the bottom-right */}
-        <div
-          className="hidden md:block absolute bottom-6 right-6 lg:bottom-10 lg:right-10 w-[260px] lg:w-[320px] z-10 animate-float-slow"
-          style={{ transform: 'rotate(-2deg)' }}
-        >
-          <img
-            src="/card_engagement.png"
-            alt=""
-            aria-hidden
-            className="w-full h-auto rounded-2xl shadow-card-hover"
-          />
-        </div>
       </section>
 
       {/* Section 2 — paragraph */}
@@ -110,22 +97,30 @@ export function SitiWeb() {
             </h2>
           </Reveal>
 
-          <div className="flex flex-col lg:flex-row items-start lg:items-stretch justify-center gap-8 lg:gap-10">
-            <Reveal className="w-full max-w-[440px]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-stretch justify-center gap-8 lg:gap-12">
+            {/* Diagram (1) with the engagement card (2) overlapping its bottom-right, in front */}
+            <Reveal className="relative w-full max-w-[440px]">
               <img
                 src="/container_transparent.png"
                 alt="Diagramma analisi visite per dispositivi"
                 className="w-full h-auto block rounded-2xl"
                 style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
               />
+              <img
+                src="/card_engagement.png"
+                alt=""
+                aria-hidden
+                className="absolute z-20 -bottom-8 right-0 lg:-right-10 w-[58%] max-w-[260px] rounded-2xl shadow-card-hover animate-float-slow"
+                style={{ transform: 'rotate(-2deg)' }}
+              />
             </Reveal>
 
-            <Reveal className="w-full max-w-sm flex flex-col lg:pt-8" delay={120}>
+            <Reveal className="w-full max-w-md flex flex-col lg:pt-8" delay={120}>
               <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
                 La maggior parte dei tuoi clienti ti troveranno dal cellulare. Attraverso un design che calza a pennello sia sul computer, che tablet, che sul più piccolo dei cellulari, si garantisce un'esperienza di navigazione impeccabile per ogni utente che entra nel tuo sito web.
               </p>
-              <p className="mt-6 lg:mt-auto text-sm italic text-brand-gray text-left">
-                Diagramma preso dall'analisi sul progetto corrente{' '}
+              <p className="mt-8 lg:mt-auto text-sm italic text-brand-gray text-left">
+                Diagramma preso dai dati sul progetto corrente{' '}
                 <a
                   href="https://brunoantichita.it/"
                   target="_blank"
@@ -167,8 +162,8 @@ export function SitiWeb() {
             ))}
           </div>
 
-          <Reveal className="mt-12 max-w-3xl">
-            <p className="text-base sm:text-lg text-brand-navy/85 leading-relaxed">
+          <Reveal className="mt-12 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-brand-navy/85 leading-relaxed text-center">
               Se hai un sito creato da un'agenzia e nasce il bisogno di apportare modifiche per una migliore coordinazione col Profilo oppure Annunci, mi metterò d'accordo con l'agenzia di riferimento, effettuando il restyling gratuitamente, se già stiamo lavorando sul SEO oppure Campagne di annunci.
             </p>
           </Reveal>
