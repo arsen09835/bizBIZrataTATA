@@ -98,24 +98,17 @@ export function SitiWeb() {
           </Reveal>
 
           <div className="flex flex-col lg:flex-row items-start justify-center gap-8 lg:gap-12">
-            {/* Left column — diagram (1) with the engagement card (2) static beneath it */}
-            <Reveal className="w-full max-w-[440px] flex flex-col gap-6">
+            {/* Left column — diagram (1) */}
+            <Reveal className="w-full max-w-[440px]">
               <img
                 src="/container_transparent.png"
                 alt="Diagramma analisi visite per dispositivi"
                 className="w-full h-auto block rounded-2xl"
                 style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
               />
-              <img
-                src="/card_engagement.png"
-                alt=""
-                aria-hidden
-                className="w-full h-auto block rounded-2xl"
-                style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
-              />
             </Reveal>
 
-            {/* Right column — paragraph (3) then caption (4) below it */}
+            {/* Right column — paragraph (3), caption (4), then the engagement card (2) below */}
             <Reveal className="w-full max-w-xl lg:pt-8" delay={120}>
               <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
                 La maggior parte dei tuoi clienti ti troveranno dal cellulare. Attraverso un design che calza a pennello sia sul computer, che tablet, che sul più piccolo dei cellulari, si garantisce un'esperienza di navigazione impeccabile per ogni utente che entra nel tuo sito web.
@@ -131,6 +124,13 @@ export function SitiWeb() {
                   https://brunoantichita.it/
                 </a>
               </p>
+              <img
+                src="/card_engagement.png"
+                alt=""
+                aria-hidden
+                className="mt-8 w-full max-w-[308px] h-auto block rounded-2xl"
+                style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
+              />
             </Reveal>
           </div>
         </div>
