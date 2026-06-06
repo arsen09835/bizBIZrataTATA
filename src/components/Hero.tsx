@@ -29,24 +29,16 @@ export function Hero() {
           loading="eager"
           decoding="async"
           onLoad={() => setLoaded(true)}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+          className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-700 ${
             loaded ? 'opacity-100' : 'opacity-0'
           }`}
         />
-
-        {/* Darkening overlay — stronger on the left where the copy sits */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/85 via-brand-ink/65 to-brand-ink/35" />
-        <div className="absolute inset-0 bg-brand-ink/25" />
-
-        {/* Soft warm bokeh, kept subtle on the dark backdrop */}
-        <div className="absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full bg-brand-terracotta/15 blur-3xl" />
-        <div className="absolute -bottom-40 -left-32 w-[500px] h-[500px] rounded-full bg-brand-terracotta/8 blur-3xl" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-8 lg:px-8 pt-20 pb-10 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 w-full">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* LEFT */}
-          <div className="lg:col-span-6 text-left animate-fade-up">
+          <div className="lg:col-span-7 text-left animate-fade-up">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/15 shadow-pill mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-terracotta animate-pulse" />
               <span className="text-xs font-medium text-white/90 tracking-wide">
@@ -54,16 +46,16 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-6 max-w-2xl">
-              Non stai ricevendo il volume di richieste telefoniche che vorresti?
+            <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-[3.4rem] leading-[1.1] lg:leading-[1.06] tracking-tight mb-6 max-w-2xl lg:max-w-[50rem]">
+              Non ricevi il volume di richieste che vorresti?
             </h1>
 
-            <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-4 max-w-xl">
+            <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-4 max-w-xl lg:max-w-2xl">
               Realizzo soluzioni digitali su misura per il tuo business.<br />
               Niente agende scarne, o giornate passate ad aspettare.
             </p>
 
-            <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-9 max-w-xl">
+            <p className="text-white/85 text-base sm:text-lg leading-relaxed mb-9 max-w-xl lg:max-w-2xl">
               I clienti torneranno ad essere il tuo impegno principale, lasciando il «come farli arrivare» a me.
             </p>
 
@@ -79,7 +71,7 @@ export function Hero() {
           </div>
 
           {/* RIGHT — floating mockup cards */}
-          <div className="lg:col-span-6 relative h-[380px] sm:h-[460px] lg:h-[520px] hidden sm:block">
+          <div className="lg:col-span-5 relative h-[380px] sm:h-[460px] lg:h-[520px] hidden sm:block">
             <div
               className="absolute top-0 right-0 w-[78%] bg-white rounded-2xl shadow-card-hover overflow-hidden animate-float-slow"
               style={{ transform: 'rotate(-1.2deg)' }}
