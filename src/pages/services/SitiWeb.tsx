@@ -49,7 +49,7 @@ export function SitiWeb() {
             loading="eager"
             decoding="async"
             onLoad={() => setLoaded(true)}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            className={`absolute inset-0 w-full h-full object-cover object-[center_75%] transition-opacity duration-700 ${
               loaded ? 'opacity-100' : 'opacity-0'
             }`}
           />
@@ -97,9 +97,9 @@ export function SitiWeb() {
             </h2>
           </Reveal>
 
-          <div className="flex flex-col lg:flex-row items-start lg:items-stretch justify-center gap-8 lg:gap-12">
-            {/* Diagram (1) with the engagement card (2) overlapping its bottom-right, in front */}
-            <Reveal className="relative w-full max-w-[440px]">
+          <div className="flex flex-col lg:flex-row items-start justify-center gap-8 lg:gap-12">
+            {/* Left column — diagram (1) with the engagement card (2) static beneath it */}
+            <Reveal className="w-full max-w-[440px] flex flex-col gap-6">
               <img
                 src="/container_transparent.png"
                 alt="Diagramma analisi visite per dispositivi"
@@ -110,16 +110,17 @@ export function SitiWeb() {
                 src="/card_engagement.png"
                 alt=""
                 aria-hidden
-                className="absolute z-20 -bottom-8 right-0 lg:-right-10 w-[58%] max-w-[260px] rounded-2xl shadow-card-hover animate-float-slow"
-                style={{ transform: 'rotate(-2deg)' }}
+                className="w-full h-auto block rounded-2xl"
+                style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
               />
             </Reveal>
 
-            <Reveal className="w-full max-w-md flex flex-col lg:pt-8" delay={120}>
+            {/* Right column — paragraph (3) then caption (4) below it */}
+            <Reveal className="w-full max-w-xl lg:pt-8" delay={120}>
               <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
                 La maggior parte dei tuoi clienti ti troveranno dal cellulare. Attraverso un design che calza a pennello sia sul computer, che tablet, che sul più piccolo dei cellulari, si garantisce un'esperienza di navigazione impeccabile per ogni utente che entra nel tuo sito web.
               </p>
-              <p className="mt-8 lg:mt-auto text-sm italic text-brand-gray text-left">
+              <p className="mt-8 text-sm italic text-brand-gray text-left">
                 Diagramma preso dai dati sul progetto corrente{' '}
                 <a
                   href="https://brunoantichita.it/"
