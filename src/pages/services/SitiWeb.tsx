@@ -34,13 +34,11 @@ export function SitiWeb() {
       {/* Hero */}
       <section className="relative min-h-[58vh] flex items-center bg-brand-ink">
         <div className="absolute inset-0 overflow-hidden">
-          {/* Instant blurred placeholder */}
           <div
             aria-hidden
             className="absolute inset-0 bg-cover bg-center scale-105 blur-xl"
             style={{ backgroundImage: `url(${sitiHeroLqip})` }}
           />
-          {/* Background photo */}
           <img
             src="/siti-hero.jpg"
             srcSet="/siti-hero-960.jpg 960w, /siti-hero-1440.jpg 1440w, /siti-hero.jpg 1920w"
@@ -55,8 +53,7 @@ export function SitiWeb() {
               loaded ? 'opacity-100' : 'opacity-0'
             }`}
           />
-          {/* Soft side wash — only enough to keep the title legible */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent" />
         </div>
 
         <div className="relative max-w-6xl mx-auto px-8 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-24 w-full">
@@ -72,6 +69,19 @@ export function SitiWeb() {
               <ArrowRight className="w-4 h-4" />
             </Link>
           </Reveal>
+        </div>
+
+        {/* Floating engagement card on the bottom-right */}
+        <div
+          className="hidden md:block absolute bottom-6 right-6 lg:bottom-10 lg:right-10 w-[260px] lg:w-[320px] z-10 animate-float-slow"
+          style={{ transform: 'rotate(-2deg)' }}
+        >
+          <img
+            src="/card_engagement.png"
+            alt=""
+            aria-hidden
+            className="w-full h-auto rounded-2xl shadow-card-hover"
+          />
         </div>
       </section>
 
