@@ -47,7 +47,7 @@ function PrimaDopo() {
   const isAfter = tab === 'after';
   const stats = isAfter ? afterStats : beforeStats;
   const mapSrc = isAfter ? '/map-after.png' : '/map-before.png';
-  const badgeBg = isAfter ? 'bg-brand-green' : 'bg-red-700';
+  const badgeBg = isAfter ? 'bg-emerald-600' : 'bg-red-700';
 
   return (
     <div className="rounded-3xl bg-white border border-brand-navy/8 shadow-card p-5 sm:p-7 lg:p-8">
@@ -114,9 +114,11 @@ function PrimaDopo() {
  * Original design in our palette (navy / ivory / terracotta) — not a
  * reproduction of any specific brand mark.
  */
-function LocationPin() {
+function LocationPin({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
+  const isDark = variant === 'dark';
+  const gradId = isDark ? 'seoPinGradDark' : 'seoPinGradLight';
   return (
-    <div className="relative w-full max-w-[260px] mx-auto animate-float-slow">
+    <div className="relative w-full max-w-[200px] mx-auto animate-float-slow">
       <svg
         viewBox="0 0 220 280"
         className="w-full h-auto"
@@ -125,17 +127,21 @@ function LocationPin() {
         aria-hidden
       >
         <defs>
-          <linearGradient id="seoPinGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#2A4670" />
-            <stop offset="100%" stopColor="#1E3557" />
+          <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor={isDark ? '#3a6090' : '#2A4670'} />
+            <stop offset="100%" stopColor={isDark ? '#2A4670' : '#1E3557'} />
           </linearGradient>
         </defs>
         {/* Decorative outer ring */}
-        <circle cx="110" cy="105" r="100" fill="none" stroke="#C9784A" strokeWidth="1.2" strokeDasharray="2 6" strokeOpacity="0.35" />
+        {isDark ? (
+          <circle cx="110" cy="105" r="100" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2" strokeDasharray="2 6" />
+        ) : (
+          <circle cx="110" cy="105" r="100" fill="none" stroke="#C9784A" strokeWidth="1.2" strokeDasharray="2 6" strokeOpacity="0.35" />
+        )}
         {/* Pin body */}
         <path
           d="M110 8 C55 8, 16 47, 16 102 C16 178, 110 268, 110 268 C110 268, 204 178, 204 102 C204 47, 165 8, 110 8 Z"
-          fill="url(#seoPinGrad)"
+          fill={`url(#${gradId})`}
         />
         {/* Inner ivory */}
         <circle cx="110" cy="100" r="36" fill="#F7F4EF" />
@@ -190,13 +196,7 @@ export function VisibilitaOrganica() {
             </Reveal>
 
             <Reveal className="lg:col-span-5 hidden lg:block" delay={120}>
-              <img
-                src="/card_seo.png"
-                alt=""
-                aria-hidden
-                className="w-full h-auto rounded-2xl shadow-card-hover animate-float-slow"
-                style={{ transform: 'rotate(-2deg)' }}
-              />
+              <LocationPin variant="dark" />
             </Reveal>
           </div>
         </div>
@@ -208,13 +208,13 @@ export function VisibilitaOrganica() {
       <section className="bg-white py-20 sm:py-28">
         <div className="max-w-6xl mx-auto px-8 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <Reveal className="lg:col-span-5 flex justify-center" delay={120}>
+              <LocationPin />
+            </Reveal>
             <Reveal className="lg:col-span-7">
               <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
                 Presentarsi bene potrebbe non bastare, se non abbastanza utenti vedono il tuo profilo. Se sei in fondo ai risultati, è come avere il miglior negozio in mezzo ad una strada poco trafficata.
               </p>
-            </Reveal>
-            <Reveal className="lg:col-span-5 flex justify-center" delay={120}>
-              <LocationPin />
             </Reveal>
           </div>
         </div>
