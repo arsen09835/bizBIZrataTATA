@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ArrowRight, Store, PhoneCall, ShoppingBag } from 'lucide-react';
 import { Reveal } from '../../components/Reveal';
 import { Divider } from '../../components/Divider';
@@ -61,13 +60,13 @@ export function SitiWeb() {
             <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-10 max-w-3xl">
               Siti Web che catturano il cliente e lo invogliano a cercarti.
             </h1>
-            <Link
-              to="/contatto"
+            <a
+              href="mailto:info@rankmybizup.com"
               className="inline-flex items-center gap-2 bg-white text-brand-navy font-semibold px-6 py-3.5 rounded-full hover:bg-brand-ivory hover:scale-[1.02] transition-all shadow-glow"
             >
               Contattami
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </Reveal>
         </div>
       </section>

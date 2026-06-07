@@ -38,11 +38,6 @@ export function Footer() {
                   Visibilità sponsorizzata
                 </Link>
               </li>
-              <li>
-                <Link to="/portfolio" className="text-brand-navy/80 hover:text-brand-terracotta transition-colors">
-                  Portfolio
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -68,11 +63,6 @@ export function Footer() {
                   <Phone className="w-4 h-4" />
                   +39 331 760 0310
                 </a>
-              </li>
-              <li>
-                <Link to="/contatto" className="text-brand-navy/80 hover:text-brand-terracotta transition-colors">
-                  Richiedi una consulenza
-                </Link>
               </li>
             </ul>
           </div>

@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import { Reveal } from './Reveal';
 import { ServicesDropdownButton } from './ServicesDropdownButton';
 
@@ -17,7 +15,7 @@ export function FinalCTA() {
             Pronto a dare una svolta alla tua attività su Google?
           </h2>
           <p className="text-lg text-white/80 leading-relaxed mb-10 max-w-2xl mx-auto">
-            Consulta i servizi o prenota una consulenza [senza impegno] via email su{' '}
+            Consulta i servizi o prenota una consulenza (senza impegno) via email su{' '}
             <a
               href="mailto:info@rankmybizup.com"
               className="text-brand-terracotta-soft underline underline-offset-4 decoration-brand-terracotta-soft/40 hover:decoration-brand-terracotta-soft transition-colors"
@@ -31,17 +29,10 @@ export function FinalCTA() {
             >
               +39 331 760 0310
             </a>
-            , in cui ti darò 3 consigli gratuiti applicabili immediatamente su come migliorare la visibilità nelle ricerche organiche [SEO].
+            , in cui ti darò 3 consigli gratuiti applicabili immediatamente su come migliorare la visibilità nelle ricerche organiche (SEO).
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center sm:items-start">
-            <Link
-              to="/contatto"
-              className="inline-flex items-center justify-center gap-2 bg-white text-brand-navy font-semibold px-7 py-4 rounded-full hover:bg-brand-ivory hover:scale-[1.02] transition-all shadow-glow"
-            >
-              Conosciamoci!
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+          <div className="flex justify-center">
             <ServicesDropdownButton label="Guarda i servizi" variant="dark" />
           </div>
         </Reveal>
