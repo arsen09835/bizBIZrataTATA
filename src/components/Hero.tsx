@@ -7,7 +7,7 @@ export function Hero() {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <section className="relative min-h-[92vh] flex items-start sm:items-center bg-brand-ink">
+    <section className="relative min-h-[75vh] flex items-start bg-brand-ink">
       {/* Background layer — clipped here so the section itself can let the
           services dropdown overflow without being cut off */}
       <div className="absolute inset-0 overflow-hidden">
@@ -20,22 +20,20 @@ export function Hero() {
 
         {/* Background photo — responsive sizes, fades in once decoded */}
         <img
-          src="/hero.jpg"
-          srcSet="/hero-960.jpg 960w, /hero-1440.jpg 1440w, /hero.jpg 1920w"
-          sizes="100vw"
+          src="/pexels-pavel-danilyuk-6612709.jpg"
           alt=""
           aria-hidden
           fetchPriority="high"
           loading="eager"
           decoding="async"
           onLoad={() => setLoaded(true)}
-          className={`absolute inset-0 w-full h-full object-cover object-bottom transition-opacity duration-700 ${
+          className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-700 ${
             loaded ? 'opacity-100' : 'opacity-0'
           }`}
         />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-8 lg:px-8 pt-20 pb-10 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 w-full">
+      <div className="relative max-w-6xl mx-auto px-8 lg:px-8 pt-24 pb-10 sm:pt-28 sm:pb-16 lg:pt-28 lg:pb-20 w-full">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* LEFT */}
           <div className="lg:col-span-7 text-left animate-fade-up">
@@ -46,7 +44,7 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-[3.4rem] leading-[1.1] lg:leading-[1.06] tracking-tight mb-6 max-w-2xl lg:max-w-[50rem]">
+            <h1 className="font-display font-bold text-white text-4xl sm:text-5xl lg:text-[4rem] leading-[1.1] lg:leading-[1.06] tracking-tight mb-6 max-w-2xl lg:max-w-[50rem]">
               Non ricevi il volume di richieste che vorresti?
             </h1>
 
@@ -60,12 +58,6 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start">
-              <a
-                href="#contatto-section"
-                className="inline-flex items-center justify-center gap-2 bg-white text-brand-navy font-semibold text-base px-6 py-3.5 rounded-full hover:bg-brand-ivory hover:scale-[1.02] transition-all shadow-glow"
-              >
-                Incontriamoci!
-              </a>
               <ServicesDropdownButton label="Consulta le soluzioni" variant="dark" />
             </div>
           </div>
