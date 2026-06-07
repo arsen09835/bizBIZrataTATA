@@ -195,8 +195,10 @@ export function VisibilitaOrganica() {
               </p>
             </Reveal>
 
-            <Reveal className="lg:col-span-5 hidden lg:block" delay={120}>
-              <LocationPin variant="dark" />
+            <Reveal className="lg:col-span-5 hidden lg:block lg:self-start" delay={120}>
+              <div className="w-[150px] ml-auto lg:-translate-y-10 lg:translate-x-4">
+                <LocationPin variant="dark" />
+              </div>
             </Reveal>
           </div>
         </div>
@@ -209,7 +211,13 @@ export function VisibilitaOrganica() {
         <div className="max-w-6xl mx-auto px-8 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             <Reveal className="lg:col-span-5 flex justify-center" delay={120}>
-              <LocationPin />
+              <img
+                src="/card_seo.png"
+                alt=""
+                aria-hidden
+                className="h-24 sm:h-28 w-auto rounded-2xl"
+                style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
+              />
             </Reveal>
             <Reveal className="lg:col-span-7">
               <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
