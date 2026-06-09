@@ -31,6 +31,12 @@ export function Hero() {
             loaded ? 'opacity-100' : 'opacity-0'
           }`}
         />
+
+        {/* Neutral dark overlay for text contrast */}
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/35"
+        />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-8 lg:px-8 pt-24 pb-10 sm:pt-28 sm:pb-16 lg:pt-28 lg:pb-20 w-full">
