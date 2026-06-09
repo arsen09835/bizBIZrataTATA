@@ -20,7 +20,7 @@ export function Hero() {
 
         {/* Background photo — responsive sizes, fades in once decoded */}
         <img
-          src="/pexels-pavel-danilyuk-6612709.jpg"
+          src="/pexels-gezginfoto-16382753.jpg"
           alt=""
           aria-hidden
           fetchPriority="high"
