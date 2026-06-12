@@ -5,6 +5,7 @@ import { Home } from './pages/Home';
 import { SitiWeb } from './pages/services/SitiWeb';
 import { VisibilitaOrganica } from './pages/services/VisibilitaOrganica';
 import { VisibilitaSponsorizzata } from './pages/services/VisibilitaSponsorizzata';
+import { Prezzi } from './pages/Prezzi';
 import { NotFound } from './pages/NotFound';
 
 function ScrollToTop() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/servizi/siti-web" element={<SitiWeb />} />
           <Route path="/servizi/visibilita-organica" element={<VisibilitaOrganica />} />
           <Route path="/servizi/visibilita-sponsorizzata" element={<VisibilitaSponsorizzata />} />
+          <Route path="/prezzi" element={<Prezzi />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
