@@ -18,7 +18,7 @@ export function HomeIntro() {
             <Reveal className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-[280px]">
                 <img
-                  src="/visual-phone.png"
+                  src="/phone_google.svg"
                   alt=""
                   aria-hidden
                   loading="lazy"
