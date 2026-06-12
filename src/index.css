@@ -74,14 +74,3 @@ h1, h2, h3, h4, h5, h6 {
       rgba(201, 120, 74, 0.04) 24px
     );
 }
-
-/* Diagonal lines drift — FinalCTA */
-.diag-lines {
-  animation: diag-move 5s linear infinite;
-  will-change: transform;
-}
-
-@keyframes diag-move {
-  from { transform: translate(0, 0); }
-  to   { transform: translate(13px, 22.517px); }
-}

@@ -12,8 +12,8 @@ export function Home() {
       <HomeIntro />
       <CosaTiServe />
       <PercheMe />
-      <FinalCTA />
       <FAQ />
+      <FinalCTA />
     </>
   );
 }
