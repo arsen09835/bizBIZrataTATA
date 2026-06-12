@@ -14,7 +14,7 @@ export function Footer() {
               <span className="font-display font-bold text-white text-lg">Rank My Biz Up</span>
             </div>
             <p className="text-sm text-white/60 leading-relaxed">
-              Aiuto le attività di Firenze a farsi trovare online. Con calma, e una persona alla volta.
+              La tua passione per il mestiere, unita alla mia per il digitale, porteranno la tua impresa allo step successivo.
             </p>
           </div>
 

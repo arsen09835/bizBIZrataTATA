@@ -16,16 +16,14 @@ export function HomeIntro() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <Reveal className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-[280px]">
-                <img
-                  src="/phone_google.svg"
-                  alt=""
-                  aria-hidden
-                  loading="lazy"
-                  className="w-full animate-float-slow"
-                  style={{ mixBlendMode: 'multiply' }}
-                />
-              </div>
+              <img
+                src="/phone_google.svg"
+                alt=""
+                aria-hidden
+                loading="lazy"
+                className="w-auto h-auto max-h-[200px] animate-float-slow"
+                style={{ mixBlendMode: 'multiply' }}
+              />
             </Reveal>
 
             <Reveal className="lg:col-span-7" delay={120}>

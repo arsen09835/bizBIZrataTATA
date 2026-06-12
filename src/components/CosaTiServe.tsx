@@ -30,7 +30,7 @@ export function CosaTiServe() {
       className="bg-[#F8F9FA] py-20 sm:py-28 scroll-mt-20"
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <Reveal>
+        <Reveal duration={450}>
           <p className="text-xs uppercase tracking-[0.18em] text-brand-brown font-semibold mb-3">
             La base
           </p>
@@ -41,7 +41,7 @@ export function CosaTiServe() {
 
         <div className="grid md:grid-cols-3 gap-5 mt-12">
           {items.map((it, i) => (
-            <Reveal key={it.to} delay={i * 80}>
+            <Reveal key={it.to} delay={i * 50} duration={450}>
               <Link
                 to={it.to}
                 className="group block h-full p-7 rounded-xl bg-white border border-black/8 shadow-sm hover:shadow-[0_20px_45px_rgba(15,23,34,0.10)] hover:-translate-y-1 transition-all"

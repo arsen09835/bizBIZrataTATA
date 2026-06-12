@@ -75,29 +75,13 @@ h1, h2, h3, h4, h5, h6 {
     );
 }
 
-/* Growth paths animation — FinalCTA */
-.growth-path {
-  stroke-dasharray: 1200;
-  stroke-dashoffset: 1200;
-  animation: draw-growth var(--path-duration, 20s) ease-in-out var(--path-delay, 0s) infinite;
+/* Diagonal lines drift — FinalCTA */
+.diag-lines {
+  animation: diag-move 5s linear infinite;
+  will-change: transform;
 }
 
-@keyframes draw-growth {
-  0% {
-    stroke-dashoffset: 1200;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  50% {
-    stroke-dashoffset: 0;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    stroke-dashoffset: -1200;
-    opacity: 0;
-  }
+@keyframes diag-move {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(13px, 22.517px); }
 }
