@@ -3,7 +3,7 @@ import { MapPin, Mail, Phone } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-brand-navy">
+    <footer className="bg-ink">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8">
           <div className="col-span-2 md:col-span-1">
@@ -14,7 +14,7 @@ export function Footer() {
               <span className="font-display font-bold text-white text-lg">Rank My Biz Up</span>
             </div>
             <p className="text-sm text-white/60 leading-relaxed">
-              La tua passione per il mestiere, unita alla mia per il digitale, porteranno la tua impresa allo step successivo.
+              La tua passione per il mestiere, unita alla mia per il digitale, porteranno la tua impresa in cima al mercato locale.
             </p>
           </div>
 

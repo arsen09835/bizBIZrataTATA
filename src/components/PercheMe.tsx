@@ -30,7 +30,7 @@ export function PercheMe() {
             </div>
           </Reveal>
 
-          <div className="p-2 max-w-4xl mx-auto w-full">
+          <div className="p-2 max-w-2xl mx-auto w-full">
             {points.map((p, i) => (
               <Reveal key={i} delay={i * 50} duration={450}>
                 <div className="flex gap-4 p-4 sm:p-5 rounded-lg hover:bg-black/[0.03] transition">

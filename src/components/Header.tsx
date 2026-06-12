@@ -24,10 +24,9 @@ const services = [
 ];
 
 function Wordmark() {
-  // Single-color brand wordmark (clean, distinct from third-party trade dress).
   return (
-    <span className="font-display font-bold text-lg tracking-tight text-ink">
-      Rank<span className="text-brand-blue">My</span>BizUp
+    <span className="font-display font-bold text-lg tracking-tight">
+      <span className="text-g-red">Ra</span><span className="text-g-yellow">nk</span><span className="text-g-blue">My</span><span className="text-g-green">Biz</span><span className="text-g-red">Up</span>
     </span>
   );
 }
@@ -143,7 +142,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* LOGO */}
           <Link to="/" className="flex items-center gap-2">
-            <MapPin className="w-5 h-5 text-g-green" />
+            <MapPin className="w-5 h-5 text-g-blue" />
             <Wordmark />
           </Link>
 
