@@ -20,24 +20,28 @@ export function PercheMe() {
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <Reveal>
-          <h2 className="font-display text-3xl sm:text-4xl text-ink leading-[1.15]">
-            Perché scegliere me
-            <span className="text-ink/45 font-semibold"> (e non il fai da te o le mega agenzie)</span>
-          </h2>
-        </Reveal>
+        <div className="bg-white rounded-xl border border-black/8 shadow-[0_20px_50px_rgba(15,23,34,0.10)] overflow-hidden">
+          <Reveal>
+            <div className="px-6 sm:px-8 pt-8 pb-4">
+              <h2 className="font-display text-3xl sm:text-4xl text-ink leading-[1.15]">
+                Perché scegliere me
+                <span className="text-ink/45 font-semibold"> (e non il fai da te o le mega agenzie)</span>
+              </h2>
+            </div>
+          </Reveal>
 
-        <div className="mt-10 bg-white rounded-xl border border-black/8 shadow-[0_20px_50px_rgba(15,23,34,0.10)] p-2">
-          {points.map((p, i) => (
-            <Reveal key={i} delay={i * 80}>
-              <div className="flex gap-4 p-4 sm:p-5 rounded-lg hover:bg-black/[0.03] transition">
-                <div className="w-12 h-12 rounded-md border border-black/8 shadow-sm flex-shrink-0 flex items-center justify-center">
-                  <p.icon className="w-5 h-5 text-brand-brown" />
+          <div className="p-2">
+            {points.map((p, i) => (
+              <Reveal key={i} delay={i * 80}>
+                <div className="flex gap-4 p-4 sm:p-5 rounded-lg hover:bg-black/[0.03] transition">
+                  <div className="w-12 h-12 rounded-md border border-black/8 shadow-sm flex-shrink-0 flex items-center justify-center">
+                    <p.icon className="w-5 h-5 text-brand-brown" />
+                  </div>
+                  <p className="text-ink/80 leading-relaxed">{p.text}</p>
                 </div>
-                <p className="text-ink/80 leading-relaxed">{p.text}</p>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
