@@ -24,8 +24,8 @@ export function PercheMe() {
           <Reveal duration={450}>
             <div className="px-6 sm:px-8 pt-8 pb-4">
               <h2 className="font-display text-2xl sm:text-3xl lg:text-[2rem] text-ink leading-[1.15] lg:whitespace-nowrap">
-                Perché scegliere me
-                <span className="text-ink/45 font-semibold"> (e non il fai da te o le mega agenzie)</span>
+                Perché scegliere me{' '}
+                <span className="block lg:inline text-ink/45 font-semibold">(e non il fai da te o le mega agenzie)</span>
               </h2>
             </div>
           </Reveal>

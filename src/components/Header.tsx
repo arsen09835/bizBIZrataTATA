@@ -66,6 +66,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [serviziOpen, setServiziOpen] = useState(false);
+  const [mobileServiziOpen, setMobileServiziOpen] = useState(false);
   const serviziWrapRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<number | null>(null);
   const location = useLocation();
@@ -81,6 +82,7 @@ export function Header() {
   useEffect(() => {
     setMobileOpen(false);
     setServiziOpen(false);
+    setMobileServiziOpen(false);
   }, [location.pathname]);
 
   // Outside click + Escape to close Servizi
@@ -253,13 +255,36 @@ export function Header() {
             Home
           </NavLink>
 
-          <div className="text-xs uppercase tracking-wider text-ink/45 font-semibold mt-4 mb-1 px-3">
+          <button
+            type="button"
+            onClick={() => setMobileServiziOpen((o) => !o)}
+            aria-expanded={mobileServiziOpen}
+            className="mt-2 w-full flex items-center justify-between gap-2 px-3 py-3 rounded-md text-base font-medium text-ink hover:bg-black/[0.04] transition"
+          >
             Servizi
-          </div>
-          <div className="flex flex-col">
-            {services.map((s) => (
-              <ServiceCard key={s.to} to={s.to} icon={s.icon} title={s.title} desc={s.desc} />
-            ))}
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-200 ${mobileServiziOpen ? 'rotate-180' : ''}`}
+            />
+          </button>
+          <div
+            className={`grid transition-all duration-300 ease-out ${
+              mobileServiziOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+            }`}
+          >
+            <div className="overflow-hidden">
+              <div className="flex flex-col pt-1">
+                {services.map((s) => (
+                  <ServiceCard
+                    key={s.to}
+                    to={s.to}
+                    icon={s.icon}
+                    title={s.title}
+                    desc={s.desc}
+                    onClick={() => setMobileOpen(false)}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
           <NavLink
