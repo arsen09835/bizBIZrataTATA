@@ -1,3 +1,5 @@
+import { Globe, Search, Megaphone, TrendingUp, BarChart3 } from 'lucide-react';
+
 export function NewHero() {
   const handleScrollToCosaTiServe = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -16,28 +18,37 @@ export function NewHero() {
         }}
       />
 
-      {/* Background visuals — small, decorative, transparent PNGs */}
-      <img
-        src="/visual-arrow.png"
-        alt=""
+      {/* Floating icon visuals — no background, transparent */}
+      <div
         aria-hidden
-        loading="lazy"
-        className="absolute left-[4%] top-[18%] w-24 lg:w-32 rotate-[-6deg] opacity-90 hidden sm:block animate-float-slow"
-      />
-      <img
-        src="/visual-seo.png"
-        alt=""
+        className="absolute left-[4%] top-[20%] hidden sm:flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-white/80 backdrop-blur-sm border border-black/8 shadow-card rotate-[-6deg] animate-float-slow"
+      >
+        <Globe className="w-7 h-7 lg:w-8 lg:h-8 text-brand-blue" />
+      </div>
+      <div
         aria-hidden
-        loading="lazy"
-        className="absolute right-[3%] top-[14%] w-28 lg:w-40 rotate-[4deg] opacity-90 hidden md:block animate-float-slower"
-      />
-      <img
-        src="/visual-ads.png"
-        alt=""
+        className="absolute right-[3%] top-[14%] hidden md:flex items-center justify-center w-18 h-18 lg:w-24 lg:h-24 rounded-2xl bg-white/80 backdrop-blur-sm border border-black/8 shadow-card rotate-[4deg] animate-float-slower"
+      >
+        <Search className="w-8 h-8 lg:w-10 lg:h-10 text-brand-blue" />
+      </div>
+      <div
         aria-hidden
-        loading="lazy"
-        className="absolute right-[10%] bottom-[8%] w-20 lg:w-28 rotate-[-3deg] opacity-90 hidden lg:block animate-float-slow"
-      />
+        className="absolute right-[10%] bottom-[10%] hidden lg:flex items-center justify-center w-14 h-14 lg:w-18 lg:h-18 rounded-2xl bg-white/80 backdrop-blur-sm border border-black/8 shadow-card rotate-[-3deg] animate-float-slow"
+      >
+        <Megaphone className="w-6 h-6 lg:w-8 lg:h-8 text-brand-blue" />
+      </div>
+      <div
+        aria-hidden
+        className="absolute left-[12%] bottom-[14%] hidden lg:flex items-center justify-center w-12 h-12 lg:w-16 lg:h-16 rounded-2xl bg-white/80 backdrop-blur-sm border border-black/8 shadow-card rotate-[3deg] animate-float-slower"
+      >
+        <TrendingUp className="w-5 h-5 lg:w-7 lg:h-7 text-g-green" />
+      </div>
+      <div
+        aria-hidden
+        className="absolute right-[22%] top-[8%] hidden xl:flex items-center justify-center w-12 h-12 rounded-2xl bg-white/80 backdrop-blur-sm border border-black/8 shadow-card rotate-[2deg] animate-float-slow"
+      >
+        <BarChart3 className="w-5 h-5 text-brand-brown" />
+      </div>
 
       <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-20 pb-24 sm:pt-28 sm:pb-32 text-center">
         <div className="max-w-3xl mx-auto">
