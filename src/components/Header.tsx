@@ -1,93 +1,289 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { MapPin, Menu, X, Phone, Mail } from 'lucide-react';
+import { MapPin, Menu, X, ChevronDown, Globe, Search, Megaphone } from 'lucide-react';
 
 const services = [
-  { to: '/servizi/siti-web', label: 'Siti web' },
-  { to: '/servizi/visibilita-organica', label: 'Visibilità organica (SEO)' },
-  { to: '/servizi/visibilita-sponsorizzata', label: 'Visibilità sponsorizzata' },
+  {
+    to: '/servizi/siti-web',
+    icon: Globe,
+    title: 'Creazione e Restyling di Siti Web',
+    desc: 'Siti professionali che comunicano valore e convertono visite in clienti.',
+  },
+  {
+    to: '/servizi/visibilita-organica',
+    icon: Search,
+    title: 'SEO visibilità organica',
+    desc: 'Comparire fra i primi risultati su Google, senza pagare per ogni click.',
+  },
+  {
+    to: '/servizi/visibilita-sponsorizzata',
+    icon: Megaphone,
+    title: 'Sponsorizzazioni tramite Campagne Google Ads',
+    desc: 'Annunci mirati che portano gli utenti giusti verso la tua attività.',
+  },
 ];
 
-const transparentRoutes = [
-  '/',
-  '/servizi/siti-web',
-  '/servizi/visibilita-organica',
-  '/servizi/visibilita-sponsorizzata',
-];
+function Wordmark() {
+  // Single-color brand wordmark (clean, distinct from third-party trade dress).
+  return (
+    <span className="font-display font-bold text-lg tracking-tight text-ink">
+      Rank<span className="text-brand-blue">My</span>BizUp
+    </span>
+  );
+}
+
+function ServiceCard({
+  to,
+  icon: Icon,
+  title,
+  desc,
+  onClick,
+}: {
+  to: string;
+  icon: typeof Globe;
+  title: string;
+  desc: string;
+  onClick?: () => void;
+}) {
+  return (
+    <Link
+      to={to}
+      onClick={onClick}
+      className="flex flex-row gap-3 p-3 rounded-lg hover:bg-black/[0.04] transition"
+    >
+      <div className="w-12 h-12 rounded-md border border-black/8 bg-white shadow-sm flex items-center justify-center flex-shrink-0">
+        <Icon className="w-5 h-5 text-brand-blue" />
+      </div>
+      <div className="min-w-0">
+        <div className="text-sm font-semibold text-ink">{title}</div>
+        <div className="text-xs text-ink/55 mt-0.5">{desc}</div>
+      </div>
+    </Link>
+  );
+}
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [serviziOpen, setServiziOpen] = useState(false);
+  const serviziWrapRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<number | null>(null);
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Close menus on route change
   useEffect(() => {
     setMobileOpen(false);
+    setServiziOpen(false);
   }, [location.pathname]);
 
-  const transparent = transparentRoutes.includes(location.pathname) && !scrolled;
+  // Outside click + Escape to close Servizi
+  useEffect(() => {
+    if (!serviziOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (serviziWrapRef.current && !serviziWrapRef.current.contains(e.target as Node)) {
+        setServiziOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setServiziOpen(false);
+    };
+    document.addEventListener('mousedown', onClick);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onClick);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [serviziOpen]);
 
-  const headerClass = transparent
-    ? 'bg-transparent border-transparent'
-    : 'bg-brand-ivory/90 backdrop-blur-md border-black/5 shadow-[0_1px_0_rgba(15,26,42,0.04)]';
+  // Body-scroll lock while mobile panel is open
+  useEffect(() => {
+    if (mobileOpen) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+  }, [mobileOpen]);
 
-  const linkBase = 'text-sm font-medium tracking-wide transition-colors';
-  const linkColor = transparent ? 'text-white/90 hover:text-white' : 'text-brand-navy/80 hover:text-brand-navy';
-  const contactColor = transparent ? 'text-white/90 hover:text-white' : 'text-brand-navy/80 hover:text-brand-terracotta';
+  const openServizi = () => {
+    if (closeTimer.current) {
+      window.clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    setServiziOpen(true);
+  };
+  const scheduleCloseServizi = () => {
+    if (closeTimer.current) window.clearTimeout(closeTimer.current);
+    closeTimer.current = window.setTimeout(() => setServiziOpen(false), 150);
+  };
+
+  const headerClass = scrolled
+    ? 'bg-white/85 backdrop-blur-lg border-b border-black/5 shadow-[0_1px_0_rgba(15,23,34,0.04)]'
+    : 'bg-white/70 backdrop-blur-md border-b border-transparent';
+
+  const linkBase =
+    'px-4 py-2 rounded-md text-sm font-medium text-ink/75 hover:text-ink hover:bg-black/[0.04] transition';
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `${linkBase} ${linkColor} ${isActive && !transparent ? 'text-brand-navy' : ''}`;
+    `${linkBase} ${isActive ? 'text-ink' : ''}`;
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${headerClass}`}>
+    <header className={`sticky top-0 z-50 transition-colors ${headerClass}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className={`inline-flex items-center justify-center w-8 h-8 rounded-md transition-colors ${transparent ? 'bg-white/15' : 'bg-brand-navy/8'}`}>
-              <MapPin className={`w-4 h-4 ${transparent ? 'text-white' : 'text-brand-terracotta'}`} />
-            </span>
-            <span className={`font-display font-bold text-base sm:text-lg tracking-tight ${transparent ? 'text-white' : 'text-brand-navy'}`}>
-              Rank My Biz Up
-            </span>
+        <div className="flex items-center justify-between h-16">
+          {/* LOGO */}
+          <Link to="/" className="flex items-center gap-2">
+            <MapPin className="w-5 h-5 text-g-green" />
+            <Wordmark />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6 lg:gap-7">
-            <NavLink to="/" end className={navLinkClass}>Home</NavLink>
-            {services.map((s) => (
-              <NavLink key={s.to} to={s.to} className={navLinkClass}>{s.label}</NavLink>
-            ))}
-            <div className="flex flex-col items-end leading-tight pl-2">
-              <a href="tel:+393317600310" className={`text-sm font-semibold transition-colors ${contactColor}`}>+39 331 760 0310</a>
-              <a href="mailto:info@rankmybizup.com" className={`text-xs transition-colors ${contactColor}`}>info@rankmybizup.com</a>
+          {/* DESKTOP NAV */}
+          <nav className="hidden md:flex items-center gap-1">
+            <NavLink to="/" end className={navLinkClass}>
+              Home
+            </NavLink>
+
+            <div
+              ref={serviziWrapRef}
+              className="relative"
+              onMouseEnter={openServizi}
+              onMouseLeave={scheduleCloseServizi}
+            >
+              <button
+                type="button"
+                onClick={() => setServiziOpen((o) => !o)}
+                aria-expanded={serviziOpen}
+                aria-haspopup="true"
+                className={`${linkBase} inline-flex items-center gap-1.5`}
+              >
+                Servizi
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${serviziOpen ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              {serviziOpen && (
+                <div
+                  className="absolute top-full mt-2 left-1/2 -translate-x-1/2 w-[560px] bg-white rounded-xl border border-black/8 shadow-[0_20px_50px_rgba(15,23,34,0.12)] p-2 origin-top"
+                  style={{ animation: 'serviziIn 180ms ease-out both' }}
+                >
+                  <div className="flex flex-col">
+                    {services.map((s) => (
+                      <ServiceCard
+                        key={s.to}
+                        to={s.to}
+                        icon={s.icon}
+                        title={s.title}
+                        desc={s.desc}
+                        onClick={() => setServiziOpen(false)}
+                      />
+                    ))}
+                  </div>
+                  <div className="px-3 py-2.5 mt-1 border-t border-black/5 text-xs text-ink/55">
+                    Interessato?{' '}
+                    <a
+                      href="tel:+393317600310"
+                      className="font-semibold text-brand-blue hover:underline"
+                    >
+                      Chiamami
+                    </a>
+                  </div>
+                </div>
+              )}
             </div>
+
+            <NavLink to="/prezzi" className={navLinkClass}>
+              Prezzi
+            </NavLink>
           </nav>
 
-          <button type="button" onClick={() => setMobileOpen((o) => !o)} className={`md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md ${transparent ? 'text-white' : 'text-brand-navy'}`} aria-label="Apri menu">
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {/* RIGHT — desktop CTA */}
+          <div className="hidden md:flex items-center">
+            <a
+              href="tel:+393317600310"
+              className="bg-brand-blue text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-brand-blue-dark transition-colors"
+            >
+              Contattami
+            </a>
+          </div>
+
+          {/* MOBILE — toggle */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-label={mobileOpen ? 'Chiudi menu' : 'Apri menu'}
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md text-ink"
+          >
+            <span className="relative w-6 h-6 inline-block">
+              <Menu
+                className={`w-6 h-6 absolute inset-0 transition-all duration-200 ${
+                  mobileOpen ? 'opacity-0 rotate-90' : 'opacity-100 rotate-0'
+                }`}
+              />
+              <X
+                className={`w-6 h-6 absolute inset-0 transition-all duration-200 ${
+                  mobileOpen ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'
+                }`}
+              />
+            </span>
           </button>
         </div>
       </div>
 
-      <div className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 bg-white border-t border-black/5 ${mobileOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}>
-        <nav className="px-4 sm:px-6 py-4 flex flex-col">
-          <NavLink to="/" end className="py-3 text-brand-navy font-medium border-b border-black/5">Home</NavLink>
-          {services.map((s) => (
-            <NavLink key={s.to} to={s.to} className="py-3 text-brand-navy font-medium border-b border-black/5">{s.label}</NavLink>
-          ))}
-          <a href="tel:+393317600310" className="mt-4 inline-flex items-center gap-2 text-brand-navy font-semibold">
-            <Phone className="w-4 h-4 text-brand-terracotta" />+39 331 760 0310
-          </a>
-          <a href="mailto:info@rankmybizup.com" className="mt-2 inline-flex items-center gap-2 text-brand-navy font-medium">
-            <Mail className="w-4 h-4 text-brand-terracotta" />info@rankmybizup.com
+      {/* MOBILE — panel */}
+      <div
+        className={`md:hidden fixed top-16 inset-x-0 bottom-0 z-40 bg-white/95 backdrop-blur-lg overflow-y-auto p-4 transition-opacity duration-200 ${
+          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <nav className="flex flex-col">
+          <NavLink
+            to="/"
+            end
+            className="px-3 py-3 rounded-md text-base font-medium text-ink hover:bg-black/[0.04]"
+          >
+            Home
+          </NavLink>
+
+          <div className="text-xs uppercase tracking-wider text-ink/45 font-semibold mt-4 mb-1 px-3">
+            Servizi
+          </div>
+          <div className="flex flex-col">
+            {services.map((s) => (
+              <ServiceCard key={s.to} to={s.to} icon={s.icon} title={s.title} desc={s.desc} />
+            ))}
+          </div>
+
+          <NavLink
+            to="/prezzi"
+            className="px-3 py-3 mt-2 rounded-md text-base font-medium text-ink hover:bg-black/[0.04]"
+          >
+            Prezzi
+          </NavLink>
+
+          <a
+            href="tel:+393317600310"
+            className="mt-6 inline-flex items-center justify-center bg-brand-blue text-white font-semibold py-3 rounded-md hover:bg-brand-blue-dark transition-colors"
+          >
+            Contattami
           </a>
         </nav>
       </div>
+
+      <style>{`
+        @keyframes serviziIn {
+          from { opacity: 0; transform: translate(-50%, -4px) scale(0.98); }
+          to   { opacity: 1; transform: translate(-50%, 0) scale(1); }
+        }
+      `}</style>
     </header>
   );
 }
