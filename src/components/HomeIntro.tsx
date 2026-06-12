@@ -14,14 +14,14 @@ export function HomeIntro() {
 
       <section className="bg-white py-20 sm:py-28">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <Reveal className="lg:col-span-5 flex justify-center">
+          <div className="flow-root lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center">
+            <Reveal className="float-left mr-4 mb-2 w-28 sm:w-32 lg:float-none lg:mr-0 lg:mb-0 lg:w-auto lg:col-span-5 lg:flex lg:justify-center">
               <img
                 src="/phone_google.svg"
                 alt=""
                 aria-hidden
                 loading="lazy"
-                className="w-auto h-auto max-h-[200px] animate-float-slow"
+                className="w-full h-auto lg:w-auto lg:max-h-[200px] animate-float-slow"
                 style={{ mixBlendMode: 'multiply' }}
               />
             </Reveal>
