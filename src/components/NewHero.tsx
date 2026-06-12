@@ -60,7 +60,7 @@ export function NewHero() {
 
           {/* H1 */}
           <h1 className="font-display font-bold text-ink tracking-tight leading-[1.08] text-4xl sm:text-5xl lg:text-6xl">
-            Realizzo Siti Web
+            Realizzo Siti Web.
             <span className="block mt-1">
               Imposto SEO e Campagne Annunci su Google Ads.
             </span>
