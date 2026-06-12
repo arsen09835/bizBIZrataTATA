@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react';
-import { Plus } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 type Faq = { question: string; answer: ReactNode };
@@ -38,57 +38,51 @@ const faqs: Faq[] = [
 ];
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [open, setOpen] = useState(false);
 
   return (
     <section className="bg-white py-20 sm:py-28">
       <div className="max-w-4xl mx-auto px-8 lg:px-8">
-        <Reveal className="mb-12 sm:mb-14">
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1]">
-            Domande Frequenti
-          </h2>
+        <Reveal>
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            className="w-full flex items-center justify-between gap-4 text-left"
+            aria-expanded={open}
+          >
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1]">
+              Domande Frequenti
+            </h2>
+            <span
+              className={`flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-navy/5 text-brand-navy transition-transform duration-300 ${
+                open ? 'rotate-180' : ''
+              }`}
+            >
+              <ChevronDown className="w-6 h-6" />
+            </span>
+          </button>
         </Reveal>
 
-        <div className="space-y-3">
-          {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <Reveal key={index} delay={index * 60}>
+        <div
+          className={`grid transition-all duration-500 ease-out ${
+            open ? 'grid-rows-[1fr] opacity-100 mt-10' : 'grid-rows-[0fr] opacity-0 mt-0'
+          }`}
+        >
+          <div className="overflow-hidden">
+            <div className="space-y-6">
+              {faqs.map((faq, index) => (
                 <div
-                  className={`rounded-2xl bg-white border transition-all ${
-                    isOpen ? 'border-brand-terracotta/30 shadow-card' : 'border-brand-navy/8 shadow-pill'
-                  }`}
+                  key={index}
+                  className="border-t border-brand-navy/8 pt-6 first:border-t-0 first:pt-0"
                 >
-                  <button
-                    type="button"
-                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
-                    aria-expanded={isOpen}
-                  >
-                    <span className="font-display font-semibold text-brand-navy text-base sm:text-lg">
-                      {faq.question}
-                    </span>
-                    <span
-                      className={`flex-shrink-0 inline-flex items-center justify-center w-8 h-8 rounded-full transition-all ${
-                        isOpen ? 'bg-brand-terracotta text-white rotate-45' : 'bg-brand-navy/5 text-brand-navy'
-                      }`}
-                    >
-                      <Plus className="w-4 h-4" />
-                    </span>
-                  </button>
-                  <div
-                    className={`grid transition-all duration-300 ease-out ${
-                      isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                    }`}
-                  >
-                    <div className="overflow-hidden">
-                      <p className="px-6 pb-6 text-brand-gray leading-relaxed">{faq.answer}</p>
-                    </div>
-                  </div>
+                  <h3 className="font-display font-semibold text-brand-navy text-lg sm:text-xl mb-2">
+                    {faq.question}
+                  </h3>
+                  <p className="text-brand-gray leading-relaxed">{faq.answer}</p>
                 </div>
-              </Reveal>
-            );
-          })}
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

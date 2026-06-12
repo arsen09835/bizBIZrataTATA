@@ -1,57 +1,48 @@
 import { Phone } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Reveal } from './Reveal';
 
-function DiagonalLines() {
-  // Straight, parallel diagonal lines that drift continuously.
-  // Lines are spaced by the perpendicular vector n = (sin θ, cos θ);
-  // the CSS keyframe translates the whole group by exactly one spacing
-  // along n, so the loop is seamless. θ = 30° → up-right orientation.
-  const angle = 30;
-  const rad = (angle * Math.PI) / 180;
-  const gap = 26;
-  const count = 44;
-  const W = 696;
-  const H = 400;
-  const len = 1500;
-  const dx = Math.cos(rad) * len;
-  const dy = -Math.sin(rad) * len;
-  const nx = Math.sin(rad) * gap;
-  const ny = Math.cos(rad) * gap;
-
-  const lines = Array.from({ length: count }, (_, i) => {
-    const k = i - count / 2;
-    const cx = W / 2 + nx * k;
-    const cy = H / 2 + ny * k;
-    return {
-      id: i,
-      x1: cx - dx / 2,
-      y1: cy - dy / 2,
-      x2: cx + dx / 2,
-      y2: cy + dy / 2,
-      opacity: 0.05 + (i % 6) * 0.018,
-    };
-  });
+function FloatingPaths({ position }: { position: number }) {
+  const paths = Array.from({ length: 36 }, (_, i) => ({
+    id: i,
+    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
+      380 - i * 5 * position
+    } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
+      152 - i * 5 * position
+    } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
+      684 - i * 5 * position
+    } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
+    width: 0.5 + i * 0.03,
+  }));
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 pointer-events-none">
       <svg
-        className="absolute inset-0 w-full h-full"
-        viewBox="0 0 696 400"
+        className="w-full h-full text-white"
+        viewBox="0 0 696 316"
         fill="none"
         preserveAspectRatio="xMidYMid slice"
         aria-hidden
       >
-        <g className="diag-lines">
-          {lines.map((l) => (
-            <line
-              key={l.id}
-              x1={l.x1}
-              y1={l.y1}
-              x2={l.x2}
-              y2={l.y2}
-              stroke="white"
-              strokeWidth="1"
-              strokeOpacity={l.opacity}
+        <g transform="translate(0,316) scale(1,-1)">
+          {paths.map((p) => (
+            <motion.path
+              key={p.id}
+              d={p.d}
+              stroke="currentColor"
+              strokeWidth={p.width}
+              strokeOpacity={0.1 + p.id * 0.03}
+              initial={{ pathLength: 0.3, opacity: 0.6 }}
+              animate={{
+                pathLength: 1,
+                opacity: [0.3, 0.6, 0.3],
+                pathOffset: [0, 1, 0],
+              }}
+              transition={{
+                duration: 20 + Math.random() * 10,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
             />
           ))}
         </g>
@@ -63,7 +54,10 @@ function DiagonalLines() {
 export function FinalCTA() {
   return (
     <section id="contatto-section" className="relative overflow-hidden bg-ink">
-      <DiagonalLines />
+      <div className="absolute inset-0">
+        <FloatingPaths position={1} />
+        <FloatingPaths position={-1} />
+      </div>
 
       <div className="relative max-w-3xl mx-auto px-6 py-24 sm:py-32 text-center">
         <Reveal>
