@@ -100,13 +100,13 @@ export function Header() {
     };
   }, [serviziOpen]);
 
+  // Robust scroll lock while the mobile menu is open.
   useEffect(() => {
     if (!mobileOpen) return;
-    // iOS Safari ignores `overflow: hidden` on <body>, so freeze the page with
-    // position:fixed and restore the scroll position when the menu closes.
     const scrollY = window.scrollY;
     const body = document.body;
-    const prev = {
+    const html = document.documentElement;
+    const prevBody = {
       position: body.style.position,
       top: body.style.top,
       left: body.style.left,
@@ -114,19 +114,32 @@ export function Header() {
       width: body.style.width,
       overflow: body.style.overflow,
     };
+    const prevHtmlOverflow = html.style.overflow;
+
     body.style.position = 'fixed';
     body.style.top = `-${scrollY}px`;
     body.style.left = '0';
     body.style.right = '0';
     body.style.width = '100%';
     body.style.overflow = 'hidden';
+    html.style.overflow = 'hidden';
+
+    const onTouchMove = (e: TouchEvent) => {
+      const scroller = document.getElementById('mobile-menu-scroll');
+      if (scroller && scroller.contains(e.target as Node)) return;
+      e.preventDefault();
+    };
+    document.addEventListener('touchmove', onTouchMove, { passive: false });
+
     return () => {
-      body.style.position = prev.position;
-      body.style.top = prev.top;
-      body.style.left = prev.left;
-      body.style.right = prev.right;
-      body.style.width = prev.width;
-      body.style.overflow = prev.overflow;
+      document.removeEventListener('touchmove', onTouchMove);
+      body.style.position = prevBody.position;
+      body.style.top = prevBody.top;
+      body.style.left = prevBody.left;
+      body.style.right = prevBody.right;
+      body.style.width = prevBody.width;
+      body.style.overflow = prevBody.overflow;
+      html.style.overflow = prevHtmlOverflow;
       window.scrollTo(0, scrollY);
     };
   }, [mobileOpen]);
@@ -229,37 +242,44 @@ export function Header() {
 
           <button
             type="button"
-            onClick={() => setMobileOpen((o) => !o)}
-            aria-label={mobileOpen ? 'Chiudi menu' : 'Apri menu'}
+            onClick={() => setMobileOpen(true)}
+            aria-label="Apri menu"
             aria-expanded={mobileOpen}
             className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md text-ink"
           >
-            <span className="relative w-6 h-6 inline-block">
-              <Menu
-                className={`w-6 h-6 absolute inset-0 transition-all duration-200 ${
-                  mobileOpen ? 'opacity-0 rotate-90' : 'opacity-100 rotate-0'
-                }`}
-              />
-              <X
-                className={`w-6 h-6 absolute inset-0 transition-all duration-200 ${
-                  mobileOpen ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'
-                }`}
-              />
-            </span>
+            <Menu className="w-6 h-6" />
           </button>
         </div>
       </div>
 
-      {/* MOBILE panel — portaled to document.body so it escapes the blurred
-          header's containing block and is fixed to the viewport. */}
+      {/* MOBILE — full-screen overlay (covers everything, its own header + X) */}
       {mobileOpen &&
         createPortal(
           <div
-            className="md:hidden fixed top-16 inset-x-0 bottom-0 z-[45] bg-white border-t border-black/5"
-            style={{ animation: 'mobileMenuIn 200ms ease-out both' }}
+            className="md:hidden fixed inset-0 z-[60] bg-white flex flex-col"
+            style={{ animation: 'mobileMenuIn 180ms ease-out both' }}
           >
-            <div className="h-full overflow-y-auto overscroll-contain flex flex-col">
-              <nav className="flex-1 px-4 pt-3 pb-4 flex flex-col">
+            <div className="flex items-center justify-between h-16 px-4 border-b border-black/5 flex-shrink-0">
+              <Link
+                to="/"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center gap-2"
+              >
+                <MapPin className="w-5 h-5 text-g-blue" />
+                <Wordmark />
+              </Link>
+              <button
+                type="button"
+                onClick={() => setMobileOpen(false)}
+                aria-label="Chiudi menu"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-md text-ink"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            <div id="mobile-menu-scroll" className="flex-1 overflow-y-auto overscroll-contain">
+              <nav className="px-4 pt-3 pb-4 flex flex-col">
                 <NavLink
                   to="/"
                   end
@@ -293,16 +313,16 @@ export function Header() {
                   Prezzi
                 </NavLink>
               </nav>
+            </div>
 
-              <div className="px-4 pb-8 pt-3 border-t border-black/5">
-                <a
-                  href="tel:+393317600310"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-center w-full bg-brand-blue text-white font-semibold py-3.5 rounded-md hover:bg-brand-blue-dark transition-colors"
-                >
-                  Contattami
-                </a>
-              </div>
+            <div className="px-4 pb-8 pt-3 border-t border-black/5 flex-shrink-0">
+              <a
+                href="tel:+393317600310"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center w-full bg-brand-blue text-white font-semibold py-3.5 rounded-md hover:bg-brand-blue-dark transition-colors"
+              >
+                Contattami
+              </a>
             </div>
           </div>,
           document.body
@@ -314,8 +334,8 @@ export function Header() {
           to   { opacity: 1; transform: translate(-50%, 0) scale(1); }
         }
         @keyframes mobileMenuIn {
-          from { opacity: 0; transform: translateY(-8px); }
-          to   { opacity: 1; transform: translateY(0); }
+          from { opacity: 0; }
+          to   { opacity: 1; }
         }
       `}</style>
     </header>
