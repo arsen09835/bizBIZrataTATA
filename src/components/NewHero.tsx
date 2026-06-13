@@ -50,7 +50,7 @@ export function NewHero() {
         <BarChart3 className="w-5 h-5 text-brand-brown" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-4 pb-12 sm:pt-28 sm:pb-32 text-center">
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-8 pb-12 sm:pt-28 sm:pb-32 text-center">
         <div className="max-w-3xl mx-auto">
           {/* Eyebrow pill */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/8 bg-white shadow-sm text-xs font-medium text-ink/70 mb-4 sm:mb-6">
@@ -59,7 +59,7 @@ export function NewHero() {
           </div>
 
           {/* H1 */}
-          <h1 className="font-display font-bold text-ink tracking-tight leading-[1.08] text-3xl sm:text-5xl lg:text-6xl">
+          <h1 className="font-display font-bold text-ink tracking-tight leading-[1.08] text-[2.5rem] sm:text-5xl lg:text-6xl">
             Realizzo Siti Web.
             <span className="block mt-1">
               Imposto SEO e Campagne Annunci su Google Ads.
