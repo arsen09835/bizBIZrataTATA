@@ -65,7 +65,6 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [serviziOpen, setServiziOpen] = useState(false);
-  const [mobileServiziOpen, setMobileServiziOpen] = useState(false);
   const serviziWrapRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<number | null>(null);
   const location = useLocation();
@@ -77,14 +76,11 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close menus on route change
   useEffect(() => {
     setMobileOpen(false);
     setServiziOpen(false);
-    setMobileServiziOpen(false);
   }, [location.pathname]);
 
-  // Outside click + Escape to close Servizi
   useEffect(() => {
     if (!serviziOpen) return;
     const onClick = (e: MouseEvent) => {
@@ -103,7 +99,6 @@ export function Header() {
     };
   }, [serviziOpen]);
 
-  // Body-scroll lock while mobile panel is open
   useEffect(() => {
     if (mobileOpen) {
       const prev = document.body.style.overflow;
@@ -190,10 +185,7 @@ export function Header() {
                   </div>
                   <div className="px-3 py-2.5 mt-1 border-t border-black/5 text-xs text-ink/55">
                     Interessato?{' '}
-                    <a
-                      href="tel:+393317600310"
-                      className="font-semibold text-brand-blue hover:underline"
-                    >
+                    <a href="tel:+393317600310" className="font-semibold text-brand-blue hover:underline">
                       Chiamami
                     </a>
                   </div>
@@ -221,6 +213,7 @@ export function Header() {
             type="button"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label={mobileOpen ? 'Chiudi menu' : 'Apri menu'}
+            aria-expanded={mobileOpen}
             className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-md text-ink"
           >
             <span className="relative w-6 h-6 inline-block">
@@ -239,67 +232,60 @@ export function Header() {
         </div>
       </div>
 
-      {/* MOBILE — panel */}
+      {/* MOBILE — panel (solid, reliable, flat list) */}
       <div
-        className={`md:hidden fixed top-16 inset-x-0 bottom-0 z-40 bg-white/95 backdrop-blur-lg overflow-y-auto p-4 transition-opacity duration-200 ${
-          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        className={`md:hidden fixed top-16 inset-x-0 bottom-0 z-40 bg-white border-t border-black/5 transition-[opacity,transform] duration-200 ${
+          mobileOpen
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 -translate-y-2 pointer-events-none'
         }`}
       >
-        <nav className="flex flex-col">
-          <NavLink
-            to="/"
-            end
-            className="px-3 py-3 rounded-md text-base font-medium text-ink hover:bg-black/[0.04]"
-          >
-            Home
-          </NavLink>
+        <div className="h-full overflow-y-auto flex flex-col">
+          <nav className="flex-1 px-4 pt-3 pb-4 flex flex-col">
+            <NavLink
+              to="/"
+              end
+              onClick={() => setMobileOpen(false)}
+              className="px-3 py-3 rounded-md text-base font-medium text-ink hover:bg-black/[0.04]"
+            >
+              Home
+            </NavLink>
 
-          <button
-            type="button"
-            onClick={() => setMobileServiziOpen((o) => !o)}
-            aria-expanded={mobileServiziOpen}
-            className="mt-2 w-full flex items-center justify-between gap-2 px-3 py-3 rounded-md text-base font-medium text-ink hover:bg-black/[0.04] transition"
-          >
-            Servizi
-            <ChevronDown
-              className={`w-4 h-4 transition-transform duration-200 ${mobileServiziOpen ? 'rotate-180' : ''}`}
-            />
-          </button>
-          <div
-            className={`grid transition-all duration-300 ease-out ${
-              mobileServiziOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-            }`}
-          >
-            <div className="min-h-0 overflow-hidden">
-              <div className="flex flex-col pt-1">
-                {services.map((s) => (
-                  <ServiceCard
-                    key={s.to}
-                    to={s.to}
-                    icon={s.icon}
-                    title={s.title}
-                    desc={s.desc}
-                    onClick={() => setMobileOpen(false)}
-                  />
-                ))}
-              </div>
+            <div className="px-3 pt-4 pb-1 text-xs uppercase tracking-wider text-ink/45 font-semibold">
+              Servizi
             </div>
+            <div className="flex flex-col">
+              {services.map((s) => (
+                <ServiceCard
+                  key={s.to}
+                  to={s.to}
+                  icon={s.icon}
+                  title={s.title}
+                  desc={s.desc}
+                  onClick={() => setMobileOpen(false)}
+                />
+              ))}
+            </div>
+
+            <NavLink
+              to="/prezzi"
+              onClick={() => setMobileOpen(false)}
+              className="px-3 py-3 mt-2 rounded-md text-base font-medium text-ink hover:bg-black/[0.04]"
+            >
+              Prezzi
+            </NavLink>
+          </nav>
+
+          <div className="px-4 pb-8 pt-3 border-t border-black/5">
+            <a
+              href="tel:+393317600310"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-center w-full bg-brand-blue text-white font-semibold py-3.5 rounded-md hover:bg-brand-blue-dark transition-colors"
+            >
+              Contattami
+            </a>
           </div>
-
-          <NavLink
-            to="/prezzi"
-            className="px-3 py-3 mt-2 rounded-md text-base font-medium text-ink hover:bg-black/[0.04]"
-          >
-            Prezzi
-          </NavLink>
-
-          <a
-            href="tel:+393317600310"
-            className="mt-6 inline-flex items-center justify-center bg-brand-blue text-white font-semibold py-3 rounded-md hover:bg-brand-blue-dark transition-colors"
-          >
-            Contattami
-          </a>
-        </nav>
+        </div>
       </div>
 
       <style>{`

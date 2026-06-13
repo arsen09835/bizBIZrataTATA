@@ -1,3 +1,4 @@
+import { ChevronDown } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 export function HomeIntro() {
@@ -6,16 +7,19 @@ export function HomeIntro() {
       {/* Divider */}
       <div className="bg-white pt-16 sm:pt-20">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 flex items-center justify-center gap-4">
-          <span aria-hidden className="flex-1 h-px bg-ink/8" />
-          <span aria-hidden className="w-1.5 h-1.5 rounded-full bg-brand-blue/50" />
-          <span aria-hidden className="flex-1 h-px bg-ink/8" />
+          {/* Mobile: scroll-down cue */}
+          <ChevronDown aria-hidden strokeWidth={2.5} className="lg:hidden w-10 h-10 text-brand-blue/60 animate-bounce-soft" />
+          {/* Desktop: line · dot · line */}
+          <span aria-hidden className="hidden lg:block flex-1 h-px bg-ink/8" />
+          <span aria-hidden className="hidden lg:block w-1.5 h-1.5 rounded-full bg-brand-blue/50" />
+          <span aria-hidden className="hidden lg:block flex-1 h-px bg-ink/8" />
         </div>
       </div>
 
       <section className="bg-white py-20 sm:py-28">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <div className="flow-root lg:flex lg:items-center lg:justify-center lg:gap-[72px]">
-            <Reveal className="float-left mr-3 mb-2 w-28 sm:w-32 lg:float-none lg:mr-0 lg:mb-0 lg:w-auto lg:flex-none lg:flex lg:justify-center">
+            <Reveal className="hidden lg:flex-none lg:flex lg:justify-center lg:w-auto">
               <img
                 src="/phone_google.svg"
                 alt=""
