@@ -14,8 +14,8 @@ export function HomeIntro() {
 
       <section className="bg-white py-20 sm:py-28">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="flow-root lg:grid lg:grid-cols-12 lg:gap-6 lg:items-center">
-            <Reveal className="float-left mr-3 mb-2 w-28 sm:w-32 lg:float-none lg:mr-0 lg:mb-0 lg:w-auto lg:col-span-4 lg:flex lg:justify-end">
+          <div className="flow-root lg:flex lg:items-center lg:justify-center lg:gap-[72px]">
+            <Reveal className="float-left mr-3 mb-2 w-28 sm:w-32 lg:float-none lg:mr-0 lg:mb-0 lg:w-auto lg:flex-none lg:flex lg:justify-center">
               <img
                 src="/phone_google.svg"
                 alt=""
@@ -26,7 +26,7 @@ export function HomeIntro() {
               />
             </Reveal>
 
-            <Reveal className="lg:col-span-8" delay={120}>
+            <Reveal className="lg:flex-none" delay={120}>
               <div className="space-y-6 text-lg sm:text-xl text-ink/80 leading-relaxed max-w-2xl">
                 <p>
                   Centinaia di utenti al giorno perlustrano Google per trovare la soluzione che potresti offrire tu.

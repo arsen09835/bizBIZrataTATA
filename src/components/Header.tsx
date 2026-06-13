@@ -25,8 +25,8 @@ const services = [
 
 function Wordmark() {
   return (
-    <span className="font-display font-bold text-lg tracking-tight">
-      <span className="text-g-red">Ra</span><span className="text-g-yellow">nk</span><span className="text-g-blue">My</span><span className="text-g-green">Biz</span><span className="text-g-red">Up</span>
+    <span className="font-display font-bold text-lg tracking-tight text-ink">
+      RankMyBizUp
     </span>
   );
 }
@@ -270,7 +270,7 @@ export function Header() {
               mobileServiziOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
             }`}
           >
-            <div className="overflow-hidden">
+            <div className="min-h-0 overflow-hidden">
               <div className="flex flex-col pt-1">
                 {services.map((s) => (
                   <ServiceCard
