@@ -50,7 +50,7 @@ export function NewHero() {
         <BarChart3 className="w-5 h-5 text-brand-brown" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-4 pb-16 sm:pt-28 sm:pb-32 text-center">
+      <div className="relative max-w-6xl mx-auto px-6 lg:px-8 pt-4 pb-12 sm:pt-28 sm:pb-32 text-center">
         <div className="max-w-3xl mx-auto">
           {/* Eyebrow pill */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/8 bg-white shadow-sm text-xs font-medium text-ink/70 mb-4 sm:mb-6">
@@ -59,7 +59,7 @@ export function NewHero() {
           </div>
 
           {/* H1 */}
-          <h1 className="font-display font-bold text-ink tracking-tight leading-[1.08] text-4xl sm:text-5xl lg:text-6xl">
+          <h1 className="font-display font-bold text-ink tracking-tight leading-[1.08] text-3xl sm:text-5xl lg:text-6xl">
             Realizzo Siti Web.
             <span className="block mt-1">
               Imposto SEO e Campagne Annunci su Google Ads.
@@ -67,12 +67,12 @@ export function NewHero() {
           </h1>
 
           {/* Paragraph */}
-          <p className="mt-5 sm:mt-6 text-lg sm:text-xl text-ink/65 leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-base sm:text-xl text-ink/65 leading-relaxed max-w-2xl mx-auto">
             Ritieni di non ricevere abbastanza attenzione online? Incontriamoci e troverò la soluzione più adatta alle tue esigenze.
           </p>
 
           {/* Buttons */}
-          <div className="mt-6 sm:mt-9 flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="mt-5 sm:mt-9 flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="#cosa-ti-serve"
               onClick={handleScrollToCosaTiServe}
