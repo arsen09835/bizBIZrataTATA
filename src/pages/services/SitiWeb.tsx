@@ -151,7 +151,7 @@ export function SitiWeb() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
             {siteTypes.map((t, i) => (
               <Reveal key={t.title} delay={i * 80}>
-                <div className="h-full p-7 lg:p-8 rounded-2xl bg-white border border-black/5 shadow-card">
+                <div className="h-full p-7 lg:p-8 rounded-2xl bg-white border border-black/8 shadow-card">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-terracotta/10 mb-6">
                     <t.icon className="w-6 h-6 text-brand-terracotta" />
                   </div>
