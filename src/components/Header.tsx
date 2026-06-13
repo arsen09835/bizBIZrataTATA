@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { MapPin, Menu, X, ChevronDown, Globe, Search, Megaphone } from 'lucide-react';
 
@@ -135,13 +136,11 @@ export function Header() {
     <header className={`sticky top-0 z-50 transition-colors ${headerClass}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* LOGO */}
           <Link to="/" className="flex items-center gap-2">
             <MapPin className="w-5 h-5 text-g-blue" />
             <Wordmark />
           </Link>
 
-          {/* DESKTOP NAV */}
           <nav className="hidden md:flex items-center gap-1">
             <NavLink to="/" end className={navLinkClass}>
               Home
@@ -198,7 +197,6 @@ export function Header() {
             </NavLink>
           </nav>
 
-          {/* RIGHT — desktop CTA */}
           <div className="hidden md:flex items-center">
             <a
               href="tel:+393317600310"
@@ -208,7 +206,6 @@ export function Header() {
             </a>
           </div>
 
-          {/* MOBILE — toggle */}
           <button
             type="button"
             onClick={() => setMobileOpen((o) => !o)}
@@ -232,66 +229,72 @@ export function Header() {
         </div>
       </div>
 
-      {/* MOBILE — panel (solid, reliable, flat list) */}
-      <div
-        className={`md:hidden fixed top-16 inset-x-0 bottom-0 z-40 bg-white border-t border-black/5 transition-[opacity,transform] duration-200 ${
-          mobileOpen
-            ? 'opacity-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 -translate-y-2 pointer-events-none'
-        }`}
-      >
-        <div className="h-full overflow-y-auto flex flex-col">
-          <nav className="flex-1 px-4 pt-3 pb-4 flex flex-col">
-            <NavLink
-              to="/"
-              end
-              onClick={() => setMobileOpen(false)}
-              className="px-3 py-3 rounded-md text-base font-medium text-ink hover:bg-black/[0.04]"
-            >
-              Home
-            </NavLink>
-
-            <div className="px-3 pt-4 pb-1 text-xs uppercase tracking-wider text-ink/45 font-semibold">
-              Servizi
-            </div>
-            <div className="flex flex-col">
-              {services.map((s) => (
-                <ServiceCard
-                  key={s.to}
-                  to={s.to}
-                  icon={s.icon}
-                  title={s.title}
-                  desc={s.desc}
+      {/* MOBILE panel — portaled to document.body so it escapes the blurred
+          header's containing block and is fixed to the viewport. */}
+      {mobileOpen &&
+        createPortal(
+          <div
+            className="md:hidden fixed top-16 inset-x-0 bottom-0 z-[45] bg-white border-t border-black/5"
+            style={{ animation: 'mobileMenuIn 200ms ease-out both' }}
+          >
+            <div className="h-full overflow-y-auto flex flex-col">
+              <nav className="flex-1 px-4 pt-3 pb-4 flex flex-col">
+                <NavLink
+                  to="/"
+                  end
                   onClick={() => setMobileOpen(false)}
-                />
-              ))}
+                  className="px-3 py-3 rounded-md text-base font-medium text-ink hover:bg-black/[0.04]"
+                >
+                  Home
+                </NavLink>
+
+                <div className="px-3 pt-4 pb-1 text-xs uppercase tracking-wider text-ink/45 font-semibold">
+                  Servizi
+                </div>
+                <div className="flex flex-col">
+                  {services.map((s) => (
+                    <ServiceCard
+                      key={s.to}
+                      to={s.to}
+                      icon={s.icon}
+                      title={s.title}
+                      desc={s.desc}
+                      onClick={() => setMobileOpen(false)}
+                    />
+                  ))}
+                </div>
+
+                <NavLink
+                  to="/prezzi"
+                  onClick={() => setMobileOpen(false)}
+                  className="px-3 py-3 mt-2 rounded-md text-base font-medium text-ink hover:bg-black/[0.04]"
+                >
+                  Prezzi
+                </NavLink>
+              </nav>
+
+              <div className="px-4 pb-8 pt-3 border-t border-black/5">
+                <a
+                  href="tel:+393317600310"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-center w-full bg-brand-blue text-white font-semibold py-3.5 rounded-md hover:bg-brand-blue-dark transition-colors"
+                >
+                  Contattami
+                </a>
+              </div>
             </div>
-
-            <NavLink
-              to="/prezzi"
-              onClick={() => setMobileOpen(false)}
-              className="px-3 py-3 mt-2 rounded-md text-base font-medium text-ink hover:bg-black/[0.04]"
-            >
-              Prezzi
-            </NavLink>
-          </nav>
-
-          <div className="px-4 pb-8 pt-3 border-t border-black/5">
-            <a
-              href="tel:+393317600310"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-center w-full bg-brand-blue text-white font-semibold py-3.5 rounded-md hover:bg-brand-blue-dark transition-colors"
-            >
-              Contattami
-            </a>
-          </div>
-        </div>
-      </div>
+          </div>,
+          document.body
+        )}
 
       <style>{`
         @keyframes serviziIn {
           from { opacity: 0; transform: translate(-50%, -4px) scale(0.98); }
           to   { opacity: 1; transform: translate(-50%, 0) scale(1); }
+        }
+        @keyframes mobileMenuIn {
+          from { opacity: 0; transform: translateY(-8px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </header>
