@@ -23,7 +23,7 @@ export function PercheMe() {
         <div className="bg-white rounded-xl border border-black/8 shadow-[0_20px_50px_rgba(15,23,34,0.10)] overflow-hidden">
           <Reveal duration={450}>
             <div className="px-6 sm:px-8 pt-8 pb-4">
-              <h2 className="font-display text-2xl sm:text-3xl lg:text-[2rem] text-ink leading-[1.15]">
+              <h2 className="font-display text-2xl sm:text-3xl lg:text-[2rem] text-ink leading-[1.15] text-center">
                 Perché scegliere me
                 <span className="block text-ink/45 font-semibold">(e non il fai da te o le mega agenzie)</span>
               </h2>
