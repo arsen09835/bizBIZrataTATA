@@ -101,13 +101,34 @@ export function Header() {
   }, [serviziOpen]);
 
   useEffect(() => {
-    if (mobileOpen) {
-      const prev = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      return () => {
-        document.body.style.overflow = prev;
-      };
-    }
+    if (!mobileOpen) return;
+    // iOS Safari ignores `overflow: hidden` on <body>, so freeze the page with
+    // position:fixed and restore the scroll position when the menu closes.
+    const scrollY = window.scrollY;
+    const body = document.body;
+    const prev = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      overflow: body.style.overflow,
+    };
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollY}px`;
+    body.style.left = '0';
+    body.style.right = '0';
+    body.style.width = '100%';
+    body.style.overflow = 'hidden';
+    return () => {
+      body.style.position = prev.position;
+      body.style.top = prev.top;
+      body.style.left = prev.left;
+      body.style.right = prev.right;
+      body.style.width = prev.width;
+      body.style.overflow = prev.overflow;
+      window.scrollTo(0, scrollY);
+    };
   }, [mobileOpen]);
 
   const openServizi = () => {
@@ -237,7 +258,7 @@ export function Header() {
             className="md:hidden fixed top-16 inset-x-0 bottom-0 z-[45] bg-white border-t border-black/5"
             style={{ animation: 'mobileMenuIn 200ms ease-out both' }}
           >
-            <div className="h-full overflow-y-auto flex flex-col">
+            <div className="h-full overflow-y-auto overscroll-contain flex flex-col">
               <nav className="flex-1 px-4 pt-3 pb-4 flex flex-col">
                 <NavLink
                   to="/"
