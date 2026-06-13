@@ -6,13 +6,9 @@ export function HomeIntro() {
     <>
       {/* Divider */}
       <div className="bg-white pt-16 sm:pt-20">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 flex items-center justify-center gap-4">
-          {/* Mobile: scroll-down cue */}
-          <ChevronDown aria-hidden strokeWidth={2.5} className="lg:hidden w-10 h-10 text-brand-blue/60 animate-bounce-soft" />
-          {/* Desktop: line · dot · line */}
-          <span aria-hidden className="hidden lg:block flex-1 h-px bg-ink/8" />
-          <span aria-hidden className="hidden lg:block w-1.5 h-1.5 rounded-full bg-brand-blue/50" />
-          <span aria-hidden className="hidden lg:block flex-1 h-px bg-ink/8" />
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 flex items-center justify-center">
+          {/* Scroll-down cue (all sizes) */}
+          <ChevronDown aria-hidden strokeWidth={2.5} className="w-10 h-10 text-brand-blue/60 animate-bounce-soft" />
         </div>
       </div>
 
