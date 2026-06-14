@@ -4,11 +4,11 @@ import { Reveal } from './Reveal';
 const points = [
   {
     icon: MapPin,
-    text: 'Vivo e lavoro a Firenze. Hai la serenità di essere seguito da una persona facilmente reperibile, che segue con cura le tue esigenze in prima persona, senza passaggi di reparti.',
+    text: 'Vivo e lavoro a Firenze. Con me hai la serenità di essere seguito da una persona facilmente reperibile, che segue con cura le tue esigenze in prima persona, senza passaggi di reparti.',
   },
   {
     icon: LineChart,
-    text: 'Analizzo giornalmente l\'andamento della strategia, calibrandola regolarmente per avere un passo in più rispetto alla concorrenza. Nessun lavoro è «definitivo», «accantonato» o «lasciato andare da sé». Mi recherò settimanalmente nella tua sede per aggiornarti.',
+    text: 'Analizzo giornalmente l\'andamento della strategia, calibrandola regolarmente per avere un passo in più rispetto alla concorrenza. Nessun lavoro è «definitivo», «accantonato» o «lasciato andare da sé». Ti aggiornerò settimanalmente.',
   },
   {
     icon: Wallet,
