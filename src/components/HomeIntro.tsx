@@ -1,7 +1,55 @@
+import { useState, useEffect } from 'react';
 import { ChevronDown, Search, MapPin, Star } from 'lucide-react';
 import { Reveal } from './Reveal';
 
+const SERVICES = [
+  'idraulico',
+  'elettricista',
+  'rigattiere',
+  'dentista',
+  'agenzia immobiliare',
+  'ditta pulizie',
+  'studio tattoo',
+];
+
+function useTypewriter(words: string[]) {
+  const [index, setIndex] = useState(0);
+  const [text, setText] = useState('');
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const word = words[index];
+    let delay: number;
+    if (!deleting && text === word) {
+      delay = 1500; // hold when fully typed
+    } else if (deleting && text === '') {
+      delay = 250; // brief gap before next word
+    } else {
+      delay = deleting ? 45 : 90;
+    }
+
+    const t = window.setTimeout(() => {
+      if (!deleting && text === word) {
+        setDeleting(true);
+      } else if (deleting && text === '') {
+        setDeleting(false);
+        setIndex((i) => (i + 1) % words.length);
+      } else {
+        setText((prev) =>
+          deleting ? word.slice(0, prev.length - 1) : word.slice(0, prev.length + 1)
+        );
+      }
+    }, delay);
+
+    return () => window.clearTimeout(t);
+  }, [text, deleting, index, words]);
+
+  return text;
+}
+
 function SearchVisual() {
+  const typed = useTypewriter(SERVICES);
+
   return (
     <div className="relative mx-auto w-full max-w-md">
       <div
@@ -13,8 +61,9 @@ function SearchVisual() {
         <div className="flex items-center gap-3 rounded-full border border-black/10 bg-white shadow-sm px-4 py-3">
           <Search className="w-5 h-5 text-ink/40 flex-shrink-0" />
           <div className="flex-1 min-w-0 text-[15px] text-ink/80 truncate">
-            <span className="italic text-ink/45">il tuo servizio</span> a Firenze
-            <span className="inline-block w-[2px] h-4 align-middle bg-brand-blue ml-0.5 animate-pulse" />
+            {typed}
+            <span className="inline-block w-[2px] h-4 align-middle bg-brand-blue mx-0.5 animate-pulse" />
+            {' a Firenze'}
           </div>
           <div className="grid grid-cols-2 gap-0.5 flex-shrink-0" aria-hidden>
             <span className="w-1.5 h-1.5 rounded-full bg-g-blue" />
