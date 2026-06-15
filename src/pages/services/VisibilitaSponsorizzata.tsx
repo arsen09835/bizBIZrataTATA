@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ArrowRight, SlidersHorizontal, MapPin, Wallet, Activity, TrendingUp, TrendingDown } from 'lucide-react';
 import { Reveal } from '../../components/Reveal';
 import { Divider } from '../../components/Divider';
@@ -16,8 +15,6 @@ const controls = [
 ];
 
 export function VisibilitaSponsorizzata() {
-  const [loaded, setLoaded] = useState(false);
-
   return (
     <>
       {/* Hero — dark photo bg + white title */}
@@ -37,31 +34,28 @@ export function VisibilitaSponsorizzata() {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            onLoad={() => setLoaded(true)}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-              loaded ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/15" />
         </div>
 
         <div className="relative max-w-6xl mx-auto px-8 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-24 w-full">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            <Reveal className="lg:col-span-7">
+            <div className="lg:col-span-7">
               <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-10 max-w-4xl">
                 Campagne AdWords (ora Google Ads) persuasive che minimizzano le spese, massimizzando le conversioni.
               </h1>
               <a
                 href="mailto:info@rankmybizup.com"
-                className="inline-flex items-center gap-2 bg-white text-brand-navy font-semibold px-6 py-3.5 rounded-full hover:bg-brand-ivory hover:scale-[1.02] transition-all shadow-glow"
+                className="inline-flex items-center gap-2 bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition-colors"
               >
                 Contattami
                 <ArrowRight className="w-4 h-4" />
               </a>
-            </Reveal>
+            </div>
 
-            <Reveal className="lg:col-span-5 hidden lg:block" delay={120}>
-              <div className="bg-white rounded-2xl shadow-card-hover p-5 sm:p-6 animate-float-slow">
+            <div className="lg:col-span-5 hidden lg:block">
+              <div className="bg-white rounded-2xl shadow-card-hover p-5 sm:p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <div className="text-[11px] uppercase tracking-wider text-brand-gray font-semibold">
@@ -107,7 +101,7 @@ export function VisibilitaSponsorizzata() {
                   </div>
                 </div>
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>

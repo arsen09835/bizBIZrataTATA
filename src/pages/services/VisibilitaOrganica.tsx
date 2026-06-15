@@ -118,7 +118,7 @@ function LocationPin({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
   const isDark = variant === 'dark';
   const gradId = isDark ? 'seoPinGradDark' : 'seoPinGradLight';
   return (
-    <div className="relative w-full max-w-[200px] mx-auto animate-float-slow">
+    <div className="relative w-full max-w-[200px] mx-auto">
       <svg
         viewBox="0 0 220 280"
         className="w-full h-auto"
@@ -153,8 +153,6 @@ function LocationPin({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
 }
 
 export function VisibilitaOrganica() {
-  const [loaded, setLoaded] = useState(false);
-
   return (
     <>
       {/* Hero — dark photo bg + card_seo on the right */}
@@ -174,17 +172,14 @@ export function VisibilitaOrganica() {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            onLoad={() => setLoaded(true)}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-              loaded ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/20" />
         </div>
 
         <div className="relative max-w-6xl mx-auto px-8 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-24 w-full">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
-            <Reveal className="lg:col-span-7">
+            <div className="lg:col-span-7">
               <h1 className="font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-8 max-w-4xl">
                 Più Traffico.<br />
                 Più Clienti.<br />
@@ -193,13 +188,19 @@ export function VisibilitaOrganica() {
               <p className="text-lg sm:text-xl text-white/85 leading-relaxed max-w-3xl">
                 Il tuo profilo sarà fra i primi 3 risultati nei risultati di ricerca dei tuoi clienti.
               </p>
-            </Reveal>
+              <a
+                href="tel:+393317600310"
+                className="mt-10 inline-block bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition-colors"
+              >
+                Contattami
+              </a>
+            </div>
 
-            <Reveal className="lg:col-span-5 hidden lg:block lg:self-start" delay={120}>
+            <div className="lg:col-span-5 hidden lg:block lg:self-start">
               <div className="w-[150px] ml-auto lg:-translate-y-10 lg:translate-x-4">
                 <LocationPin variant="dark" />
               </div>
-            </Reveal>
+            </div>
           </div>
         </div>
       </section>
