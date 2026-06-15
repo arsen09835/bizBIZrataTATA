@@ -23,7 +23,7 @@ const siti = [
     price: '€400–500',
     tagline: 'Il biglietto da visita digitale della tua attività.',
     features: [
-      'Design professionale su misura',
+      'Design professionale',
       'Fino a ~5 sezioni',
       'Ottimizzato per smartphone',
       'Collegamenti diretti: WhatsApp, telefono, mappa',
@@ -35,12 +35,12 @@ const siti = [
     name: 'Sito Tecnico',
     icon: Layers,
     price: '€500–800',
-    tagline: 'Un sito completo, con funzionalità su misura.',
+    tagline: 'Un sito completo.',
     features: [
       'Tutto del Sito Vetrina',
       'Più pagine e sezioni dedicate',
       'Funzionalità personalizzate (prenotazioni, gallerie…)',
-      'Integrazioni su misura',
+      'Integrazioni',
       'Struttura ottimizzata per la SEO',
     ],
     featured: true,
@@ -89,7 +89,7 @@ const servizi = [
     breakdown: ['1° mese €700', '2° mese €600', '3° mese €500'],
     features: [
       'Creazione e configurazione campagne',
-      'Targeting su misura per la tua zona',
+      'Targeting per la tua zona',
       'Gestione e ottimizzazione continua',
       'Report mensile sui risultati',
     ],
@@ -182,8 +182,7 @@ export function Prezzi() {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <SectionHead
             kicker="Siti Web"
-            title="Il tuo sito, costruito su misura"
-            sub="Pagamento una tantum. Il prezzo varia in base alle pagine e alle funzionalità che servono davvero."
+            title="Il tuo sito, costruito per te"
           />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {siti.map((s, i) => {
@@ -243,7 +242,6 @@ export function Prezzi() {
           <SectionHead
             kicker="Visibilità su Google"
             title="Fatti trovare, mese dopo mese"
-            sub="Servizi mensili con impegno minimo di 3 mesi — il tempo necessario per vedere risultati reali."
           />
           <div className="grid sm:grid-cols-2 gap-6 items-stretch">
             {servizi.map((s, i) => {
@@ -298,7 +296,6 @@ export function Prezzi() {
           <SectionHead
             kicker="Pacchetti completi"
             title="Sito + visibilità, in un solo percorso"
-            sub="Metti insieme un sito nuovo e la spinta per farti trovare: tutto coordinato, da un unico referente."
           />
           <div className="grid sm:grid-cols-2 gap-6 items-stretch">
             {pacchetti.map((p, i) => {
@@ -332,12 +329,6 @@ export function Prezzi() {
               );
             })}
           </div>
-
-          <Reveal delay={120}>
-            <p className="mt-10 text-center text-sm text-ink/45 max-w-xl mx-auto">
-              I prezzi indicati sono punti di partenza e vengono definiti su misura dopo un primo confronto gratuito e senza impegno.
-            </p>
-          </Reveal>
         </div>
       </section>
 
