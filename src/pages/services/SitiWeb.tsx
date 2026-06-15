@@ -3,6 +3,7 @@ import { Store, PhoneCall, ShoppingBag } from 'lucide-react';
 import { Reveal } from '../../components/Reveal';
 import { Divider } from '../../components/Divider';
 import { FinalCTA } from '../../components/FinalCTA';
+import { Button } from '../../components/Button';
 import { sitiHeroLqip } from '../../sitiHeroLqip';
 
 const siteTypes = [
@@ -108,12 +109,14 @@ export function SitiWeb() {
             <h1 className="font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight mb-10 max-w-3xl">
               Siti Web che catturano il cliente e lo invogliano a cercarti.
             </h1>
-            <a
-              href="tel:+393317600310"
-              className="bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition-colors"
-            >
-              Contattami
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Button variant="white" href="tel:+393317600310">
+                Contattami
+              </Button>
+              <Button variant="white" to="/preventivo">
+                Richiedi un preventivo
+              </Button>
+            </div>
           </Reveal>
         </div>
       </section>

@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import { Button } from './Button';
 
 const ACCESS_KEY = '6ae479b2-c7eb-4ff2-a617-9e433252e5cb';
 
 const fieldBase =
-  'w-full rounded-lg border border-black/12 bg-white px-4 py-3 text-ink placeholder:text-ink/40 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-colors';
-const labelText = 'block text-sm font-semibold text-ink mb-2';
+  'w-full rounded-lg border border-black/12 bg-white px-4 py-3 font-sans text-ink placeholder:text-ink/40 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-colors';
+const labelText = 'block font-display text-sm font-semibold text-ink mb-2';
 
 export function PreventivoForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -137,13 +138,9 @@ export function PreventivoForm() {
         </p>
       </div>
 
-      <button
-        type="submit"
-        disabled={status === 'sending'}
-        className="inline-flex items-center justify-center bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-      >
+      <Button type="submit" variant="primary" disabled={status === 'sending'}>
         {status === 'sending' ? 'Invio in corso…' : 'Invia richiesta'}
-      </button>
+      </Button>
 
       {status === 'success' && (
         <p role="status" className="text-sm font-medium text-g-green">

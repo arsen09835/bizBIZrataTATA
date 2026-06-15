@@ -1,6 +1,6 @@
-import { Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Reveal } from './Reveal';
+import { Button } from './Button';
 
 function FloatingPaths() {
   // Evenly-spaced family of rising lines spanning the whole viewBox (with
@@ -61,14 +61,13 @@ export function FinalCTA() {
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.15]">
             La tua passione per il mestiere, unita alla mia per il digitale, porteranno la tua impresa in cima al mercato locale.
           </h2>
-          <div className="mt-10">
-            <a
-              href="tel:+393317600310"
-              className="inline-flex items-center gap-2 bg-white text-ink font-semibold px-8 py-4 rounded-lg hover:bg-white/90 hover:scale-[1.02] transition-all"
-            >
-              <Phone className="w-4 h-4" />
+          <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+            <Button variant="white" href="tel:+393317600310">
               Contattami
-            </a>
+            </Button>
+            <Button variant="white" to="/preventivo">
+              Richiedi un preventivo
+            </Button>
           </div>
         </Reveal>
       </div>

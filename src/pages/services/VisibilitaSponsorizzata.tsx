@@ -1,7 +1,8 @@
-import { ArrowRight, SlidersHorizontal, MapPin, Wallet, Activity, TrendingUp, TrendingDown } from 'lucide-react';
+import { SlidersHorizontal, MapPin, Wallet, Activity, TrendingUp, TrendingDown } from 'lucide-react';
 import { Reveal } from '../../components/Reveal';
 import { Divider } from '../../components/Divider';
 import { FinalCTA } from '../../components/FinalCTA';
+import { Button } from '../../components/Button';
 import { adsHeroLqip } from '../../adsHeroLqip';
 
 const controls = [
@@ -45,13 +46,14 @@ export function VisibilitaSponsorizzata() {
               <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-10 max-w-4xl">
                 Campagne AdWords (ora Google Ads) persuasive che minimizzano le spese, massimizzando le conversioni.
               </h1>
-              <a
-                href="mailto:info@rankmybizup.com"
-                className="inline-flex items-center gap-2 bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition-colors"
-              >
-                Contattami
-                <ArrowRight className="w-4 h-4" />
-              </a>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button variant="white" href="mailto:info@rankmybizup.com">
+                  Contattami
+                </Button>
+                <Button variant="white" to="/preventivo">
+                  Richiedi un preventivo
+                </Button>
+              </div>
             </div>
 
             <div className="lg:col-span-5 hidden lg:block">
