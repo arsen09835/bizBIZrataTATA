@@ -11,21 +11,51 @@ type Pro = { icon: LucideIcon; title: string; description: string };
 const pros: Pro[] = [
   {
     icon: Eye,
-    title: 'Più utenti ti vedono, più utenti ti scelgono',
+    title: 'Più in alto sei, più clienti scegli tu',
     description:
-      'I primi 3 risultati ritengono il 75 percento del traffico online. Posizionarsi bene significa ricevere una fetta di quel traffico.',
+      'I primi risultati si prendono la maggior parte dei clic: chi cerca difficilmente scende in fondo alla pagina. Essere lì significa essere la prima scelta, prima ancora dei concorrenti.',
   },
   {
     icon: Gift,
-    title: 'Completamente Gratis',
+    title: 'Clienti senza pagare ogni clic',
     description:
-      'A differenza degli annunci sponsorizzati dove paghi per ogni click, qui non hai bisogno di alcun budget. Google decide che sei più rilevante di altri, per questo ti mette in cima.',
+      'A differenza degli annunci sponsorizzati — dove paghi ogni singola visita e tutto si ferma quando finisce il budget — i clienti arrivano in modo naturale.',
   },
   {
     icon: InfinityIcon,
-    title: 'Strategia a lungo termine',
+    title: 'Un valore che resta nel tempo',
     description:
-      'Una volta raggiunti i risultati sperati, resti fra i primi per anni, senza spese annuali o costi aggiuntivi [se ti affidi a me].',
+      'La pubblicità smette di funzionare appena smetti di pagarla. Una buona posizione organica continua a portarti clienti nel tempo: va mantenuta, ma non svanisce da un giorno all\'altro.',
+  },
+];
+
+type Step = { title: string; description: string };
+
+const steps: Step[] = [
+  {
+    title: 'Parto da un\'analisi onesta della tua situazione.',
+    description:
+      'Guardo com\'è messo il tuo sito oggi, cosa lo frena e cosa stanno facendo i concorrenti che ti superano. Senza questo, si lavora alla cieca.',
+  },
+  {
+    title: 'Scopro le parole che usano davvero i tuoi clienti.',
+    description:
+      'Le persone non cercano come immaginiamo noi: trovo le parole esatte che digitano su Google per cercare ciò che offri, a Firenze e dintorni.',
+  },
+  {
+    title: 'Sistemo il tuo sito perché Google lo capisca.',
+    description:
+      'Lavoro su testi, titoli e struttura delle pagine, così Google capisce chiaramente di cosa ti occupi e ti mostra alle persone giuste.',
+  },
+  {
+    title: 'Ti rendo visibile nella tua zona.',
+    description:
+      'Curo la tua scheda Google e la tua presenza su Google Maps, così compari quando qualcuno cerca un\'attività come la tua vicino a sé.',
+  },
+  {
+    title: 'Creo contenuti che attirano clienti.',
+    description:
+      'Pagine e articoli che rispondono alle domande dei tuoi clienti: aumentano la fiducia in te e, di conseguenza, la tua posizione su Google.',
   },
 ];
 
@@ -240,12 +270,63 @@ export function VisibilitaOrganica() {
 
       <Divider />
 
-      {/* Pros */}
+      {/* Block A — short explainer */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="max-w-6xl mx-auto px-8 lg:px-8">
+          <Reveal className="mb-8 sm:mb-10">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] max-w-4xl">
+              Cos'è la SEO, senza giri di parole
+            </h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed max-w-4xl">
+              SEO è una sigla che spaventa, ma il concetto è semplice: significa far comparire la tua attività su Google quando un cliente cerca quello che offri — nel momento esatto in cui è pronto a contattarti. Tutto il resto è solo il lavoro tecnico che serve ad arrivarci.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* Block B — how I work */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="max-w-6xl mx-auto px-8 lg:px-8">
+          <Reveal className="mb-8 sm:mb-10">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] max-w-4xl">
+              Come lavoro per portarti lì
+            </h2>
+          </Reveal>
+          <Reveal delay={80} className="mb-12 sm:mb-14">
+            <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed max-w-4xl">
+              Non è magia, ed è un percorso, non un interruttore. In concreto:
+            </p>
+          </Reveal>
+          <ol className="space-y-5 lg:space-y-6">
+            {steps.map((s, i) => (
+              <Reveal key={s.title} delay={i * 80}>
+                <li className="p-7 lg:p-8 rounded-2xl bg-white border border-brand-navy/8 shadow-card flex gap-5 sm:gap-6">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-terracotta/10 font-display font-bold text-brand-terracotta text-lg flex-shrink-0">
+                    {i + 1}
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-display text-lg text-brand-navy mb-2 leading-snug">{s.title}</h3>
+                    <p className="text-brand-gray leading-relaxed text-sm">{s.description}</p>
+                  </div>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* Block C — Pros (existing 3-card section) */}
       <section className="bg-white py-20 sm:py-28">
         <div className="max-w-6xl mx-auto px-8 lg:px-8">
           <Reveal className="mb-12 sm:mb-14">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1] max-w-4xl">
-              I Vantaggi nell'essere posizionati fra i primi 3.
+              Perché la SEO è l'investimento che rende di più
             </h2>
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
