@@ -193,7 +193,7 @@ export function Prezzi() {
                   <div
                     className={`relative h-full flex flex-col rounded-2xl bg-white p-7 transition-all duration-300 hover:-translate-y-1 ${
                       s.featured
-                        ? 'border-2 border-brand-blue shadow-[0_20px_50px_rgba(26,86,219,0.12)]'
+                        ? 'border-2 border-brand-blue shadow-[0_20px_50px_rgba(42,82,190,0.12)]'
                         : 'border border-black/8 shadow-sm hover:shadow-lg'
                     }`}
                   >
@@ -305,7 +305,7 @@ export function Prezzi() {
               const Icon = p.icon;
               return (
                 <Reveal key={p.name} delay={i * 90} className="h-full">
-                  <div className="h-full flex flex-col rounded-2xl bg-white p-8 border border-black/8 shadow-[0_12px_40px_rgba(15,23,34,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(26,86,219,0.12)]">
+                  <div className="h-full flex flex-col rounded-2xl bg-white p-8 border border-black/8 shadow-[0_12px_40px_rgba(15,23,34,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(42,82,190,0.12)]">
                     <div className="flex items-center gap-2 mb-5">
                       <div className="w-10 h-10 rounded-lg bg-brand-blue/8 flex items-center justify-center">
                         <Globe className="w-5 h-5 text-brand-blue" />
