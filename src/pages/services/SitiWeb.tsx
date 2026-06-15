@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowRight, Store, PhoneCall, ShoppingBag } from 'lucide-react';
+import { Store, PhoneCall, ShoppingBag } from 'lucide-react';
 import { Reveal } from '../../components/Reveal';
 import { Divider } from '../../components/Divider';
 import { FinalCTA } from '../../components/FinalCTA';
@@ -25,6 +25,51 @@ const siteTypes = [
   },
 ];
 
+function LaptopFrame({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="w-full">
+      {/* Body */}
+      <div className="rounded-t-xl bg-[#0F1722] p-2 pb-2 shadow-[0_24px_60px_rgba(15,23,34,0.18)]">
+        {/* Camera */}
+        <div className="flex justify-center pb-1">
+          <span aria-hidden className="w-1.5 h-1.5 rounded-full bg-white/20" />
+        </div>
+        {/* Screen */}
+        <div className="rounded-md overflow-hidden bg-white aspect-[16/10]">
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            className="w-full h-full object-cover object-top"
+          />
+        </div>
+      </div>
+      {/* Hinge / base */}
+      <div className="mx-auto h-3 w-[108%] -mt-px rounded-b-2xl bg-[#D7DCE3] shadow-[0_8px_18px_rgba(15,23,34,0.10)]" />
+    </div>
+  );
+}
+
+function PhoneFrame({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="w-full">
+      <div className="relative mx-auto rounded-[34px] bg-[#0F1722] p-2 shadow-[0_24px_60px_rgba(15,23,34,0.18)]">
+        {/* Dynamic island */}
+        <div className="absolute top-2.5 left-1/2 -translate-x-1/2 z-10 h-5 w-20 rounded-full bg-black" />
+        {/* Screen */}
+        <div className="rounded-[26px] overflow-hidden bg-white aspect-[9/19.5]">
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            className="w-full h-full object-cover object-top"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function SitiWeb() {
   const [loaded, setLoaded] = useState(false);
 
@@ -48,7 +93,7 @@ export function SitiWeb() {
             loading="eager"
             decoding="async"
             onLoad={() => setLoaded(true)}
-            className={`absolute inset-0 w-full h-full object-cover object-[center_75%] transition-opacity duration-700 ${
+            className={`absolute inset-0 w-full h-full object-cover object-[center_25%] transition-opacity duration-700 ${
               loaded ? 'opacity-100' : 'opacity-0'
             }`}
           />
@@ -61,25 +106,37 @@ export function SitiWeb() {
               Siti Web che catturano il cliente e lo invogliano a cercarti.
             </h1>
             <a
-              href="mailto:info@rankmybizup.com"
-              className="inline-flex items-center gap-2 bg-white text-brand-navy font-semibold px-6 py-3.5 rounded-full hover:bg-brand-ivory hover:scale-[1.02] transition-all shadow-glow"
+              href="tel:+393317600310"
+              className="bg-brand-blue text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-brand-blue-dark transition-colors"
             >
               Contattami
-              <ArrowRight className="w-4 h-4" />
             </a>
           </Reveal>
         </div>
       </section>
 
-      {/* Section 2 — paragraph */}
+      {/* Section 2 — intro */}
       <section className="bg-white py-20 sm:py-28">
         <div className="max-w-[60rem] mx-auto px-8 lg:px-8">
           <Reveal>
             <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
-              Il sito internet sta alla base di gran parte della tua presenza non solo su Google, ma anche sui Social se ne fai uso. È dove un potenziale cliente decide se scegliere te o passare a quello successivo. È anche uno dei fattori principali che influenzano se appari fra i primi risultati o in fondo ai risultati sul motore di ricerca.
+              Il sito web è il motore del tuo business online, dove i visitatori decidono se contattare te o uscire e passare al risultato successivo.
             </p>
-            <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed max-w-3xl mt-8">
-              Avere un buon prodotto non basta, bisogna saper presentarlo in un contesto che amplifichi interesse. È come essere il miglior tatuatore ma avere la sala sottosopra.
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Section 2b — Perché me? */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="max-w-[60rem] mx-auto px-8 lg:px-8">
+          <Reveal className="mb-8">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1]">
+              Perché me?
+            </h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
+              Curo ogni progetto con passione sartoriale e attenzione maniacale per i dettagli. Il sito viene realizzato tenendo conto del tuo valore e del mercato locale, uniti alle migliori tecnologie, garantendoti quel passo in più che i tuoi concorrenti non hanno.
             </p>
           </Reveal>
         </div>
@@ -87,51 +144,54 @@ export function SitiWeb() {
 
       <Divider />
 
-      {/* Section 3 — Design Responsive */}
+      {/* Section 3 — Un Design adatto ad ogni dispositivo */}
       <section className="bg-white py-20 sm:py-28">
         <div className="max-w-6xl mx-auto px-8 lg:px-8">
           <Reveal className="mb-12">
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-[1.1]">
-              Un Design Responsive <em className="italic">alla mano</em>.
+              Un Design adatto ad ogni dispositivo.
             </h2>
           </Reveal>
 
-          <div className="flex flex-col lg:flex-row items-start justify-center gap-8 lg:gap-12">
-            {/* Left column — diagram (1) */}
-            <Reveal className="w-full max-w-[440px]">
-              <img
-                src="/container_transparent.png"
-                alt="Diagramma analisi visite per dispositivi"
-                className="w-full h-auto block rounded-2xl"
-                style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
-              />
-            </Reveal>
+          {/* Device mockup row */}
+          <Reveal>
+            <div className="flex flex-col lg:flex-row lg:items-center justify-center gap-10 lg:gap-14">
+              <div className="w-full max-w-[640px] lg:flex-1">
+                <LaptopFrame src="/device-desktop.jpg" alt="Anteprima del sito su computer" />
+              </div>
+              <div className="w-[200px] sm:w-[220px] mx-auto lg:mx-0 lg:flex-none">
+                <PhoneFrame src="/device-mobile.jpg" alt="Anteprima del sito su smartphone" />
+              </div>
+            </div>
+          </Reveal>
 
-            {/* Right column — paragraph (3), caption (4), then the engagement card (2) below */}
-            <Reveal className="w-full max-w-xl lg:pt-8" delay={120}>
-              <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
-                La maggior parte dei tuoi clienti ti troveranno dal cellulare. Attraverso un design che calza a pennello sia sul computer, che tablet, che sul più piccolo dei cellulari, si garantisce un'esperienza di navigazione impeccabile per ogni utente che entra nel tuo sito web.
-              </p>
-              <p className="mt-8 text-sm italic text-brand-gray text-left">
-                Diagramma preso dai dati sul progetto corrente{' '}
-                <a
-                  href="https://brunoantichita.it/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-terracotta underline underline-offset-4 decoration-brand-terracotta/40 hover:decoration-brand-terracotta transition-colors not-italic font-medium"
-                >
-                  https://brunoantichita.it/
-                </a>
-              </p>
-              <img
-                src="/card_engagement.png"
-                alt=""
-                aria-hidden
-                className="mt-8 w-full max-w-[308px] h-auto block rounded-2xl"
-                style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
-              />
-            </Reveal>
-          </div>
+          {/* Donut + caption */}
+          <Reveal className="mt-16 max-w-md mx-auto" delay={120}>
+            <img
+              src="/container_transparent.png"
+              alt="Diagramma analisi visite per dispositivi"
+              className="w-full h-auto block rounded-2xl"
+              style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
+            />
+            <p className="mt-6 text-sm italic text-brand-gray text-center">
+              Diagramma preso dai dati sul progetto corrente{' '}
+              <a
+                href="https://brunoantichita.it/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-terracotta underline underline-offset-4 decoration-brand-terracotta/40 hover:decoration-brand-terracotta transition-colors not-italic font-medium"
+              >
+                https://brunoantichita.it/
+              </a>
+            </p>
+          </Reveal>
+
+          {/* Closing paragraph */}
+          <Reveal className="mt-12 max-w-3xl mx-auto" delay={160}>
+            <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed text-center">
+              La maggior parte degli utenti ti cercheranno sul telefono. Per questo ogni design è costruito per calzare a pennello su ogni dispositivo, garantendo un'esperienza fluida e impeccabile per ogni potenziale cliente.
+            </p>
+          </Reveal>
         </div>
       </section>
 
