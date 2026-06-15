@@ -1,9 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Store, PhoneCall, ShoppingBag } from 'lucide-react';
 import { Reveal } from '../../components/Reveal';
 import { Divider } from '../../components/Divider';
 import { FinalCTA } from '../../components/FinalCTA';
-import { Button } from '../../components/Button';
 import { sitiHeroLqip } from '../../sitiHeroLqip';
 
 const siteTypes = [
@@ -109,13 +109,19 @@ export function SitiWeb() {
             <h1 className="font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight mb-10 max-w-3xl">
               Siti Web che catturano il cliente e lo invogliano a cercarti.
             </h1>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button variant="white" href="tel:+393317600310">
+            <div className="flex flex-col sm:flex-row gap-3 items-start">
+              <a
+                href="tel:+393317600310"
+                className="inline-flex items-center justify-center bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition-colors"
+              >
                 Contattami
-              </Button>
-              <Button variant="white" to="/preventivo">
+              </a>
+              <Link
+                to="/preventivo"
+                className="inline-flex items-center justify-center bg-white text-ink font-semibold px-7 py-3.5 rounded-lg hover:bg-white/90 transition-colors"
+              >
                 Richiedi un preventivo
-              </Button>
+              </Link>
             </div>
           </Reveal>
         </div>

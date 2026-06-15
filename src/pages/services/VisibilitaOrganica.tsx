@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Eye, Gift, Infinity as InfinityIcon, type LucideIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Reveal } from '../../components/Reveal';
 import { Divider } from '../../components/Divider';
 import { FinalCTA } from '../../components/FinalCTA';
-import { Button } from '../../components/Button';
 import { seoHeroLqip } from '../../seoHeroLqip';
 
 type Pro = { icon: LucideIcon; title: string; description: string };
@@ -189,13 +189,19 @@ export function VisibilitaOrganica() {
               <p className="text-lg sm:text-xl text-white/85 leading-relaxed max-w-3xl">
                 Il tuo profilo sarà fra i primi 3 risultati nei risultati di ricerca dei tuoi clienti.
               </p>
-              <div className="mt-10 flex flex-col sm:flex-row gap-3">
-                <Button variant="white" href="tel:+393317600310">
+              <div className="mt-10 flex flex-col sm:flex-row gap-3 items-start">
+                <a
+                  href="tel:+393317600310"
+                  className="inline-flex items-center justify-center bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition-colors"
+                >
                   Contattami
-                </Button>
-                <Button variant="white" to="/preventivo">
+                </a>
+                <Link
+                  to="/preventivo"
+                  className="inline-flex items-center justify-center bg-white text-ink font-semibold px-7 py-3.5 rounded-lg hover:bg-white/90 transition-colors"
+                >
                   Richiedi un preventivo
-                </Button>
+                </Link>
               </div>
             </div>
 

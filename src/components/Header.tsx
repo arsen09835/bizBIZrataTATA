@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { MapPin, Menu, X, ChevronDown, Globe, Search, Megaphone } from 'lucide-react';
-import { Button } from './Button';
 
 const services = [
   {
@@ -233,9 +232,12 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center">
-            <Button variant="primary" href="tel:+393317600310" className="!text-sm !px-4 !py-2 !rounded-md">
+            <a
+              href="tel:+393317600310"
+              className="bg-brand-blue text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-brand-blue-dark transition-colors"
+            >
               Contattami
-            </Button>
+            </a>
           </div>
 
           <button
@@ -314,14 +316,13 @@ export function Header() {
             </div>
 
             <div className="px-4 pb-8 pt-3 border-t border-black/5 flex-shrink-0">
-              <Button
-                variant="primary"
+              <a
                 href="tel:+393317600310"
                 onClick={() => setMobileOpen(false)}
-                className="w-full"
+                className="flex items-center justify-center w-full bg-brand-blue text-white font-semibold py-3.5 rounded-md hover:bg-brand-blue-dark transition-colors"
               >
                 Contattami
-              </Button>
+              </a>
             </div>
           </div>,
           document.body

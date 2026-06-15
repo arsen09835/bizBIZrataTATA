@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Button } from './Button';
 
 const ACCESS_KEY = '6ae479b2-c7eb-4ff2-a617-9e433252e5cb';
 
@@ -86,7 +85,7 @@ export function PreventivoForm() {
           <input
             id="f-email"
             type="email"
-            name="E-mail"
+            name="email"
             required
             placeholder="Il tuo indirizzo e-mail"
             className={fieldBase}
@@ -138,9 +137,13 @@ export function PreventivoForm() {
         </p>
       </div>
 
-      <Button type="submit" variant="primary" disabled={status === 'sending'}>
+      <button
+        type="submit"
+        disabled={status === 'sending'}
+        className="inline-flex items-center justify-center bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+      >
         {status === 'sending' ? 'Invio in corso…' : 'Invia richiesta'}
-      </Button>
+      </button>
 
       {status === 'success' && (
         <p role="status" className="text-sm font-medium text-g-green">
