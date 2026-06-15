@@ -103,14 +103,14 @@ export function SitiWeb() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent" />
         </div>
 
-        <div className="relative max-w-6xl mx-auto px-8 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-24 w-full">
+        <div className="relative max-w-6xl mx-auto px-8 lg:px-4 pt-32 pb-20 sm:pt-40 sm:pb-24 w-full">
           <Reveal>
-            <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-10 max-w-3xl">
+            <h1 className="font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight mb-10 max-w-3xl">
               Siti Web che catturano il cliente e lo invogliano a cercarti.
             </h1>
             <a
               href="tel:+393317600310"
-              className="bg-brand-blue text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-brand-blue-dark transition-colors"
+              className="bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition-colors"
             >
               Contattami
             </a>
