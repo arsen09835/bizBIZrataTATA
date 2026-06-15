@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ArrowRight, SlidersHorizontal, MapPin, Wallet, Activity, TrendingUp, TrendingDown } from 'lucide-react';
 import { Reveal } from '../../components/Reveal';
 import { Divider } from '../../components/Divider';
@@ -45,13 +46,21 @@ export function VisibilitaSponsorizzata() {
               <h1 className="font-display font-bold text-white text-3xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-10 max-w-4xl">
                 Campagne AdWords (ora Google Ads) persuasive che minimizzano le spese, massimizzando le conversioni.
               </h1>
-              <a
-                href="mailto:info@rankmybizup.com"
-                className="inline-flex items-center gap-2 bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition-colors"
-              >
-                Contattami
-                <ArrowRight className="w-4 h-4" />
-              </a>
+              <div className="flex flex-col sm:flex-row gap-3 items-start">
+                <a
+                  href="mailto:info@rankmybizup.com"
+                  className="inline-flex items-center gap-2 bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition-colors"
+                >
+                  Contattami
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <Link
+                  to="/preventivo"
+                  className="inline-flex items-center justify-center bg-white text-ink font-semibold px-7 py-3.5 rounded-lg hover:bg-white/90 transition-colors"
+                >
+                  Richiedi un preventivo
+                </Link>
+              </div>
             </div>
 
             <div className="lg:col-span-5 hidden lg:block">

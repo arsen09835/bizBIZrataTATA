@@ -10,6 +10,7 @@ import {
   MapPin,
   ArrowRight,
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Reveal } from '../components/Reveal';
 import { FinalCTA } from '../components/FinalCTA';
 
@@ -218,8 +219,8 @@ export function Prezzi() {
                         </li>
                       ))}
                     </ul>
-                    <a
-                      href={PHONE}
+                    <Link
+                      to="/preventivo"
                       className={`mt-7 inline-flex items-center justify-center w-full py-3 rounded-lg font-semibold text-sm transition-colors ${
                         s.featured
                           ? 'bg-brand-blue text-white hover:bg-brand-blue-dark'
@@ -227,7 +228,7 @@ export function Prezzi() {
                       }`}
                     >
                       Richiedi un preventivo
-                    </a>
+                    </Link>
                   </div>
                 </Reveal>
               );
@@ -276,12 +277,12 @@ export function Prezzi() {
                         </li>
                       ))}
                     </ul>
-                    <a
-                      href={PHONE}
+                    <Link
+                      to="/preventivo"
                       className="mt-7 inline-flex items-center justify-center w-full py-3 rounded-lg font-semibold text-sm border border-black/10 text-ink hover:bg-black/[0.04] transition-colors"
                     >
                       Richiedi un preventivo
-                    </a>
+                    </Link>
                   </div>
                 </Reveal>
               );

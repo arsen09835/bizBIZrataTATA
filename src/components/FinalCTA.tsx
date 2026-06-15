@@ -1,4 +1,5 @@
 import { Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Reveal } from './Reveal';
 
@@ -61,7 +62,7 @@ export function FinalCTA() {
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.15]">
             La tua passione per il mestiere, unita alla mia per il digitale, porteranno la tua impresa in cima al mercato locale.
           </h2>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center items-center">
             <a
               href="tel:+393317600310"
               className="inline-flex items-center gap-2 bg-white text-ink font-semibold px-8 py-4 rounded-lg hover:bg-white/90 hover:scale-[1.02] transition-all"
@@ -69,6 +70,12 @@ export function FinalCTA() {
               <Phone className="w-4 h-4" />
               Contattami
             </a>
+            <Link
+              to="/preventivo"
+              className="inline-flex items-center gap-2 bg-white text-ink font-semibold px-8 py-4 rounded-lg hover:bg-white/90 hover:scale-[1.02] transition-all"
+            >
+              Richiedi un preventivo
+            </Link>
           </div>
         </Reveal>
       </div>

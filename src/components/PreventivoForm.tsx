@@ -3,8 +3,8 @@ import { useState } from 'react';
 const ACCESS_KEY = '6ae479b2-c7eb-4ff2-a617-9e433252e5cb';
 
 const fieldBase =
-  'w-full rounded-lg border border-black/12 bg-white px-4 py-3 text-ink placeholder:text-ink/40 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-colors';
-const labelText = 'block text-sm font-semibold text-ink mb-2';
+  'w-full rounded-lg border border-black/12 bg-white px-4 py-3 font-sans text-ink placeholder:text-ink/40 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition-colors';
+const labelText = 'block font-display text-sm font-semibold text-ink mb-2';
 
 export function PreventivoForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -85,7 +85,7 @@ export function PreventivoForm() {
           <input
             id="f-email"
             type="email"
-            name="E-mail"
+            name="email"
             required
             placeholder="Il tuo indirizzo e-mail"
             className={fieldBase}
