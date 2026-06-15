@@ -14,7 +14,7 @@ export function NewHero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at 50% 0%, rgba(26,86,219,0.06) 0%, transparent 60%)',
+            'radial-gradient(ellipse at 50% 0%, rgba(42,82,190,0.06) 0%, transparent 60%)',
         }}
       />
 
@@ -76,7 +76,7 @@ export function NewHero() {
             <a
               href="#cosa-ti-serve"
               onClick={handleScrollToCosaTiServe}
-              className="bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition shadow-[0_8px_24px_rgba(26,86,219,0.25)]"
+              className="bg-brand-blue text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-brand-blue-dark transition shadow-[0_8px_24px_rgba(42,82,190,0.25)]"
             >
               Scopri i Servizi
             </a>
