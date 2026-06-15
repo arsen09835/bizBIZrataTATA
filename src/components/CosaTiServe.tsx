@@ -5,7 +5,7 @@ import { Reveal } from './Reveal';
 const items = [
   {
     icon: Globe,
-    text: 'Sito web professionale e aggiornato',
+    text: 'Sito web professionale e aggiornato che trasformi ogni visitatore in interessato.',
     label: 'Scopri come posso aiutarti',
     to: '/servizi/siti-web',
   },
