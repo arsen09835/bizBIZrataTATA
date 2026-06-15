@@ -27,15 +27,15 @@ const siteTypes = [
 
 function LaptopFrame({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="w-full">
-      {/* Body */}
-      <div className="rounded-t-xl bg-[#0F1722] p-2 pb-2 shadow-[0_24px_60px_rgba(15,23,34,0.18)]">
+    <div className="w-full flex flex-col items-center">
+      {/* Lid: dark bezel + screen */}
+      <div className="w-full rounded-t-xl rounded-b-md bg-[#0F1722] p-2 shadow-[0_24px_60px_rgba(15,23,34,0.18)]">
         {/* Camera */}
         <div className="flex justify-center pb-1">
           <span aria-hidden className="w-1.5 h-1.5 rounded-full bg-white/20" />
         </div>
-        {/* Screen */}
-        <div className="rounded-md overflow-hidden bg-white aspect-[16/10]">
+        {/* Screen — bottom corners only slightly rounded so it seats on the hinge */}
+        <div className="rounded-t-md rounded-b-sm overflow-hidden bg-white aspect-[16/10]">
           <img
             src={src}
             alt={alt}
@@ -44,8 +44,11 @@ function LaptopFrame({ src, alt }: { src: string; alt: string }) {
           />
         </div>
       </div>
-      {/* Hinge / base */}
-      <div className="mx-auto h-3 w-[108%] -mt-px rounded-b-2xl bg-[#D7DCE3] shadow-[0_8px_18px_rgba(15,23,34,0.10)]" />
+      {/* Base / hinge deck — centered on the same axis as the screen */}
+      <div className="relative h-3.5 w-[112%] rounded-b-xl bg-[#C2C5CC] shadow-[0_8px_18px_rgba(15,23,34,0.12)]">
+        {/* Lid groove notch, centered */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-1 w-10 rounded-b-md bg-[#A6AAB3]" />
+      </div>
     </div>
   );
 }
@@ -157,7 +160,7 @@ export function SitiWeb() {
           <Reveal>
             <div className="flex flex-col lg:flex-row lg:items-center justify-center gap-10 lg:gap-14">
               <div className="w-full max-w-[640px] lg:flex-1">
-                <LaptopFrame src="/device-desktop.jpg" alt="Anteprima del sito su computer" />
+                <LaptopFrame src="/device-desktop.png" alt="Anteprima del sito su computer" />
               </div>
               <div className="w-[200px] sm:w-[220px] mx-auto lg:mx-0 lg:flex-none">
                 <PhoneFrame src="/device-mobile.jpg" alt="Anteprima del sito su smartphone" />
@@ -165,32 +168,36 @@ export function SitiWeb() {
             </div>
           </Reveal>
 
-          {/* Donut + caption */}
-          <Reveal className="mt-16 max-w-md mx-auto" delay={120}>
-            <img
-              src="/container_transparent.png"
-              alt="Diagramma analisi visite per dispositivi"
-              className="w-full h-auto block rounded-2xl"
-              style={{ filter: 'drop-shadow(0 10px 24px rgba(15,26,42,0.08))' }}
-            />
-            <p className="mt-6 text-sm italic text-brand-gray text-center">
-              Diagramma preso dai dati sul progetto corrente{' '}
-              <a
-                href="https://brunoantichita.it/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand-terracotta underline underline-offset-4 decoration-brand-terracotta/40 hover:decoration-brand-terracotta transition-colors not-italic font-medium"
-              >
-                https://brunoantichita.it/
-              </a>
-            </p>
-          </Reveal>
+          {/* Two-column: donut + caption (left) · paragraph (right) */}
+          <Reveal className="mt-16" delay={120}>
+            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-12 items-center">
+              {/* LEFT — donut (transparent, no card chrome) + caption below */}
+              <div className="flex flex-col">
+                <img
+                  src="/container_transparent.png"
+                  alt="Diagramma analisi visite per dispositivi"
+                  className="w-full max-w-[358px] mx-auto lg:mx-0 h-auto block"
+                />
+                <p className="mt-6 text-sm italic text-brand-gray text-center lg:text-left max-w-[358px] mx-auto lg:mx-0">
+                  Dati sul progetto corrente{' '}
+                  <a
+                    href="https://brunoantichita.it/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-brand-terracotta underline underline-offset-4 decoration-brand-terracotta/40 hover:decoration-brand-terracotta transition-colors not-italic font-medium"
+                  >
+                    https://brunoantichita.it/
+                  </a>
+                </p>
+              </div>
 
-          {/* Closing paragraph */}
-          <Reveal className="mt-12 max-w-3xl mx-auto" delay={160}>
-            <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed text-center">
-              La maggior parte degli utenti ti cercheranno sul telefono. Per questo ogni design è costruito per calzare a pennello su ogni dispositivo, garantendo un'esperienza fluida e impeccabile per ogni potenziale cliente.
-            </p>
+              {/* RIGHT — paragraph */}
+              <div>
+                <p className="text-lg sm:text-xl text-brand-navy/85 leading-relaxed">
+                  La maggior parte degli utenti ti cercheranno sul telefono. Per questo ogni design è costruito per calzare a pennello su ogni dispositivo, garantendo un'esperienza fluida e impeccabile per ogni potenziale cliente.
+                </p>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
