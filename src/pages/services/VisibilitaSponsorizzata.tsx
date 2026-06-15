@@ -47,42 +47,38 @@ export function VisibilitaSponsorizzata() {
 
             <div className="lg:col-span-5">
               <div className="max-w-md mx-auto lg:mx-0 lg:ml-auto">
-                <svg
-                  viewBox="0 0 480 340"
-                  role="img"
-                  aria-labelledby="flussoTitle flussoDesc"
-                  className="w-full h-auto"
-                >
-                  <title id="flussoTitle">Flusso clic, conversioni e fatturato</title>
-                  <desc id="flussoDesc">
-                    I clic entrano da sinistra, passano per un imbuto di conversione e diventano barre di fatturato crescenti.
-                  </desc>
-                  <defs>
-                    <marker id="flow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                    </marker>
-                    <filter id="cs4" x="-30%" y="-30%" width="160%" height="160%">
-                      <feDropShadow dx="0" dy="14" stdDeviation="20" floodColor="#0F1722" floodOpacity="0.12" />
-                    </filter>
-                  </defs>
-                  <g filter="url(#cs4)">
-                    <rect x="20" y="24" width="440" height="284" rx="16" fill="#FFFFFF" stroke="#0F1722" strokeOpacity="0.07" />
-                  </g>
-                  <circle cx="60" cy="198" r="5.5" fill="#B26B3E" />
-                  <circle cx="84" cy="178" r="6.5" fill="#B26B3E" />
-                  <circle cx="104" cy="160" r="5" fill="#B26B3E" />
-                  <line x1="120" y1="152" x2="172" y2="144" stroke="#9FB0CF" strokeWidth="2" markerEnd="url(#flow)" />
-                  <circle cx="146" cy="148" r="2.4" fill="#B26B3E" fillOpacity="0.7" />
-                  <path d="M178 140 L252 140 L223 198 L223 214 L207 214 L207 198 Z" fill="#2A52BE" />
-                  <line x1="252" y1="196" x2="328" y2="220" stroke="#9FB0CF" strokeWidth="2" markerEnd="url(#flow)" />
-                  <circle cx="290" cy="208" r="2.4" fill="#5E82E0" fillOpacity="0.8" />
-                  <line x1="334" y1="238" x2="426" y2="238" stroke="#0F1722" strokeOpacity="0.1" strokeWidth="1" />
-                  <rect x="338" y="212" width="18" height="26" rx="3" fill="#AFC2EE" />
-                  <rect x="366" y="184" width="18" height="54" rx="3" fill="#5E82E0" />
-                  <rect x="394" y="152" width="18" height="86" rx="3" fill="#2A52BE" />
-                  <line x1="403" y1="148" x2="403" y2="134" stroke="#B26B3E" strokeWidth="3" strokeLinecap="round" />
-                  <path d="M397 141 L403 132 L409 141" fill="none" stroke="#B26B3E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <div className="bg-white rounded-2xl shadow-card-hover p-5 sm:p-6">
+                  <svg
+                    viewBox="20 24 440 284"
+                    role="img"
+                    aria-labelledby="flussoTitle flussoDesc"
+                    className="w-full h-auto"
+                  >
+                    <title id="flussoTitle">Flusso clic, conversioni e fatturato</title>
+                    <desc id="flussoDesc">
+                      I clic entrano da sinistra, passano per un imbuto di conversione e diventano barre di fatturato crescenti.
+                    </desc>
+                    <defs>
+                      <marker id="flow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                      </marker>
+                    </defs>
+                    <circle cx="60" cy="198" r="5.5" fill="#B26B3E" />
+                    <circle cx="84" cy="178" r="6.5" fill="#B26B3E" />
+                    <circle cx="104" cy="160" r="5" fill="#B26B3E" />
+                    <line x1="120" y1="152" x2="172" y2="144" stroke="#9FB0CF" strokeWidth="2" markerEnd="url(#flow)" />
+                    <circle cx="146" cy="148" r="2.4" fill="#B26B3E" fillOpacity="0.7" />
+                    <path d="M178 140 L252 140 L223 198 L223 214 L207 214 L207 198 Z" fill="#2A52BE" />
+                    <line x1="252" y1="196" x2="328" y2="220" stroke="#9FB0CF" strokeWidth="2" markerEnd="url(#flow)" />
+                    <circle cx="290" cy="208" r="2.4" fill="#5E82E0" fillOpacity="0.8" />
+                    <line x1="334" y1="238" x2="426" y2="238" stroke="#0F1722" strokeOpacity="0.1" strokeWidth="1" />
+                    <rect x="338" y="212" width="18" height="26" rx="3" fill="#AFC2EE" />
+                    <rect x="366" y="184" width="18" height="54" rx="3" fill="#5E82E0" />
+                    <rect x="394" y="152" width="18" height="86" rx="3" fill="#2A52BE" />
+                    <line x1="403" y1="148" x2="403" y2="134" stroke="#B26B3E" strokeWidth="3" strokeLinecap="round" />
+                    <path d="M397 141 L403 132 L409 141" fill="none" stroke="#B26B3E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
