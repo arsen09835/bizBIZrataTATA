@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Eye, Gift, Infinity as InfinityIcon, type LucideIcon } from 'lucide-react';
+import { Eye, Gift, Infinity as InfinityIcon, MapPin, type LucideIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Reveal } from '../../components/Reveal';
 import { Divider } from '../../components/Divider';
 import { FinalCTA } from '../../components/FinalCTA';
-import { seoHeroLqip } from '../../seoHeroLqip';
 
 type Pro = { icon: LucideIcon; title: string; description: string };
 
@@ -141,44 +140,43 @@ function PrimaDopo() {
 }
 
 /**
- * Brand-styled location pin used in the SEO intro section.
- * Original design in our palette (navy / ivory / terracotta) — not a
- * reproduction of any specific brand mark.
+ * Floating ranking-podium card used in the SEO hero.
+ * Static, responsive; reuses the "Andamento campagna" card chrome.
+ * The pin crowning the #1 block is the lucide MapPin used as the Header brand mark.
  */
-function LocationPin({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
-  const isDark = variant === 'dark';
-  const gradId = isDark ? 'seoPinGradDark' : 'seoPinGradLight';
+function PodioCard() {
   return (
-    <div className="relative w-full max-w-[200px] mx-auto">
-      <svg
-        viewBox="0 0 220 280"
-        className="w-full h-auto"
-        style={{ filter: 'drop-shadow(0 24px 32px rgba(30,53,87,0.22))' }}
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden
-      >
-        <defs>
-          <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor={isDark ? '#3a6090' : '#2A4670'} />
-            <stop offset="100%" stopColor={isDark ? '#2A4670' : '#1E3557'} />
-          </linearGradient>
-        </defs>
-        {/* Decorative outer ring */}
-        {isDark ? (
-          <circle cx="110" cy="105" r="100" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2" strokeDasharray="2 6" />
-        ) : (
-          <circle cx="110" cy="105" r="100" fill="none" stroke="#C9784A" strokeWidth="1.2" strokeDasharray="2 6" strokeOpacity="0.35" />
-        )}
-        {/* Pin body */}
-        <path
-          d="M110 8 C55 8, 16 47, 16 102 C16 178, 110 268, 110 268 C110 268, 204 178, 204 102 C204 47, 165 8, 110 8 Z"
-          fill={`url(#${gradId})`}
-        />
-        {/* Inner ivory */}
-        <circle cx="110" cy="100" r="36" fill="#F7F4EF" />
-        {/* Inner terracotta dot */}
-        <circle cx="110" cy="100" r="15" fill="#C9784A" />
-      </svg>
+    <div className="bg-white rounded-2xl shadow-card-hover p-5 sm:p-6">
+      <div className="mb-3 sm:mb-4">
+        <div className="text-[11px] uppercase tracking-wider text-brand-gray font-semibold">
+          Posizionamento Google
+        </div>
+        <div className="font-display font-bold text-brand-navy text-lg leading-tight">
+          Fra i primi 3 risultati
+        </div>
+      </div>
+
+      <div className="relative w-full">
+        <svg viewBox="0 0 440 400" role="img" aria-labelledby="podioTitle podioDesc" className="w-full h-auto">
+          <title id="podioTitle">Podio del posizionamento</title>
+          <desc id="podioDesc">Podio piatto a tre gradini; il primo posto porta il segnaposto del marchio.</desc>
+          <line x1="80" y1="300" x2="360" y2="300" stroke="#0F1722" strokeOpacity="0.08" strokeWidth="1" />
+          <rect x="84" y="200" width="80" height="100" rx="8" fill="#AFC2EE" />
+          <rect x="276" y="228" width="80" height="72" rx="8" fill="#D9E1F6" />
+          <rect x="180" y="148" width="80" height="152" rx="8" fill="#2A52BE" />
+          <text x="124" y="262" textAnchor="middle" fontFamily="'Plus Jakarta Sans',sans-serif" fontSize="26" fontWeight="700" fill="#2A3B66">2</text>
+          <text x="316" y="276" textAnchor="middle" fontFamily="'Plus Jakarta Sans',sans-serif" fontSize="23" fontWeight="700" fill="#6B7894">3</text>
+          <text x="220" y="242" textAnchor="middle" fontFamily="'Plus Jakarta Sans',sans-serif" fontSize="30" fontWeight="700" fill="#FFFFFF">1</text>
+        </svg>
+        {/* Header brand pin reused, crowning the #1 block (centered on its top edge) */}
+        <div
+          aria-hidden
+          className="absolute"
+          style={{ left: '50%', top: '21%', transform: 'translate(-50%, -100%)' }}
+        >
+          <MapPin className="w-[60px] h-[60px] text-g-blue" strokeWidth={2} fill="currentColor" />
+        </div>
+      </div>
     </div>
   );
 }
@@ -186,30 +184,13 @@ function LocationPin({ variant = 'light' }: { variant?: 'light' | 'dark' }) {
 export function VisibilitaOrganica() {
   return (
     <>
-      {/* Hero — dark photo bg + card_seo on the right */}
-      <section className="relative min-h-[78vh] flex items-center bg-brand-ink">
-        <div className="absolute inset-0 overflow-hidden">
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-cover bg-center scale-105 blur-xl"
-            style={{ backgroundImage: `url(${seoHeroLqip})` }}
-          />
-          <img
-            src="/seo-hero.jpg"
-            srcSet="/seo-hero-960.jpg 960w, /seo-hero-1440.jpg 1440w, /seo-hero.jpg 1920w"
-            sizes="100vw"
-            alt=""
-            aria-hidden
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/20" />
-        </div>
-
+      {/* Hero — navy gradient bg + podium card on the right */}
+      <section
+        className="relative min-h-[78vh] flex items-center"
+        style={{ background: 'linear-gradient(135deg, #16212F 0%, #0B1119 100%)' }}
+      >
         <div className="relative max-w-6xl mx-auto px-8 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-24 w-full">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             <div className="lg:col-span-7">
               <h1 className="font-display font-bold text-white text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-8 max-w-4xl">
                 Più Traffico.<br />
@@ -235,9 +216,9 @@ export function VisibilitaOrganica() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 hidden lg:block lg:self-start">
-              <div className="w-[150px] ml-auto lg:-translate-y-10 lg:translate-x-4">
-                <LocationPin variant="dark" />
+            <div className="lg:col-span-5">
+              <div className="max-w-md mx-auto lg:mx-0 lg:ml-auto">
+                <PodioCard />
               </div>
             </div>
           </div>
