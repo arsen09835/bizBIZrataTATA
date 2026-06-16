@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, SlidersHorizontal, MapPin, Wallet, Activity, TrendingUp, TrendingDown } from 'lucide-react';
+import { ArrowRight, SlidersHorizontal, MapPin, Wallet, Activity } from 'lucide-react';
 import { Reveal } from '../../components/Reveal';
 import { Divider } from '../../components/Divider';
 import { FinalCTA } from '../../components/FinalCTA';
-import { adsHeroLqip } from '../../adsHeroLqip';
 
 const controls = [
   { icon: SlidersHorizontal, text: 'Quali ricerche coprire e quali pagine del sito mostrare.' },
@@ -18,28 +17,11 @@ const controls = [
 export function VisibilitaSponsorizzata() {
   return (
     <>
-      {/* Hero — dark photo bg + white title */}
-      <section className="relative min-h-[58vh] flex items-center bg-brand-ink">
-        <div className="absolute inset-0 overflow-hidden">
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-cover bg-center scale-105 blur-xl"
-            style={{ backgroundImage: `url(${adsHeroLqip})` }}
-          />
-          <img
-            src="/ads-hero.jpg"
-            srcSet="/ads-hero-960.jpg 960w, /ads-hero-1440.jpg 1440w, /ads-hero.jpg 1920w"
-            sizes="100vw"
-            alt=""
-            aria-hidden
-            fetchPriority="high"
-            loading="eager"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/15" />
-        </div>
-
+      {/* Hero — navy gradient bg + flow card on the right */}
+      <section
+        className="relative min-h-[58vh] flex items-center"
+        style={{ background: 'linear-gradient(135deg, #16212F 0%, #0B1119 100%)' }}
+      >
         <div className="relative max-w-6xl mx-auto px-8 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-24 w-full">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             <div className="lg:col-span-7">
@@ -63,51 +45,39 @@ export function VisibilitaSponsorizzata() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 hidden lg:block">
-              <div className="bg-white rounded-2xl shadow-card-hover p-5 sm:p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <div className="text-[11px] uppercase tracking-wider text-brand-gray font-semibold">
-                      Andamento campagna
-                    </div>
-                    <div className="font-display font-bold text-brand-navy text-lg leading-tight">
-                      Più risultati, meno spesa
-                    </div>
-                  </div>
-                  <span className="text-xs text-brand-gray whitespace-nowrap">90 gg</span>
-                </div>
-
-                <svg viewBox="0 0 300 150" className="w-full h-auto" aria-hidden>
-                  <line x1="0" y1="38" x2="300" y2="38" stroke="#1E3557" strokeOpacity="0.06" strokeWidth="1" />
-                  <line x1="0" y1="75" x2="300" y2="75" stroke="#1E3557" strokeOpacity="0.06" strokeWidth="1" />
-                  <line x1="0" y1="112" x2="300" y2="112" stroke="#1E3557" strokeOpacity="0.06" strokeWidth="1" />
-                  <polyline points="0,92 50,98 100,106 150,114 200,122 250,131 300,140" fill="none" stroke="#EF4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <polyline points="0,138 50,132 100,122 150,110 200,98 250,86 300,76" fill="none" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <polyline points="0,134 50,126 100,110 150,92 200,75 250,58 300,46" fill="none" stroke="#C9784A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <polyline points="0,128 50,118 100,95 150,72 200,52 250,32 300,18" fill="none" stroke="#1E3557" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-
-                <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 mt-5">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#1E3557' }} />
-                    <span className="text-xs font-medium text-brand-navy flex-1">Impressioni</span>
-                    <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#C9784A' }} />
-                    <span className="text-xs font-medium text-brand-navy flex-1">Click</span>
-                    <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#10B981' }} />
-                    <span className="text-xs font-medium text-brand-navy flex-1">Conversioni</span>
-                    <TrendingUp className="w-3.5 h-3.5 text-emerald-500" />
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#EF4444' }} />
-                    <span className="text-xs font-medium text-brand-navy flex-1">Costo</span>
-                    <TrendingDown className="w-3.5 h-3.5 text-red-500" />
-                  </div>
+            <div className="lg:col-span-5">
+              <div className="max-w-md mx-auto lg:mx-0 lg:ml-auto">
+                <div className="bg-white rounded-2xl shadow-card-hover p-5 sm:p-6">
+                  <svg
+                    viewBox="46 120 380 128"
+                    role="img"
+                    aria-labelledby="flussoTitle flussoDesc"
+                    className="w-full h-auto"
+                  >
+                    <title id="flussoTitle">Flusso clic, conversioni e fatturato</title>
+                    <desc id="flussoDesc">
+                      I clic entrano da sinistra, passano per un imbuto di conversione e diventano barre di fatturato crescenti.
+                    </desc>
+                    <defs>
+                      <marker id="flow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                      </marker>
+                    </defs>
+                    <circle cx="60" cy="198" r="5.5" fill="#B26B3E" />
+                    <circle cx="84" cy="178" r="6.5" fill="#B26B3E" />
+                    <circle cx="104" cy="160" r="5" fill="#B26B3E" />
+                    <line x1="120" y1="152" x2="172" y2="144" stroke="#9FB0CF" strokeWidth="2" markerEnd="url(#flow)" />
+                    <circle cx="146" cy="148" r="2.4" fill="#B26B3E" fillOpacity="0.7" />
+                    <path d="M178 140 L252 140 L223 198 L223 214 L207 214 L207 198 Z" fill="#2A52BE" />
+                    <line x1="252" y1="196" x2="328" y2="220" stroke="#9FB0CF" strokeWidth="2" markerEnd="url(#flow)" />
+                    <circle cx="290" cy="208" r="2.4" fill="#5E82E0" fillOpacity="0.8" />
+                    <line x1="334" y1="238" x2="426" y2="238" stroke="#0F1722" strokeOpacity="0.1" strokeWidth="1" />
+                    <rect x="338" y="212" width="18" height="26" rx="3" fill="#AFC2EE" />
+                    <rect x="366" y="184" width="18" height="54" rx="3" fill="#5E82E0" />
+                    <rect x="394" y="152" width="18" height="86" rx="3" fill="#2A52BE" />
+                    <line x1="403" y1="148" x2="403" y2="134" stroke="#B26B3E" strokeWidth="3" strokeLinecap="round" />
+                    <path d="M397 141 L403 132 L409 141" fill="none" stroke="#B26B3E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
                 </div>
               </div>
             </div>
