@@ -49,7 +49,7 @@ export function VisibilitaSponsorizzata() {
               <div className="max-w-md mx-auto lg:mx-0 lg:ml-auto">
                 <div className="bg-white rounded-2xl shadow-card-hover p-5 sm:p-6">
                   <svg
-                    viewBox="20 24 440 284"
+                    viewBox="46 120 380 128"
                     role="img"
                     aria-labelledby="flussoTitle flussoDesc"
                     className="w-full h-auto"
