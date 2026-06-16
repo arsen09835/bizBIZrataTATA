@@ -121,22 +121,6 @@ export function PreventivoForm() {
         />
       </div>
 
-      <div className="rounded-lg border border-black/8 bg-[#F8F9FB] p-4">
-        <label className="flex items-start gap-3 text-sm font-medium text-ink">
-          <input
-            type="checkbox"
-            name="Consenso GDPR"
-            value="Sì"
-            required
-            className="mt-0.5 h-4 w-4 flex-shrink-0 accent-brand-blue"
-          />
-          <span>Autorizzazione al trattamento dei dati personali</span>
-        </label>
-        <p className="mt-2 pl-7 text-xs text-ink/55 leading-relaxed">
-          Dichiaro di aver letto l'informativa sul trattamento dei dati personali ai sensi del GDPR 2016/679.
-        </p>
-      </div>
-
       <button
         type="submit"
         disabled={status === 'sending'}
